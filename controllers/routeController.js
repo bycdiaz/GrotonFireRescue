@@ -2,6 +2,10 @@ exports.home = (req, res) => {
   res.render('homePage');
 }
 
-exports.fireFighters = (req, res) => {
-  res.render('fireFighters');
+express.adminLogin = (req, res) => {
+  res.render('admin/adminLogin');
+}
+
+express.adminPanel = (req, res) => {
+  res.render('admin/adminPanel')
 }
