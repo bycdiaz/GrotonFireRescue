@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const testController = require('../controllers/testController')
+const routeController = require('../controllers/routeController.js');
+const fireFighterController = require('../controllers/fireFighterController.js');
+const pictureController = require('../controllers/pictureController');
 
-router.get('/', (req, res) => {res.render('homePage')});
+router.get('/', routeController.home);
+router.get('/fire-fighters', fireFighterController.fireFighters);
+router.get('/pictures', pictureController.pictures);
 
 module.exports = router;
