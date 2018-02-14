@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
+const passport = require('passpport');
+
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
