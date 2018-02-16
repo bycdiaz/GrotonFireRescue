@@ -1,6 +1,10 @@
-extends layout
+extends ../layout
+
+include mixins/_loginForm
 
 block content
   .inner
     h1 AdminLogin page
     p simple login page then redirect to admin panel
+    +loginForm()
+
