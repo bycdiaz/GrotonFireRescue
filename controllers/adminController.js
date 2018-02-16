@@ -4,12 +4,12 @@ exports.adminLogin = (req, res) => {
 }
 
 exports.adminAuthenticate = (req, res) => {
-  console.log(res.locals)
-  res.redirect('/admin/admin-panel')
+  //if login flash user
+  req.flash('info', 'this is a flash message');
+  res.redirect('/admin/admin-panel');
 }
 
 exports.adminPanel = (req, res) => {
-  req.flash('wtf');
   res.render('admin/adminPanel');
 }
 

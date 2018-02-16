@@ -19,22 +19,26 @@ app.set('view engine', 'pug');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieParser());
+
 app.use(session({
     secret: process.env.SECRET,
-    // key: 
+    key: 'test',
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
-app.use(flash());
+app.use(flash());               
 
 app.use((req, res, next) => {
     res.locals.h = helpers;
     res.locals.flashes = req.flash();
     res.locals.currentPath = req.path;
+    // res.locals.user = req.user || null;
     next();
 });
+
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
