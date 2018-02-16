@@ -6,6 +6,7 @@ const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
+const cookieParser = require('cookie-parser');
 
 const routes = require('./routes/index');
 const helpers = require('./helpers');
