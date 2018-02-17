@@ -11,6 +11,7 @@ const cookieParser = require('cookie-parser');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
+require('./handlers/passport');
 
 const app = express();
 
@@ -24,10 +25,13 @@ app.use(cookieParser());
 app.use(session({
     secret: process.env.SECRET,
     key: 'test',
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(flash());               
 

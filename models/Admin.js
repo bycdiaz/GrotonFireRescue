@@ -6,6 +6,13 @@ const validator = require('validator');
 const md5 = require('md5');
 
 const adminSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    unique: true,
+    lowercase: true,
+    trim: true,
+    required: "Please supply a name"
+  },
   email: {
     type: String,
     unique: true,
