@@ -15,7 +15,8 @@ const firefighterSchema = new mongoose.Schema({
   position: {
     type: String,
     default: "Firefighter"
-  }
+  },
+  yearsOfService: Number
 });
 
 module.exports = mongoose.model("Firefighter", firefighterSchema);
