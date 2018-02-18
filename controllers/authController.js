@@ -5,7 +5,7 @@ const Admin = mongoose.model("Admin");
 exports.login = passport.authenticate('local', {
   failureRedirect: '/admin',
   failureFlash: "Invalid email address or password",
-  successRedirect: '/admin/admin-panel',
+  successRedirect: '/admin/panel',
   successFlash: "You are now logged in"
 })
 

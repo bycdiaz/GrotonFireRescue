@@ -1,14 +1,18 @@
 const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 
-module.getAboutGroton = (req, res) => {
+exports.index = (req, res) => {
+  res.send("index page for info");
+};
+
+exports.aboutGroton = (req, res) => {
   res.render('info/aboutGroton');
-}
+};
 
-module.getAboutFireTaxDistrict = (req, res) => {
+exports.aboutFireTaxDistrict = (req, res) => {
   res.render('info/aboutFireTaxDistrict');
-}
+};
 
-module.getAboutRescueSquad = (req, res) => {
+exports.aboutRescueSquad = (req, res) => {
   res.render('info/aboutRescueSquad');
-}
+};

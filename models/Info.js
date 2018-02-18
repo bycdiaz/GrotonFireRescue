@@ -19,9 +19,9 @@ const postSchema = mongoose.Schema({
   }
 });
 
-postSchema.virtural('pageName', function(){
+postSchema.virtual('pageName').get(function(){
   const pageNames = {0:"FireTaxDistrict", 1:"Groton", 2:"RescueSquad"};
   return pageNames[this.pageID];
-})
+});
 
 module.exports = mongoose.model("Post", postSchema);
