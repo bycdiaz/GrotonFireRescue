@@ -11,10 +11,10 @@ const firefighterSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    position: {
-      type: String,
-      default: "Firefighter"
-    }
+  },
+  position: {
+    type: String,
+    default: "Firefighter"
   }
 });
 
