@@ -2,15 +2,19 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const firefighterSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    trim: true,
-    required: "You must enter a first name"
-  },
-  lastName: {
-    type: String,
-    trim: true,
-    required: "You must enter a last name"
+  name: {
+    first: {
+      type: String,
+      rquired: true,
+    },
+    last: {
+      type: String,
+      required: true
+    },
+    position: {
+      type: String,
+      default: "Firefighter"
+    }
   }
 });
 
