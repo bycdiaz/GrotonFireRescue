@@ -11,7 +11,7 @@ exports.addAdminForm = (req, res) => {
 };
 
 exports.validateRegister = (req, res, next) => {
-  //validation
+  //validation of input for admin
 };
 
 exports.registerNewAdmin = (req, res, next) => {
