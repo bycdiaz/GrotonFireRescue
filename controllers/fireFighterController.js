@@ -1,3 +1,10 @@
+const mongoose = require('mongoose');
+const Firefighter = mongoose.model('Firefighter');
+
 exports.fireFighters = (req, res) => {
-  res.render('/firefighters/fireFighters');
+  Firefighter.find()
+    .then((firefighter) => {
+      console.log(firefighter);
+      res.render('firefighters/firefighters');
+    })
 }
