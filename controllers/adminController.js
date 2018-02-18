@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Admin = mongoose.model("Admin");
 const Firefighter = mongoose.model("Firefighter");
+const About = mongoose.model("About");
 
 exports.loginForm = (req, res) => {
   res.render('admin/adminLogin');
@@ -28,7 +29,7 @@ exports.adminPanel = (req, res) => {
 };
 
 exports.editFirefighters = (req, res) => {
-  res.render('admin/editFireFighters');
+  res.render('admin/firefighters/editFireFighters');
 };
 
 exports.modifyFirefighters = (req, res) => {
@@ -48,3 +49,15 @@ function removefirefighters(oldFirefighters){
     });
   });
 };
+
+exports.editAbout = (req, res) => {
+  res.render('admin/about/editAbout');
+};
+
+exports.postAbout = (req, res) => {
+  About.findOneAndUpdate({}, req.body.about, {upsert: true})
+    .then((document) => {
+      console.log(document)
+      res.send(document);
+    });
+}

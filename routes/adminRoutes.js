@@ -16,4 +16,7 @@ router.get('/admin-panel', authController.isLoggedIn, adminController.adminPanel
 router.get('/fire-fighters', authController.isLoggedIn, adminController.editFirefighters);
 router.post('/fire-fighters', authController.isLoggedIn, adminController.modifyFirefighters);
 
+router.get('/about', authController.isLoggedIn, adminController.editAbout);
+router.post('/about', authController.isLoggedIn, adminController.postAbout);
+
 module.exports = router;
