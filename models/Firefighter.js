@@ -30,7 +30,7 @@ firefighterSchema.virtual('position').get(function(){
                     8:"Secretary/Treasurer",
                     9:"Firefighter"}
 
-  return positions[rank];
+  return positions[this.rank];
 })
 
 module.exports = mongoose.model("Firefighter", firefighterSchema);
