@@ -3,8 +3,8 @@ const Firefighter = mongoose.model('Firefighter');
 
 exports.fireFighters = (req, res) => {
   Firefighter.find()
-    .then((firefighter) => {
-      console.log(firefighter);
+    .then((firefighters) => {
+      console.log(firefighters);
       res.render('firefighters/firefighters');
     })
 }
