@@ -1,0 +1,7 @@
+mixin editForm()
+  form(method="POST")
+    label(for="title") Title
+    input(type="text", name="title")
+    label(for="content") Content
+    textarea(name="content", cols="30", rows="10")
+    input(type="button", value="Submit")

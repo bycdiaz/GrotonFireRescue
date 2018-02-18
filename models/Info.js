@@ -4,16 +4,16 @@ mongoose.Promise = global.Promise;
 const postSchema = mongoose.Schema({
   pageID: {
     type: Number,
-    required: true,
+    required: "The page ID is invalid, contact Briggs with this info >> URL, What you were doing when it happened"
   },
-  postTitle: {
+  title: {
     type: String
   },
-  postContent: {
+  content: {
     type: String,
     required: true
   },
-  postDate: {
+  date: {
     type: Date,
     default: Date.now()
   }
