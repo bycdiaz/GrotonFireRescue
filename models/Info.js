@@ -6,7 +6,7 @@ const postSchema = mongoose.Schema({
     type: Number,
     required: "The page ID is invalid, contact Briggs with this info >> URL, What you were doing when it happened"
   },
-  title: {
+  postTitle: {
     type: String
   },
   content: {
