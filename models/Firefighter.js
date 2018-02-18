@@ -29,6 +29,8 @@ firefighterSchema.virtual('position').get(function(){
                     7:"Vice President",
                     8:"Secretary/Treasurer",
                     9:"Firefighter"}
+
+  return positions[rank];
 })
 
 module.exports = mongoose.model("Firefighter", firefighterSchema);
