@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title #{title || h.siteName}
+    link(res="stylesheet", href="/dist/index.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+
+    .flashes
+      for flash in flashes
+        p=flash
+
+    .content
+      block content
+
