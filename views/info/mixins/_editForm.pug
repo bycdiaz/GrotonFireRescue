@@ -1,0 +1,7 @@
+mixin editForm(page = {})
+  form(method="POST")
+    label(for="pageTitle") Title
+    input(type="text" name="pageTitle" value= page.pageTitle)
+    label(for="content") Content
+    textarea(name="content")= page.content
+    input(type="submit" value="Submit")

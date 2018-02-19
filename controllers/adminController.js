@@ -11,7 +11,7 @@ exports.addAdminForm = (req, res) => {
 };
 
 exports.validateRegister = (req, res, next) => {
-  //validation
+  //validation of input for admin
 };
 
 exports.registerNewAdmin = (req, res, next) => {
@@ -25,26 +25,4 @@ exports.registerNewAdmin = (req, res, next) => {
 
 exports.adminPanel = (req, res) => {
   res.render('admin/adminPanel');
-};
-
-exports.editFirefighters = (req, res) => {
-  res.render('admin/editFireFighters');
-};
-
-exports.modifyFirefighters = (req, res) => {
-  Firefighter.create(req.body.newFirefighters)
-    .then((err) => {
-      if(err) return next(err);
-    });
-
-  removefirefighters(req.body.oldFirefighters)
-  res.redirect("/admin-panel");
-};
-
-function removefirefighters(oldFirefighters){
-  oldFirefighters.forEach((firefighter) => {
-    Firefighter.findOneAndRemove({name: {first: firefighter.firstName, last: firefighter.lastName}}, (err) => {
-      if(err) return next(err);
-    });
-  });
 };
