@@ -3,7 +3,13 @@ mongoose.Promise = global.Promise;
 const Page = mongoose.model('Page');
 
 exports.index = (req, res, next) => {
-  res.send("index page for info");
+  Page.find({})
+    .then((page) => {
+      res.render('info/aboutIndex', {page});
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 
