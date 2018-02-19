@@ -2,14 +2,8 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const Page = mongoose.model('Page');
 
-exports.index = (req, res, next) => {
-  Page.find({})
-    .then((page) => {
-      res.render('info/aboutIndex', {page});
-    })
-    .catch((err) => {
-      next(err);
-    });
+exports.index = (req, res) => {
+  res.render('info/aboutIndex');
 };
 
 
