@@ -20,7 +20,7 @@ const pageSchema = mongoose.Schema({
 });
 
 pageSchema.virtual('pageName').get(function(){
-  const pageNames = {0:"FireTaxDistrict", 1:"Groton", 2:"RescueSquad"};
+  const pageNames = {0:"fire-tax-district", 1:"groton", 2:"rescue-squad"};
   return pageNames[this.pageID];
 });
 
