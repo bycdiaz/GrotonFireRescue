@@ -4,6 +4,17 @@ html
     title #{title || h.siteName}
     link(res="stylesheet", href="/dist/index.css")
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/stylesheets/style.css")    
+
+  body
+
+    .header#header
+      a.box#picturesBox(href="/pictures") Pictures
+      a.box#gunBox(href="/gun-drawing") Gun Drawing
+      a.box#trainingBox(href="/training") Training
+      a.box#calanderBox(href="/calander") Calander Fundraiser
+      .box#aboutBox
+       p About
 
     .flashes
       for flash in flashes
@@ -12,3 +23,4 @@ html
     .content
       block content
 
+  script(src="/javascript/header.js")
