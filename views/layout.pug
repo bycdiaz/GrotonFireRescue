@@ -8,13 +8,15 @@ html
 
   body
 
-    .header#header
-      a.box#picturesBox(href="/pictures") Pictures
-      a.box#gunBox(href="/gun-drawing") Gun Drawing
-      a.box#trainingBox(href="/training") Training
-      a.box#calanderBox(href="/calander") Calander Fundraiser
-      .box#aboutBox
-       a(href="/about") About
+    header
+      img#cross(src="images/cross.jpg")
+      nav
+        a.box#picturesBox(href="/pictures") Pictures
+        a.box#gunBox(href="/gun-drawing") Gun Drawing
+        a.box#trainingBox(href="/training") Training
+        a.box#calanderBox(href="/calander") Calander Fundraiser
+        .box#aboutBox
+        a(href="/about") About
 
     .flashes
       for flash in flashes
