@@ -2,21 +2,20 @@ doctype html
 html
   head
     title #{title || h.siteName}
-    link(res="stylesheet", href="/dist/index.css")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet", href="/stylesheets/style.css")    
+    link(rel="stylesheet", href="/stylesheets/style.css")
 
   body
 
     header
       img#cross(src="images/cross.jpg")
-      nav
-        a.box#picturesBox(href="/pictures") Pictures
-        a.box#gunBox(href="/gun-drawing") Gun Drawing
-        a.box#trainingBox(href="/training") Training
-        a.box#calanderBox(href="/calander") Calander Fundraiser
-        .box#aboutBox
-        a(href="/about") About
+      nav.primary-nav
+        ul
+          li #[a(href="/pictures") Pictures]
+          li #[a(href="/gun-drawing") Gun Drawing]
+          li #[a(href="/training") Training]
+          li #[a(href="/calander") Calander Fundraiser]
+          li #[a(href="/about") About]
 
     .flashes
       for flash in flashes
@@ -25,4 +24,4 @@ html
     .content
       block content
 
-  script(src="/javascript/header.js")
+  //- script(src="/javascript/header.js")

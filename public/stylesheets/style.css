@@ -1,25 +1,25 @@
-*{
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
+header {
+  height: 200px;
 }
 
-.box{
-  background-color: red;
-  display: inline-block;
-  float: left;
-}
-
-.dropDown{
-  display: block;
-  position: relative;
-}
-
-img{
+header img {
   width: 200px;
   height: auto;
   float: left;
 }
 
+nav li {
+  display: inline-block;
+  margin: 0px 0px;
+  vertical-align: top;
+  font-size: 1.4em;
+}
 
-
+nav li a {
+  background-color: red;
+  text-decoration-line: none;
+  text-decoration-color: white;
+  text-decoration-style: none;
+  color: white;
+  padding: 20px;
+}
