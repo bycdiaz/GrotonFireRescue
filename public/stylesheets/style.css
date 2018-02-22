@@ -29,10 +29,13 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
+  box-sizing: border-box;
+  
 }
 ol, ul {
 	list-style: none;
+	width: 100%;
 }
 blockquote, q {
 	quotes: none;
@@ -55,8 +58,13 @@ header img {
   float: left;
 }
 
+header {
+  height: 64px;
+}
+
 nav {
   margin-bottom: 180px;
+  width: 100%;
 }
 
 nav li {
@@ -76,13 +84,4 @@ nav li a {
   border-style: solid;
   border-color: black;
   border-width: 1px 0px 0px 0px;
-}
-
-.content {
-  margin-left: 10px;
-}
-
-.content h1 {
-  font-weight: bold;
-  font-size: 2.5em;
 }

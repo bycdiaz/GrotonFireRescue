@@ -1,5 +1,9 @@
 extends layout
 
+block stylesheets
+  link(rel="stylesheet", href="/stylesheets/homePage.css")
+
 block content
   .inner
-   img(src="/images/firetruckLarge.jpg")
+    h1.title Groton Fire & Rescue
+    img.background(src="/images/firetruckLarge.jpg")
