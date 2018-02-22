@@ -35,7 +35,6 @@ body {
 }
 ol, ul {
 	list-style: none;
-	width: 100%;
 	display: inline-block;
 	position: absolute;
 }
@@ -56,6 +55,7 @@ table {
 
 header {
   position: relative;
+  height: 200px;
 }
 
 header img {
