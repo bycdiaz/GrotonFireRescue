@@ -36,6 +36,8 @@ body {
 ol, ul {
 	list-style: none;
 	width: 100%;
+	display: inline-block;
+	position: absolute;
 }
 blockquote, q {
 	quotes: none;
@@ -52,36 +54,34 @@ table {
 
 /* CSS BELOW */
 
+header {
+  position: relative;
+}
+
 header img {
   width: 200px;
-  height: auto;
+  height: 200px;
   float: left;
+  clear: right;
 }
 
-header {
-  height: 64px;
-}
-
-nav {
-  margin-bottom: 180px;
-  width: 100%;
-}
-
-nav li {
-  display: inline-block;
-  margin-top: 20px;
-  vertical-align: top;
-  font-size: 1.4em;
-}
-
-nav li a {
+header .primary-nav {
   background-color: red;
-  text-decoration-line: none;
-  text-decoration-color: white;
-  text-decoration-style: none;
+  width: 100%;
+  height: 100px;
+}
+
+header li {
+  display: inline-block;
+  height: 100px;
+  line-height: 100px;
+  background-color: red;
+  margin-left: 50px;
+}
+
+header li a {
+  text-decoration: none;
   color: white;
-  padding: 20px;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px 0px 0px 0px;
+  font-size: 1.5em;
+  font-weight: bold;
 }
