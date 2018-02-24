@@ -20,7 +20,7 @@ exports.aboutPage = (req, res, next) => {
 };
 
 exports.editAboutPage = (req, res, next) => {
-  Page.findOne({pageID: 1})
+  Page.findOne({pageID: pageIDMap[req.params.page]})
     .then((page) => {
       if(!page){page = {}};      
       res.render('info/editPage', {page})
@@ -31,10 +31,10 @@ exports.editAboutPage = (req, res, next) => {
 };
 
 exports.updateAboutPage = (req, res, next) => {
-  Page.findOneAndUpdate({pageID: 1}, req.body, {upsert: true, runValidators: true, setDefultsOnInsert: true, new: true})
+  Page.findOneAndUpdate({pageID: pageIDMap[req.params.page]}, req.body, {upsert: true, runValidators: true, setDefultsOnInsert: true, new: true})
     .then((page) => {
       req.flash("success", "SUCCESSFULLY UPDATED")
-      res.redirect('/about/groton');
+      res.redirect(`/about/${req.params.page}`);
     })
     .catch((err) => next(err));
 };
