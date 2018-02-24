@@ -1,28 +1,21 @@
 .content {
-  position: relative;
+  position: absolute;
+  background-image: url("/images/firefightersLarge.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
+  /* background-color: grey; */
+  top: 100px;
+  bottom: 0;
+  width: 100vw;
+  z-index: -1;
 }
 
 .title {
   color: gold;
-  font-size: 8em;
-  text-shadow:
-  3px 3px 0 #000,
-  -1px -1px 0 #000,  
-  1px -1px 0 #000,
-  -1px  1px 0 #000,
-  1px  1px 0 #000;
-}
-
-.firetruckLarge {
-  background-image: url("/images/firetruckLarge.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-y: -84px;
+  font-size: 5.9em;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 0px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   position: relative;
-  z-index: -1;
-  left: 0;
-  top: -229px;
-  height: 90vh;
+  top: 10%;
 }
 
