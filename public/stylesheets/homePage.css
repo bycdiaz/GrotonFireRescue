@@ -1,0 +1,41 @@
+.content {
+  position: absolute;
+  background-image: url("/images/editedFire.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  top: 100px;
+  bottom: 0;
+  width: 100vw;
+  background-position-y: 50%;
+  z-index: -1;
+}
+
+.title {
+  font-size: 7.9em;
+  color: #B8860B;
+  position: relative;
+  top: 100px;
+  -webkit-text-stroke: 4px #000000;
+  -webkit-text-fill-color: #B8860B;
+  font-family: 'Alfa Slab One', cursive;
+}
+
+@media (min-width: 1700px) {
+  .title{
+  width: 1222px;
+  position: absolute;
+  top: 41px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  }
+}
+
+@media (min-width: 2172px) {
+  .title {
+    font-size: 10em;
+    width: 2000px;
+    top: 4%;
+  }
+}

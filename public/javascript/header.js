@@ -20,15 +20,14 @@ aboutBox.addEventListener('mouseenter', (e) => {
 });
 
 aboutBox.addEventListener('mouseleave', (e) => {
-  const dropDownBox = document.getElementById('dropDownBox');
-  aboutBox.removeChild(dropDownBox);
+  aboutBox.removeChild(e.target.children[1]);
 });
 
 // *************************************************************************
 
 function createDropdownMenu(menuItems){
   const dropDown = document.createElement('div');
-  dropDown.id = "dropDownBox";
+  dropDown.classList.add('dropDown');
 
   for(let item in menuItems) {
     const menuButton = document.createElement('a');
