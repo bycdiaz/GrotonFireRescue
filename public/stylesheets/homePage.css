@@ -15,19 +15,20 @@
   font-size: 7.9em;
   color: #B8860B;
   position: relative;
-  top: 9.6%;
+  top: 100px;
   -webkit-text-stroke: 4px #000000;
   -webkit-text-fill-color: #B8860B;
   font-family: 'Alfa Slab One', cursive;
 }
 
-@media (min-width: 1720px) {
+@media (min-width: 1700px) {
   .title{
   width: 1222px;
   position: absolute;
+  top: 41px;
   left: 0;
   right: 0;
-  margin: auto
+  margin: auto;
   }
 }
 
