@@ -1,21 +1,40 @@
 .content {
   position: absolute;
-  background-image: url("/images/firefightersLarge.jpg");
+  background-image: url("/images/editedFire.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
-  /* background-color: grey; */
   top: 100px;
   bottom: 0;
   width: 100vw;
+  background-position-y: 50%;
   z-index: -1;
 }
 
 .title {
-  color: gold;
-  font-size: 5.9em;
-  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 0px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-size: 7.9em;
+  color: #B8860B;
   position: relative;
-  top: 10%;
+  top: 9.6%;
+  -webkit-text-stroke: 4px #000000;
+  -webkit-text-fill-color: #B8860B;
+  font-family: 'Alfa Slab One', cursive;
 }
 
+@media (min-width: 1720px) {
+  .title{
+  width: 1222px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto
+  }
+}
+
+@media (min-width: 2172px) {
+  .title {
+    font-size: 10em;
+    width: 2000px;
+    top: 4%;
+  }
+}
