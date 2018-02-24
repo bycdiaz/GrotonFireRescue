@@ -8,10 +8,15 @@ exports.index = (req, res) => {
 
 const pageIDMap = {"fire-tax-district":0, "groton":1, "rescue-squad":2};
 
-
-// About Groton
 exports.aboutPage = (req, res, next) => {
-  
+  Page.findOne({pageID: pageIDMap[req.params.page]})
+    .then(page => {
+      if(!page) return next();
+      res.render('info/aboutPage', {page});
+    })
+    .catch(err => {
+      next(err);
+    })
 };
 
 exports.editAboutPage = (req, res, next) => {
