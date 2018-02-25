@@ -14,9 +14,7 @@ exports.aboutPage = (req, res, next) => {
       if(!page) return next();
       res.render('info/aboutPage', {page});
     })
-    .catch(err => {
-      next(err);
-    })
+    .catch(err => next(err));
 };
 
 exports.editAboutPage = (req, res, next) => {
@@ -25,9 +23,7 @@ exports.editAboutPage = (req, res, next) => {
       if(!page){page = {}};      
       res.render('info/editPage', {page})
     })
-    .catch((err) => {
-      next(err);
-    })
+    .catch((err) => next(err));
 };
 
 exports.updateAboutPage = (req, res, next) => {
