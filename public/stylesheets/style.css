@@ -31,7 +31,6 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
   box-sizing: border-box;
-  
 }
 ol, ul {
 	list-style: none;
@@ -86,30 +85,28 @@ header li a {
 }
 
 .content {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
+  position: relative;
+  color: #232f3c;
+  margin-bottom: 25px;
 }
 
 .inner {
-  position: absolute;
-  left: 5%;
-  right: 5%;
+  position: relative;
   width: 66%;
-  bottom: 35px;
-  top: 174px;
+  padding-bottom: 25px;
+  border-bottom: solid 3px goldenrod;
   margin: auto;
-  text-align: center;
+  text-align: left;
 }
 
 .inner h1 {
   font-size: 7.5em;
   margin-bottom: 8%;
-  margin-top: 2%;
+  margin-top: -4%;
+  padding-bottom: 29px;
   font-family: 'Alfa Slab One', cursive;
+  text-align: center;
+  border-bottom: solid 3px goldenrod;
 }
 
 .inner pre {
@@ -119,10 +116,10 @@ header li a {
 }
 
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
-  left: 0;
-  right: 0;
-  height: 29px;
+  /* left: 0; */
+  /* right: 0; */
+  height: 40px;
   background-color: grey;
 }
