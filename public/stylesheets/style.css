@@ -69,13 +69,14 @@ header .primary-nav {
   background-color: #9F2122;
   width: 100%;
   height: 100px;
+  /* background-color: #B8860B; */
 }
 
 header li {
   display: inline-block;
   height: 100px;
   line-height: 100px;
-  background-color: #9F2122;
+  /* background-color: #9F2122; */
   margin: 0% 46px 0 0;
 }
 
