@@ -1,5 +1,10 @@
 /* CSS BELOW */
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 header {
   position: relative;
   height: 200px;
@@ -35,20 +40,19 @@ header li a {
 .content {
   position: relative;
   color: #232f3c;
-  margin-bottom: 25px;
 }
 
 .inner {
   position: relative;
   width: 66%;
-  padding-bottom: 25px;
+  padding-bottom: 90px;
   margin: auto;
   text-align: left;
 }
 
 .inner h1 {
-  font-size: 7.5em;
-  margin-bottom: 8%;
+  font-size: 6.5em;
+  margin-bottom: 46px;
   margin-top: -4%;
   padding-bottom: 0px;
   font-family: 'Alfa Slab One', cursive;
@@ -56,7 +60,6 @@ header li a {
 }
 
 .inner pre {
-  padding: 0% 5%;
   font-size: 1.5em;
   white-space: pre-line;
   padding: 60px 0px;
@@ -65,8 +68,10 @@ header li a {
 }
 
 footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
   height: 40px;
   background-color: grey;
 }
