@@ -3,5 +3,5 @@ mixin editForm(page = {})
     label(for="pageTitle") Title
     input(type="text" name="pageTitle" value= page.pageTitle)
     label(for="content") Content
-    textarea(name="content")= page.content
+    textarea(name="content" rows="40" cols="60")= page.content
     input(type="submit" value="Submit")
