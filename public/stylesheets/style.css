@@ -94,7 +94,6 @@ header li a {
   position: relative;
   width: 66%;
   padding-bottom: 25px;
-  border-bottom: solid 3px goldenrod;
   margin: auto;
   text-align: left;
 }
@@ -103,23 +102,23 @@ header li a {
   font-size: 7.5em;
   margin-bottom: 8%;
   margin-top: -4%;
-  padding-bottom: 29px;
+  padding-bottom: 0px;
   font-family: 'Alfa Slab One', cursive;
   text-align: center;
-  border-bottom: solid 3px goldenrod;
 }
 
 .inner pre {
   padding: 0% 5%;
   font-size: 1.5em;
   white-space: pre-line;
+  padding: 60px 0px;
+  border-bottom: solid 3px #b8860b;
+  border-top: solid 3px #b8860b;
 }
 
 footer {
   position: relative;
   bottom: 0;
-  /* left: 0; */
-  /* right: 0; */
   height: 40px;
   background-color: grey;
 }
