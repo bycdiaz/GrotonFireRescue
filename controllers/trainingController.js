@@ -1,3 +1,7 @@
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+const Page = mongoose.model('Exercise');
+
 exports.trainingSchedule = (req, res, next) => {
   res.send("this is the route for the training schedule");
 }

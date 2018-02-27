@@ -12,6 +12,7 @@ mongoose.connection.on('error', (err) => {
 require('./models/Firefighter');
 require('./models/Admin');
 require('./models/Info');
+require('./models/Training');
 
 const app = require('./app');
 app.set('env', process.env.NODE_ENV || "development"); // TODO MAKE THIS WORK with production

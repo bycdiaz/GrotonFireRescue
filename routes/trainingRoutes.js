@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const fireFighterController = require('../controllers/trainingController.js');
+const trainingController = require('../controllers/trainingController.js');
 
 router.get('/', trainingController.trainingSchedule);
 
