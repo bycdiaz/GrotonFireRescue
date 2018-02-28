@@ -11,6 +11,10 @@ exports.trainingSchedule = (req, res, next) => {
   // res.send(req.query.test)
 }
 
+exports.createTrainingDay = (req, res, next) => {
+  
+}
+
 exports.editTrainingSchedule = (req, res, next) => {
   res.render('training/editTraining');
 }
@@ -22,4 +26,8 @@ exports.editTrainingDay = (req, res, next) => {
 exports.updateTrainingDay = (req, res, next) => {
   // Training.findOneAndUpdate({})
   res.send("Update Training Day");
+}
+
+exports.deleteTrainingDay = (req, res, next) => {
+  res.send("Remove training day")
 }
