@@ -7,11 +7,11 @@ const trainingSchema = mongoose.Schema({
     required: true,
   },
   description: String,
-  startDate: {
+  start: {
     type: Date,
     required: true
   },
-  endDate: Date
+  end: Date
 });
 
-module.exports = mongoose.model("Exercise", trainingSchema);
+module.exports = mongoose.model("Training", trainingSchema);

@@ -2,3 +2,15 @@ extends ../layout
 
 block content
   .inner
+    form(method="POST")
+      .start
+        label(for="startDate") Start Date
+        input(type="date" name="startDate" required)
+        label(for="startTime") Time
+        input(type="time" name="time" required)
+      .end
+        label(for="endDate") End Date
+        input(type="date" name="endDate")
+        label(for="endTime") End Time
+        input(type="time" name="endTime")
+        input(type="submit" value="Submit")
