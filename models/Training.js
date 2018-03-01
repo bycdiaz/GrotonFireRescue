@@ -4,12 +4,12 @@ mongoose.Promise = global.Promise;
 const trainingSchema = mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: "You must enter a title",
   },
-  description: String,
+  info: String,
   start: {
     type: Date,
-    required: true
+    required: "You must enter a date and time"
   },
   end: Date
 });

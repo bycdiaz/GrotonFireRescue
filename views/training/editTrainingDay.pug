@@ -1,0 +1,23 @@
+extends ../layout
+
+block stylesheets
+
+block content
+  .inner
+    form(method="POST")
+      .trainingTitle
+        lable(for="title") Title
+        input(type="text" name="title")
+      .start
+        label(for="date") Date
+        input(type="date" name="date")
+        label(for="startTime") Start Time
+        input(type="time" name="startTime")
+      .end
+        label(for="endTime") End Time
+        input(type="time" name="endTime")
+      .info
+        label(for="info") Extra Info
+        textarea(name="info", cols="30", rows="10")
+
+      input(type="submit" value="Submit")
