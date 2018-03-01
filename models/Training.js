@@ -7,6 +7,10 @@ const trainingSchema = mongoose.Schema({
     required: "You must enter a title",
   },
   info: String,
+  location: {
+    type: String,
+    required: true
+  },
   start: {
     type: Date,
     required: "You must enter a date and time"

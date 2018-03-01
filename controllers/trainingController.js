@@ -3,7 +3,7 @@ mongoose.Promise = global.Promise;
 const Training = mongoose.model('Training');
 
 exports.trainingSchedule = (req, res, next) => {
-  Training.findOne()
+  Training.find()
     .then((trainingDay) => {
       res.json(trainingDay);
     })
@@ -26,6 +26,7 @@ exports.createTrainingDay = (req, res, next) => {
   const trainingDay = new Training({
     title: req.body.title, 
     info: req.body.info,
+    location: req.body.location,
     start: Date.parse(req.body.date + " " + req.body.startTime),
     end: Date.parse(req.body.date + " " + req.body.endTime)
   });
