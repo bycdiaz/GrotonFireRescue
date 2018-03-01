@@ -27,8 +27,10 @@ exports.createTrainingDay = (req, res, next) => {
     title: req.body.title, 
     info: req.body.info,
     location: req.body.location,
-    start: Date.parse(req.body.date + " " + req.body.startTime),
-    end: Date.parse(req.body.date + " " + req.body.endTime)
+    date: {
+      start: Date.parse(req.body.date + " " + req.body.startTime),
+      end: Date.parse(req.body.date + " " + req.body.endTime)
+    }
   });
 
   trainingDay.save()

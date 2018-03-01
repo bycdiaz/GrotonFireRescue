@@ -11,11 +11,13 @@ const trainingSchema = mongoose.Schema({
     required: true
   },
   info: String,
-  start: {
-    type: Date,
-    required: "You must enter a date and time"
-  },
-  end: Date
+  date: {
+    start: {
+      type: Date,
+      required: "You must enter a date and time"
+    },
+    end: Date
+  }
 });
 
 module.exports = mongoose.model("Training", trainingSchema);
