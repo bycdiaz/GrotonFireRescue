@@ -1,11 +1,18 @@
 extends ../layout
 
+block head
+  link(rel="stylesheet" href="/stylesheets/training.css")
+
+
 block content
   .inner
-    for day in trainingDays
-      .card
-        h3.title= day.title
-        p.location= day.location
-        p.date= day.dateTimeRange
-        br
+    .training
+      for day in trainingDays
+        .card
+          h3.title= day.title
+          p.location= day.location
+          p.date= day.dateTimeRange
+          .arrow.arrowRight
+          .dropDown.hidden
+            p.info= day.info
 
