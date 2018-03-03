@@ -9,23 +9,23 @@ exports.trainingSchedule = (req, res, next) => {
       res.render('training/training', { trainingDays });
     })
     .catch(err => next(err));
-}
+};
 
 exports.editTrainingSchedule = (req, res, next) => {
   res.render('training/editTraining');
-}
+};
 
 exports.deleteTrainingDay = (req, res, next) => {
   res.send('Remove training day');
-}
+};
 
 exports.newTrainingDay = (req, res) => {
   res.render('training/editTrainingDay');
-}
+};
 
 exports.createTrainingDay = (req, res, next) => {
   const trainingDay = new Training({
-    title: req.body.title, 
+    title: req.body.title,
     info: req.body.info,
     location: req.body.location,
     date: {
@@ -39,14 +39,15 @@ exports.createTrainingDay = (req, res, next) => {
       req.flash('success', 'Training day added');
       res.redirect('/training');
     })
-    .catch((err) => { return next(err); });
-}
+    .catch(err => next(err));
+};
 
 exports.editTrainingDay = (req, res, next) => {
   res.send('Edit training Day');
-}
+};
 
 exports.updateTrainingDay = (req, res, next) => {
   // Training.findOneAndUpdate({})
   res.send('Update Training Day');
-}
+};
+
