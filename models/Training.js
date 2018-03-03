@@ -1,28 +1,29 @@
 const mongoose = require('mongoose');
+
 mongoose.Promise = global.Promise;
 
 const trainingSchema = mongoose.Schema({
   title: {
     type: String,
-    required: "You must enter a title",
+    required: 'You must enter a title',
   },
   location: {
     type: String,
-    required: true
+    required: true,
   },
   info: String,
   date: {
     start: {
       type: Date,
-      required: "You must enter a date and time"
+      required: 'You must enter a date and time',
     },
-    end: Date
-  }
+    end: Date,
+  },
 });
 
-trainingSchema.virtual('dateTimeRange').get(function(){ //TODO format date
+trainingSchema.virtual('dateTimeRange').get(function formatDate() {
   const date = this.date.start;
-  return date.toLocaleDateString('en-US', {month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit"});
+  return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
 });
 
-module.exports = mongoose.model("Training", trainingSchema);
+module.exports = mongoose.model('Training', trainingSchema);
