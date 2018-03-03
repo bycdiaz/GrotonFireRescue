@@ -1,14 +1,15 @@
-const arrows = document.querySelectorAll('.arrowButton');
+const trainingCards = document.querySelectorAll('.cardTitle');
 
-arrows.forEach((arrow) => {
-  arrow.addEventListener('click', (e) => {
-    const dropdown = e.currentTarget.parentElement.querySelector('.dropDown');
+trainingCards.forEach((card) => {
+  card.addEventListener('click', (e) => {
+    const dropdown = e.currentTarget.parentNode.querySelector('.dropDown');
+    const arrow = e.currentTarget.querySelector('.arrow');
     if(dropdown.classList.contains('hidden')) {
       dropdown.classList.remove('hidden');
-      e.target.classList.add('arrowDown')
+      arrow.classList.add('arrowDown');
     } else {
       dropdown.classList.add('hidden');
-      e.target.classList.remove('arrowDown');
+      arrow.classList.remove('arrowDown');
     };
   });
 });

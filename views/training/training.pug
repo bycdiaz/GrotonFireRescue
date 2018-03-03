@@ -9,11 +9,12 @@ block content
     .training
       for day in trainingDays
         .card
-          h3.title= day.title
-          p.location= day.location
-          p.date= day.dateTimeRange
-          .arrowButton
-            div.arrow
+          .cardTitle
+            h3.title= day.title
+            p.location= day.location
+            p.date= day.dateTimeRange
+            .arrowButton
+              .arrow
           .dropDown.hidden
             p.info= day.info
 
