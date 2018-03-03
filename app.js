@@ -23,28 +23,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 app.use(session({
-    secret: process.env.SECRET,
-    key: 'test',
-    resave: true,
-    saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  secret: process.env.SECRET,
+  key: 'test',
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(flash());               
+app.use(flash());
 
 app.use((req, res, next) => {
-    res.locals.h = helpers;
-    res.locals.flashes = req.flash();
-    res.locals.currentPath = req.path;
-    // res.locals.user = req.user || null;
-    next();
+  res.locals.h = helpers;
+  res.locals.flashes = req.flash();
+  res.locals.currentPath = req.path;
+  // res.locals.user = req.user || null;
+  next();
 });
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', routes);
 
@@ -52,7 +52,7 @@ app.use(errorHandlers.notFound);
 
 app.use(errorHandlers.validationError);
 
-if(app.get('env') === 'development') {
+if (app.get('env') === 'development') {
   app.use(errorHandlers.developmentErrors);
 }
 
