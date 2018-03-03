@@ -9,6 +9,7 @@ html {
 header {
   position: relative;
   height: 200px;
+  width: 100%;
 }
 
 header img {
@@ -31,7 +32,7 @@ header li {
   margin: 0% 46px 0 0;
 }
 
-header li a {
+header .primary-nav li a {
   text-decoration: none;
   color: white;
   font-size: 1.5em;
