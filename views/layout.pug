@@ -22,7 +22,9 @@ html
 
     .flashes
       for flash in flashes
-        p=flash
+        .flash
+          p=flash
+          button.close close
 
     .content
       block content
@@ -30,5 +32,5 @@ html
     footer
       
 
-  //- script(src="/javascript/header.js")
+  script(src="/javascript/layout.js")
   block scripts

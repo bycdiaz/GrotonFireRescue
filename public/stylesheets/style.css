@@ -41,6 +41,11 @@ header li a {
   font-weight: bold;
 }
 
+.flashes {
+  position: relative;
+  left: 17%;
+}
+
 .content {
   position: relative;
   color: #232f3c;
