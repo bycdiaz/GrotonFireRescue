@@ -23,7 +23,9 @@ const trainingSchema = mongoose.Schema({
 
 trainingSchema.virtual('dateTimeRange').get(function formatDate() {
   const date = this.date.start;
-  return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+  return date.toLocaleDateString('en-US', {
+    month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit',
+  });
 });
 
 module.exports = mongoose.model('Training', trainingSchema);
