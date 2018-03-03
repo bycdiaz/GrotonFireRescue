@@ -1,45 +1,28 @@
 .content {
   position: absolute;
+  top: 110px;
+  z-index: -1;
+}
+
+.hero {
+  background-color: red;
+  text-align: center;
   background-image: url("/images/firefighter2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  text-align: center;
-  top: 100px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-position-y: 50%;
-  z-index: -1;
-  border-style: none;
+  background-position-y: 43%;
+  position: relative;
+  height: 69vh;
 }
 
 .title {
-  font-size: 9.1em;
+  font-size: 7.1em;
   color: #B8860B;
   position: relative;
-  top: 100px;
   -webkit-text-stroke: 3px #000000;
   -webkit-text-fill-color: #B8860B;
   font-family: 'Alfa Slab One', cursive;
-}
-
-@media (min-width: 1700px) {
-  .title{
-  width: 1222px;
-  position: absolute;
-  top: 81px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  }
-}
-
-@media (min-width: 2172px) {
-  .title {
-    font-size: 10em;
-    width: 2000px;
-    top: 4%;
-  }
+  top: 50px;
 }
 
 footer {
