@@ -22,6 +22,7 @@ header img {
 header .primary-nav {
   background-color: #9F2122;
   width: 100%;
+  border-bottom: 10px solid #b8860b;
   height: 100px;
 }
 
