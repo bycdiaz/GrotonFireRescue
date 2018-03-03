@@ -5,9 +5,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  background-color: grey;
-}
 
 header {
   position: relative;
@@ -39,6 +36,11 @@ header li a {
   color: white;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.flashes {
+  position: relative;
+  left: 17%;
 }
 
 .content {
