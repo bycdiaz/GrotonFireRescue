@@ -1,0 +1,11 @@
+extends ../layout
+
+include mixins/_editForm.pug
+
+block stylesheets
+      link(rel="stylesheet" href="/stylesheets/edit.css")
+
+
+block content
+  .inner
+    +editForm(page)

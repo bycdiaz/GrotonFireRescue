@@ -1,57 +1,13 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-  line-height: 1;
-  box-sizing: border-box;
-  
-}
-ol, ul {
-	list-style: none;
-	display: inline-block;
-	position: absolute;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 /* CSS BELOW */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: grey;
+}
 
 header {
   position: relative;
@@ -75,7 +31,6 @@ header li {
   display: inline-block;
   height: 100px;
   line-height: 100px;
-  background-color: #9F2122;
   margin: 0% 46px 0 0;
 }
 
@@ -84,4 +39,43 @@ header li a {
   color: white;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.content {
+  position: relative;
+  color: #232f3c;
+}
+
+.inner {
+  position: relative;
+  width: 66%;
+  padding-bottom: 90px;
+  margin: auto;
+  text-align: left;
+}
+
+.inner h1 {
+  font-size: 6.5em;
+  margin-bottom: 46px;
+  margin-top: -4%;
+  padding-bottom: 0px;
+  font-family: 'Alfa Slab One', cursive;
+  text-align: center;
+}
+
+.inner pre {
+  font-size: 1.5em;
+  white-space: pre-line;
+  padding: 60px 0px;
+  border-bottom: solid 3px #b8860b;
+  border-top: solid 3px #b8860b;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-color: grey;
 }

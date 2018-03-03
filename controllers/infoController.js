@@ -6,93 +6,31 @@ exports.index = (req, res) => {
   res.render('info/aboutIndex');
 };
 
+const pageIDMap = {"fire-tax-district":0, "groton":1, "rescue-squad":2};
 
-// About Groton
-exports.aboutGroton = (req, res, next) => {
-  Page.findOne({pageID: 1})
-    .then((page)=> {
-      if(!page) page = {};
-      res.render('info/aboutGroton', {page});
+exports.aboutPage = (req, res, next) => {
+  Page.findOne({pageID: pageIDMap[req.params.page]})
+    .then(page => {
+      if(!page) return next();
+      res.render('info/aboutPage', {page});
     })
-    .catch((err) => {
-      next(err);
-    });
+    .catch(err => next(err));
 };
 
-exports.editAboutGroton = (req, res, next) => {
-  Page.findOne({pageID: 1})
+exports.editAboutPage = (req, res, next) => {
+  Page.findOne({pageID: pageIDMap[req.params.page]})
     .then((page) => {
       if(!page){page = {}};      
-      res.render('info/editAbout', {page})
+      res.render('info/editPage', {page})
     })
-    .catch((err) => {
-      next(err);
-    })
+    .catch((err) => next(err));
 };
 
-exports.updateAboutGroton = (req, res, next) => {
-  Page.findOneAndUpdate({pageID: 1}, req.body, {upsert: true, runValidators: true, setDefultsOnInsert: true, new: true})
+exports.updateAboutPage = (req, res, next) => {
+  Page.findOneAndUpdate({pageID: pageIDMap[req.params.page]}, req.body, {upsert: true, runValidators: true, setDefultsOnInsert: true, new: true})
     .then((page) => {
       req.flash("success", "SUCCESSFULLY UPDATED")
-      res.redirect('/about/groton');
-    })
-    .catch((err) => next(err));
-};
-
-
-// About fire tax district
-exports.aboutFireTaxDistrict = (req, res, next) => {
-  Page.findOne({pageID: 0})
-    .then((page) => {
-      if(!page) page = {};
-      res.render('info/aboutFireTaxDistrict', {page});
-    })
-    .catch((err) => next(err));
-};
-
-exports.editFireTaxDistrict = (req, res, next) => {
-  Page.findOne({pageID: 0})
-    .then((page) => {
-      if(!page) page = {};      
-      res.render('info/editAbout');
-    })
-    .catch((err) => next(err));
-}
-
-exports.updateFireTaxDistrict = (req, res, next) => {
-  Page.findOneAndUpdate({pageID: 0}, req.body, {upsert: true, runValidators: true, setDefultsOnInsert: true, new: true})
-  .then((page) => {
-    req.flash("success", "SUCCESSFULLY UPDATED")
-    res.redirect('/about/fire-tax-district');
-  })
-  .catch((err) => next(err));
-}
-
-
-//About rescue squad
-exports.aboutRescueSquad = (req, res, next) => {
-  Page.findOne({pageID: 2})
-    .then((page) => {
-      if(!page) page = {};      
-      res.render('info/aboutRescueSquad', {page});
-    })
-    .catch((err) => next(err));
-};
-
-exports.editAboutRescueSquad = (req, res, next) => {
-  Page.findOne({pageID: 2})
-    .then((page) => {
-      if(!page) page = {};  
-      res.render('info/editAbout', {page});
-    })
-    .catch((err) => next(err));
-};
-
-exports.updateAboutRescueSquad = (req, res, next) => {
-  Page.findOneAndUpdate({pageID: 2}, req.body, {upsert: true, runValidators: true, setDefultsOnInsert: true, new: true})
-    .then((page) => {
-      req.flash("success", "SUCCESSFULLY UPDATED")
-      res.redirect('/about/rescue-squad');
+      res.redirect(`/about/${req.params.page}`);
     })
     .catch((err) => next(err));
 };
