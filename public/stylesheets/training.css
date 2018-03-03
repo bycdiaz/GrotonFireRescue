@@ -3,10 +3,6 @@
   position: relative;
 }
 
-.training .card:nth-child(2) {
-  /* background-color: lightgrey; */
-}
-
 .training .card {
   margin-top: 20px;
   color: #232f3c;
@@ -33,7 +29,7 @@
 }
 
 .training .card .dropDown {
-  background-color: purple;
+  background-color: grey;
 }
 
 .hidden {
