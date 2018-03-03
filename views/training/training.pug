@@ -2,3 +2,10 @@ extends ../layout
 
 block content
   .inner
+    for day in trainingDays
+      .card
+        h3.title= day.title
+        p.location= day.location
+        p.date= day.dateTimeRange
+        br
+

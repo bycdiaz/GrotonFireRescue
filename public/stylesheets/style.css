@@ -5,6 +5,10 @@ html {
   min-height: 100%;
 }
 
+body {
+  background-color: grey;
+}
+
 header {
   position: relative;
   height: 200px;

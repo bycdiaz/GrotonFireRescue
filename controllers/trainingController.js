@@ -4,8 +4,8 @@ const Training = mongoose.model('Training');
 
 exports.trainingSchedule = (req, res, next) => {
   Training.find()
-    .then((trainingDay) => {
-      res.json(trainingDay);
+    .then((trainingDays) => {
+      res.render('training/training', {trainingDays});
     })
     .catch(err => next(err));
 }
