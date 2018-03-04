@@ -28,10 +28,7 @@ exports.createTrainingDay = (req, res, next) => {
     title: req.body.title,
     info: req.body.info,
     location: req.body.location,
-    date: {
-      start: formatStartEndDateTime(req.body),
-      end: Date.parse(`${req.body.date} ${req.body.endTime}`),
-    },
+    date: formatStartEndDateTime(req.body),
   });
 
   trainingDay.save()
@@ -53,13 +50,16 @@ exports.updateTrainingDay = (req, res, next) => {
 
 
 function formatStartEndDateTime(body) {
-  const hour = convertTo24(body.hour, body.ampm);
-  return new Date(body.year, body.month - 1, body.day, hour, body.minute);
+  const startHour = convertTo24(body.hour, body.period);
+  const endHour = convertTo24(body.endHour, body.endPeriod);
+  return {
+    start: new Date(body.year, body.month - 1, body.day, startHour, body.minute),
+    end: new Date(body.year, body.month - 1, body.day, endHour, body.endMinute),
+  };
 }
 
-function convertTo24(hour, ampm) {
-  let hour24 = Number(hour);
-  if (ampm === 'pm') hour24 += 12;
 
-  return hour24;
+function convertTo24(hour, period) {
+  if (period === 'pm') return Number(hour) + 12;
+  return Number(hour);
 }

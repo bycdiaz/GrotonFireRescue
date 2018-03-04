@@ -22,15 +22,15 @@ block content
         legend Start Time
         input(type='number' name='hour' min='1' max='12' placeholder='12' required)
         input(type='number' name='minute' min='0' max='59' placeholder='00' required)
-        select(name="ampm")
+        select(name="period")
           option(value="am") AM
           option(value="pm") PM
 
       fieldset(name='endTime')
         legend End Time
-        input(type='number' name='hour' min='1' max='12' placeholder='12' required)
-        input(type='number' name='minute' min='0' max='59' placeholder='00' required)
-        select(name="ampm")
+        input(type='number' name='endHour' min='1' max='12' placeholder='12' required)
+        input(type='number' name='endMinute' min='0' max='59' placeholder='00' required)
+        select(name="endPeriod")
           option(value="am") AM
           option(value="pm") PM
 
