@@ -29,7 +29,7 @@ exports.createTrainingDay = (req, res, next) => {
     info: req.body.info,
     location: req.body.location,
     date: {
-      start: Date.parse(`${req.body.date} ${req.body.startTime}`),
+      start: formatStartEndDateTime(req.body),
       end: Date.parse(`${req.body.date} ${req.body.endTime}`),
     },
   });
@@ -51,3 +51,15 @@ exports.updateTrainingDay = (req, res, next) => {
   res.send('Update Training Day');
 };
 
+
+function formatStartEndDateTime(body) {
+  const hour = convertTo24(body.hour, body.ampm);
+  return new Date(body.year, body.month - 1, body.day, hour, body.minute);
+}
+
+function convertTo24(hour, ampm) {
+  let hour24 = Number(hour);
+  if (ampm === 'pm') hour24 += 12;
+
+  return hour24;
+}
