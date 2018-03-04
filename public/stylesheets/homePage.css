@@ -12,7 +12,7 @@
   background-repeat: no-repeat;
   background-position-y: 43%;
   position: relative;
-  height: 69vh;
+  height: 60vh;
 }
 
 .title {
@@ -24,3 +24,56 @@
   font-family: 'Alfa Slab One', cursive;
   top: 50px;
 }
+
+.inner {
+  width: auto;
+}
+
+.inner .info:nth-child(odd) {
+  background-color: #efefef;
+}
+
+.inner .info:nth-child(even) h2 {
+  text-align:right;
+}
+
+.inner .info:nth-child(even) img {
+  float: left;
+
+}
+
+.inner .info {
+  padding: 0 9%;
+  position: relative;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.inner h2 {
+  padding: 22px;
+  padding-top: 70px;
+  font-size: 4em;
+  border-bottom: 3px solid #b8860b;
+}
+
+.inner img {
+  width: 48%;
+  float: left;
+  margin-top: 65px;
+  overflow: hidden;
+}
+
+.inner .accentBorderVertical {
+  border-left: 6px solid black;
+  float: left;
+}
+
+.inner pre {
+  border: none;
+  position: relative;
+  width: 50%;
+  float: right;
+  font-size: 1.3em;
+}
+
