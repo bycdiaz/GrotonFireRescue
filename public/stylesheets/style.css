@@ -22,6 +22,7 @@ header img {
 header .primary-nav {
   background-color: #9F2122;
   width: 100%;
+  border-bottom: 10px solid #b8860b;
   height: 100px;
 }
 
@@ -51,7 +52,7 @@ header .primary-nav li a {
 
 .inner {
   position: relative;
-  width: 66%;
+  width: 85%;
   padding-bottom: 90px;
   margin: auto;
   text-align: left;
