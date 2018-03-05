@@ -1,0 +1,16 @@
+extends layout
+
+include mixins/_editForm.pug
+
+block content
+  .editForms
+    -let i = 0;
+    while i < 3
+      .formSection
+        +editForm(page)
+      - i++;
+    button(id="submit")  Submit 
+  
+
+block scripts
+  script(src="/javascript/editHome.js")
