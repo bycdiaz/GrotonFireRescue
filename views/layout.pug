@@ -6,6 +6,8 @@ html
     link(rel="stylesheet" href="/stylesheets/reset.css")
     link(rel="stylesheet" href="/stylesheets/style.css")
     link(href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet")
+    if user
+      link(rel="stylesheet" href="/stylesheets/admin.css")
     block stylesheets
 
   body
@@ -18,7 +20,11 @@ html
           li #[a(href="/gun-drawing") Gun Drawing]
           li #[a(href="/training") Training]
           li #[a(href="/calender") Calender Fundraiser]
-          li #[a(href="/about") About]
+      
+      if user 
+        include admin/mixins/_adminBar
+        +adminBar()
+
 
     .flashes
       for flash in flashes
@@ -29,7 +35,7 @@ html
     .content
       block content
 
-    footer
+    //- footer
       
 
   script(src="/javascript/layout.js")

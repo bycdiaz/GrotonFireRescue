@@ -9,6 +9,7 @@ html {
 header {
   position: relative;
   height: 200px;
+  width: 100%;
 }
 
 header img {
@@ -21,6 +22,7 @@ header img {
 header .primary-nav {
   background-color: #9F2122;
   width: 100%;
+  border-bottom: 10px solid #b8860b;
   height: 100px;
 }
 
@@ -31,7 +33,7 @@ header li {
   margin: 0% 46px 0 0;
 }
 
-header li a {
+header .primary-nav li a {
   text-decoration: none;
   color: white;
   font-size: 1.5em;
@@ -50,7 +52,7 @@ header li a {
 
 .inner {
   position: relative;
-  width: 66%;
+  width: 85%;
   padding-bottom: 90px;
   margin: auto;
   text-align: left;

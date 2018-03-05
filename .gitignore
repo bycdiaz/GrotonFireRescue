@@ -2,3 +2,5 @@ node_modules
 .possible npm
 variables.env
 red-fire-color-combination-by-schemecolor.png
+.eslintrc.js
+.vscode

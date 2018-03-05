@@ -6,6 +6,7 @@ block stylesheets
 
 block content
   .inner
+    h1 Training
     .training
       for day in trainingDays
         .card
@@ -15,6 +16,7 @@ block content
             p.date= day.dateTimeRange
             .arrowButton
               .arrow
+            .accentLine.hidden
           .dropDown.hidden
             p.info= day.info
 

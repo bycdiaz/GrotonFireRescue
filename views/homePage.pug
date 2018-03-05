@@ -4,4 +4,13 @@ block stylesheets
   link(rel="stylesheet", href="/stylesheets/homePage.css")
 
 block content
-  text.title GROTON FIRE & RESCUE
+  .hero
+    h1.title GROTON FIRE & RESCUE
+
+  .inner
+    each page in pages
+      .info
+        h2= page.pageTitle 
+        .contentContainer
+          img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Fire_Company_Tower.jpg/1920px-Fire_Company_Tower.jpg")
+          pre= page.content

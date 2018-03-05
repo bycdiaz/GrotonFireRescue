@@ -2,14 +2,17 @@ const trainingCards = document.querySelectorAll('.cardTitle');
 
 trainingCards.forEach((card) => {
   card.addEventListener('click', (e) => {
-    const dropdown = e.currentTarget.parentNode.querySelector('.dropDown');
+    const dropDown = e.currentTarget.parentNode.querySelector('.dropDown');
     const arrow = e.currentTarget.querySelector('.arrow');
-    if(dropdown.classList.contains('hidden')) {
-      dropdown.classList.remove('hidden');
+    const accent = e.currentTarget.querySelector('.accentLine');
+    if(dropDown.classList.contains('hidden')) {
+      dropDown.classList.remove('hidden');
       arrow.classList.add('arrowDown');
+      accent.classList.remove('hidden');
     } else {
-      dropdown.classList.add('hidden');
+      dropDown.classList.add('hidden');
       arrow.classList.remove('arrowDown');
+      accent.classList.add('hidden');
     };
   });
 });
