@@ -25,3 +25,9 @@
   text-decoration: none;
   color: #232f3c;
 }
+
+.editSectionContainer {
+  background-color: grey;
+  border: 1px solid black;
+  width: 75vw;
+}
