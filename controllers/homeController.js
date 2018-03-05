@@ -16,6 +16,7 @@ exports.home = (req, res, next) => {
 exports.editHome = (req, res, next) => {
   Page.find().sort({ pageID: 'asc' })
     .then((pages) => {
+      console.log(pages);
       res.render('editHome', { pages });
     })
     .catch((err) => {
