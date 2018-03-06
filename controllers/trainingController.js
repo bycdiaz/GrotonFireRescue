@@ -37,11 +37,11 @@ exports.createTrainingDay = (req, res, next) => {
     .catch(err => next(err));
 };
 
-exports.editTrainingDay = (req, res) => {
+exports.editTrainingDay = (req, res) => { // TODO get from database and fill form data
   res.send('Edit training Day');
 };
 
-exports.updateTrainingDay = (req, res, next) => {
+exports.updateTrainingDay = (req, res) => {
   // Training.findOneAndUpdate({})
   res.send('Update Training Day');
 };
