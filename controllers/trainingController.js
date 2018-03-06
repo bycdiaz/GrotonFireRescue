@@ -11,10 +11,6 @@ exports.trainingSchedule = (req, res, next) => {
     .catch(err => next(err));
 };
 
-exports.editTrainingSchedule = (req, res, next) => {
-  res.render('training/editTraining');
-};
-
 exports.deleteTrainingDay = (req, res) => {
   Training.findOneAndRemove({ _id: req.body.trainingID })
     .then(() => res.status(204).send(''))
