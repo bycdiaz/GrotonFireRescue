@@ -41,12 +41,12 @@ exports.editTrainingDay = (req, res) => { // TODO get from database and fill for
   res.send('Edit training Day');
 };
 
-exports.updateTrainingDay = (req, res) => {
+exports.updateTrainingDay = (req, res) => { // TODO make this work
   // Training.findOneAndUpdate({})
   res.send('Update Training Day');
 };
 
-
+// TODO move this to the model
 function formatStartEndDateTime(body) {
   const startHour = convertTo24(body.hour, body.period);
   const endHour = convertTo24(body.endHour, body.endPeriod);
