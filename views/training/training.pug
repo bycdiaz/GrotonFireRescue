@@ -10,7 +10,7 @@ block content
     .training
       for day in trainingDays
         .card
-          .cardTitle
+          .cardTitle(id= day._id)
             h3.title= day.title
             p.location= day.location
             p.date= day.dateTimeRange
