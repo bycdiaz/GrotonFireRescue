@@ -31,3 +31,12 @@
   border: 1px solid black;
   width: 75vw;
 }
+
+.card .cardInfo {
+  width: 80%;
+}
+
+.card .adminControls { 
+  float: right;
+}
+

@@ -15,8 +15,10 @@ exports.editTrainingSchedule = (req, res, next) => {
   res.render('training/editTraining');
 };
 
-exports.deleteTrainingDay = (req, res, next) => {
-  res.send('Remove training day');
+exports.deleteTrainingDay = (req, res) => {
+  Training.findOneAndRemove({ _id: req.body.trainingID })
+    .then(() => res.status(204).send(''))
+    .catch(err => res.status(501).send(err));
 };
 
 exports.newTrainingDay = (req, res) => {
@@ -39,7 +41,7 @@ exports.createTrainingDay = (req, res, next) => {
     .catch(err => next(err));
 };
 
-exports.editTrainingDay = (req, res, next) => {
+exports.editTrainingDay = (req, res) => {
   res.send('Edit training Day');
 };
 

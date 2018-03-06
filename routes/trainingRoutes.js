@@ -11,6 +11,6 @@ router.post('/new', trainingController.createTrainingDay);
 
 router.get('/:id/edit', trainingController.editTrainingDay);
 router.post('/:id/edit', trainingController.updateTrainingDay);
-router.post('/:id/delete', trainingController.deleteTrainingDay);
+router.post('/delete', trainingController.deleteTrainingDay); // Using AJAX
 
 module.exports = router;
