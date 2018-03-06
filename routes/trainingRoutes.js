@@ -5,7 +5,6 @@ const router = express.Router();
 const trainingController = require('../controllers/trainingController.js');
 
 router.get('/', trainingController.trainingSchedule);
-router.get('/edit', trainingController.editTrainingSchedule);
 router.get('/new', trainingController.newTrainingDay);
 router.post('/new', trainingController.createTrainingDay);
 
