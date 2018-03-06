@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 const Training = mongoose.model('Training');
 
 exports.trainingSchedule = (req, res, next) => {
-  Training.find()
+  Training.find().sort('date.start')
     .then((trainingDays) => {
       res.render('training/training', { trainingDays });
     })
@@ -32,7 +32,7 @@ exports.createTrainingDay = (req, res, next) => {
   });
 
   trainingDay.save()
-    .then((training) => {
+    .then(() => {
       req.flash('success', 'Training day added');
       res.redirect('/training');
     })
