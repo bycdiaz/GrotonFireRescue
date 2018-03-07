@@ -6,9 +6,11 @@ document.querySelectorAll('.delete').forEach((button) => {
   button.addEventListener('click', deleteHandler); // TODO add confirmation
 });
 
+// ***********************************************************8
+
 function editHandler() {
   const cardID = this.parentElement.parentElement.id;
-  location = `/training/${cardID}/edit`;
+  location = `/training/edit/${cardID}`;
 }
 
 function deleteHandler() {
