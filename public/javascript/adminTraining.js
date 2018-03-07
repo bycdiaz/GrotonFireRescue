@@ -1,6 +1,6 @@
 document.querySelectorAll('.edit').forEach((button) => {
   button.addEventListener('click', editHandler);
-})
+});
 
 document.querySelectorAll('.delete').forEach((button) => {
   button.addEventListener('click', deleteHandler); // TODO add confirmation
@@ -10,7 +10,7 @@ document.querySelectorAll('.delete').forEach((button) => {
 
 function editHandler() {
   const cardID = this.parentElement.parentElement.id;
-  location = `/training/edit/${cardID}`;
+  window.location.href = `/training/edit/${cardID}`;
 }
 
 function deleteHandler() {
