@@ -17,11 +17,15 @@ exports.deleteTrainingDay = (req, res) => {
     .catch(err => res.status(501).send(err));
 };
 
-exports.newTrainingDay = (req, res) => {
-  res.render('training/editTrainingDay');
+exports.editTrainingDay = (req, res, next) => {
+  Training.findById(req.params.id)
+    .then((trainingDay) => {
+      res.render('training/editTrainingDay', { trainingDay }); // TODO - render AM or PM with times
+    })
+    .catch(err => next(err));
 };
 
-exports.createTrainingDay = (req, res, next) => {
+exports.createTrainingDay = (req, res, next) => { // TODO - combine with update route
   const trainingDay = new Training({
     title: req.body.title,
     info: req.body.info,
@@ -37,13 +41,9 @@ exports.createTrainingDay = (req, res, next) => {
     .catch(err => next(err));
 };
 
-exports.editTrainingDay = (req, res) => { // TODO get from database and fill form data
-  res.send('Edit training Day');
-};
-
 exports.updateTrainingDay = (req, res) => { // TODO make this work
-  // Training.findOneAndUpdate({})
-  res.send('Update Training Day');
+  res.json(req.body);
+  // Training.findOneAndUpdate({_id: req.body.id, req.body})
 };
 
 // TODO move this to the model

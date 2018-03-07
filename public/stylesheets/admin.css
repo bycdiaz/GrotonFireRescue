@@ -33,10 +33,15 @@
 }
 
 .card .cardInfo {
-  width: 80%;
+  width: 67%;
 }
 
 .card .adminControls { 
   float: right;
+  margin-top: 15px;
+}
+
+.links a{
+  display: block;
 }
 
