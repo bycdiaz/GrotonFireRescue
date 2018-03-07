@@ -30,7 +30,7 @@ trainingSchema.virtual('dateTimeRange').get(function formatDate() { // TODO rena
 
 trainingSchema.methods.hoursIn12 = function hoursIn12(date) {
   const hours = date.getHours();
-  if (hours > 11) {
+  if (hours > 12) {
     return hours - 12;
   }
   return hours;
