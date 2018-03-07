@@ -20,7 +20,7 @@ exports.deleteTrainingDay = (req, res) => {
 exports.editTrainingDay = (req, res, next) => {
   Training.findById(req.params.id)
     .then((trainingDay) => {
-      res.render('training/editTrainingDay', { trainingDay }); // TODO - render AM or PM with times
+      res.render('training/editTrainingDay', { trainingDay });
     })
     .catch(err => next(err));
 };
