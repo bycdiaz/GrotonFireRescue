@@ -1,3 +1,3 @@
 exports.pictures = (req, res) => {
-  res.render('pictures/pictures')
-}
+  res.render('pictures/pictures');
+};
