@@ -18,7 +18,7 @@ function deleteHandler() {
   const button = this;
 
   deleteTrainingDay(cardID)
-    .then((returned) => {
+    .then(() => {
       deleteCard(cardID, button);
     })
     .catch(err => console.error(err)); // TODO flash message on error
