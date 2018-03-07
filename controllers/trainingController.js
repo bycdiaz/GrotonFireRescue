@@ -46,7 +46,6 @@ exports.updateTrainingDay = (req, res) => { // TODO make this work
   // Training.findOneAndUpdate({_id: req.body.id, req.body})
 };
 
-// TODO move this to the model
 function formatStartEndDateTime(body) {
   const startHour = convertTo24(body.hour, body.period);
   const endHour = convertTo24(body.endHour, body.endPeriod);
@@ -55,7 +54,6 @@ function formatStartEndDateTime(body) {
     end: new Date(body.year, body.month - 1, body.day, endHour, body.endMinute),
   };
 }
-
 
 function convertTo24(hour, period) {
   if (period === 'pm') return Number(hour) + 12;
