@@ -3,7 +3,7 @@ const path = require('path');
 
 exports.showGallery = (req, res, next) => {
   dirContents(req.params.category || '', req.params.imageName || '')
-    .then(gallery => res.json(gallery))
+    .then(dirList => res.render('gallery/gallery', { dirList }))
     .catch(err => next(err));
 };
 
