@@ -1,29 +1,18 @@
 const fs = require('fs');
+const path = require('path');
 
-exports.getCategories = (req, res) => {
-  // TODO - gather - directoryNames
+exports.showGallery = (req, res, next) => {
+  dirContents(req.params.category || '', req.params.imageName || '')
+    .then(gallery => res.json(gallery))
+    .catch(err => next(err));
 };
 
-exports.getImages = (req, res) => {
-  // TODO - gather images and display
-};
-
-exports.getSingleImage = (req, res) => {
-  // TODO - returns url of single image based on category and filename
-};
-
-exports.edit = (req, res) => { 
-  res.render('pictures/editPictures'); // TODO - renders admin page
-};
-
-exports.addImage = (req, res) => {
-  // TODO - adds image to directory, creating it if it doesnt exist
-};
-
-exports.deleteCategory = (req, res) => {
-  // TODO - deletes category and images in directory along with thumbnails
-};
-
-exports.deleteImage = (req, res) => {
-  // TODO - deletes image, takes :category, and :imageName
-};
+function dirContents(...contentPath) {
+  const directory = path.join(__rootDir, 'public', 'images', 'gallery', ...contentPath);
+  return new Promise((resolve, reject) => {
+    fs.readdir(directory, (err, contents) => {
+      if (err) reject(err);
+      resolve(contents);
+    });
+  });
+}
