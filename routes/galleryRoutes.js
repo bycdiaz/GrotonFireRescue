@@ -6,7 +6,7 @@ const galleryController = require('../controllers/galleryController');
 
 // TODO - all below
 
-router.get('/', galleryController.showGallery); // Shows Categories with thumbnail
+router.get('/', galleryController.showGalleries); // Shows Categories with thumbnail
 router.get('/:category', galleryController.showGallery); // Shows images from the category
 router.get('/:category/:imageName');
 
