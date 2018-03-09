@@ -1,9 +1,0 @@
-extends ../layout
-
-block content
-  .inner
-    h1 Gallery
-    
-    for item in dirList
-      .itemBox
-        a(href=`/gallery/${item}`) #{item}
