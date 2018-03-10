@@ -1,0 +1,6 @@
+extends ../layout
+
+block content
+  for card in cards
+    a(href=`/images/gallery/${category}/${card.image}`)
+      img(src=`/images/gallery/${category}/thumbnails/${card.thumb}`)
