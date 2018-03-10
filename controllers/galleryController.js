@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-exports.showGalleries = (req, res, next) => {
+exports.showGalleries = (req, res, next) => { // TODO - add thumbnails
   const directory = path.join(__rootDir, 'public', 'images', 'gallery');
   dirContents(directory)
     .then(generateGalleryObjectsArray)
@@ -24,16 +24,27 @@ function dirContents(directory) {
 }
 
 function generateGalleryObjectsArray(directoryArray) {
-  const galleryObjArry = [];
-
-  directoryArray.forEach((category) => {
-    getCategoryThumbnail(category)
-      .then(thumbnail => galleryObjArry.push(thumbnail));
+  const promises = directoryArray.map((directory) => {
+    getCategoryThumbnail(directory)
+      .then(thumbnail => ({
+        name: directory,
+        thumbnail,
+      }))
+      .catch(err => err);
   });
+
+  return Promise.all(promises)
+    .then((objects) => {
+      console.log(objects);
+      return objects;
+    })
+    .catch(err => err);
 }
 
 function getCategoryThumbnail(category) {
- // TODO - async get thumbail from route
+  return new Promise((resolve, reject) => {
+    resolve('test');
+  });
 }
 
 function generateGalleryInCategoryObj(category) {
