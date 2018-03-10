@@ -4,26 +4,28 @@ mongoose.Promise = global.Promise;
 const Training = mongoose.model('Training');
 
 exports.trainingSchedule = (req, res, next) => {
-  Training.find()
+  Training.find().sort('date.start')
     .then((trainingDays) => {
       res.render('training/training', { trainingDays });
     })
     .catch(err => next(err));
 };
 
-exports.editTrainingSchedule = (req, res, next) => {
-  res.render('training/editTraining');
+exports.deleteTrainingDay = (req, res) => {
+  Training.findOneAndRemove({ _id: req.body.trainingID })
+    .then(() => res.status(204).send(''))
+    .catch(err => res.status(501).send(err));
 };
 
-exports.deleteTrainingDay = (req, res, next) => {
-  res.send('Remove training day');
+exports.editTrainingDay = (req, res, next) => {
+  Training.findById(req.params.id)
+    .then((trainingDay) => {
+      res.render('training/editTrainingDay', { trainingDay });
+    })
+    .catch(err => next(err));
 };
 
-exports.newTrainingDay = (req, res) => {
-  res.render('training/editTrainingDay');
-};
-
-exports.createTrainingDay = (req, res, next) => {
+exports.createTrainingDay = (req, res, next) => { // TODO - combine with update route
   const trainingDay = new Training({
     title: req.body.title,
     info: req.body.info,
@@ -32,22 +34,17 @@ exports.createTrainingDay = (req, res, next) => {
   });
 
   trainingDay.save()
-    .then((training) => {
+    .then(() => {
       req.flash('success', 'Training day added');
       res.redirect('/training');
     })
     .catch(err => next(err));
 };
 
-exports.editTrainingDay = (req, res, next) => {
-  res.send('Edit training Day');
+exports.updateTrainingDay = (req, res) => { // TODO make this work
+  res.json(req.body);
+  // Training.findOneAndUpdate({_id: req.body.id, req.body})
 };
-
-exports.updateTrainingDay = (req, res, next) => {
-  // Training.findOneAndUpdate({})
-  res.send('Update Training Day');
-};
-
 
 function formatStartEndDateTime(body) {
   const startHour = convertTo24(body.hour, body.period);
@@ -57,7 +54,6 @@ function formatStartEndDateTime(body) {
     end: new Date(body.year, body.month - 1, body.day, endHour, body.endMinute),
   };
 }
-
 
 function convertTo24(hour, period) {
   if (period === 'pm') return Number(hour) + 12;

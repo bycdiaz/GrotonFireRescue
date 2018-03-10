@@ -10,36 +10,36 @@ block content
     form(method="POST")
       .trainingTitle
         label(for="title") Title
-        input(type="text" name="title" placeholder="Truck Training" required)
+        input(type="text" name="title" placeholder="Truck Training" required value= trainingDay.title || "")
 
       fieldset(name="date")
         legend Date
-        input(type='number' name='month' min='1' max='12' placeholder='3' required)
-        input(type='number' name='day'  min='1' max='31' placeholder='22' required)
-        input(type='number' name='year'  min='2018' max='2099' placeholder='2018' required)
+        input(type='number' name='month' min='1' max='12' placeholder='3' required value= trainingDay.date.start.getMonth() + 1)
+        input(type='number' name='day'  min='1' max='31' placeholder='22' required value= trainingDay.date.start.getDate())
+        input(type='number' name='year'  min='2018' max='2099' placeholder='2018' required value = trainingDay.date.start.getFullYear())
 
       fieldset(name='startTime')
         legend Start Time
-        input(type='number' name='hour' min='1' max='12' placeholder='12' required)
-        input(type='number' name='minute' min='0' max='59' placeholder='00' required)
+        input(type='number' name='hour' min='1' max='12' placeholder='12' required value= trainingDay.hoursIn12(trainingDay.date.start))
+        input(type='number' name='minute' min='0' max='59' placeholder='00' required value= trainingDay.date.start.getMinutes())
         select(name="period")
           option(value="am") AM
-          option(value="pm") PM
+          option(value="pm" selected= (trainingDay.periodOf(trainingDay.date.start) === "pm")) PM
 
       fieldset(name='endTime')
         legend End Time
-        input(type='number' name='endHour' min='1' max='12' placeholder='12' required)
-        input(type='number' name='endMinute' min='0' max='59' placeholder='00' required)
+        input(type='number' name='endHour' min='1' max='12' placeholder='12' required value= trainingDay.hoursIn12(trainingDay.date.end))
+        input(type='number' name='endMinute' min='0' max='59' placeholder='00' required value= trainingDay.date.end.getMinutes())
         select(name="endPeriod")
           option(value="am") AM
-          option(value="pm") PM
+          option(value="pm" selected= (trainingDay.periodOf(trainingDay.date.end) === "pm")) PM
 
       .info
         .location
           label(for="location") Location
-          input(type="text" name="location" placeholder="Groton Fire Station" required)
+          input(type="text" name="location" placeholder="Groton Fire Station" required value=trainingDay.location || "")
         .extra
           label(for="info") Extra Info
-          textarea(name="info", cols="60", rows="10" placeholder="e.g 'Bring Water', 'Bring Fire Gear'")
+          textarea(name="info", cols="60", rows="10" placeholder="e.g 'Bring Water', 'Bring Fire Gear'") #{trainingDay.info || ""}
 
       input(type="submit" value="Submit")

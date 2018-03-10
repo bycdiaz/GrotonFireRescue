@@ -22,6 +22,8 @@ exports.editHome = (req, res, next) => {
     .catch((err) => {
       next(err);
     });
+
+  // TODO - add picture uploading
 };
 
 exports.updateHome = (req, res) => {

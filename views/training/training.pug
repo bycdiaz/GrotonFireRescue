@@ -9,16 +9,26 @@ block content
     h1 Training
     .training
       for day in trainingDays
-        .card
-          .cardTitle
-            h3.title= day.title
-            p.location= day.location
-            p.date= day.dateTimeRange
-            .arrowButton
-              .arrow
-            .accentLine.hidden
-          .dropDown.hidden
-            p.info= day.info
+        .card(id= day._id)
+
+          if user
+            .adminControls
+              button(type="button").delete delete
+              button(type="button").edit edit
+
+          .cardInfo
+            .cardTitle
+              h3.title= day.title
+              p.location= day.location
+              p.date= day.dateTimeRange
+              .arrowButton
+                .arrow
+              .accentLine.hidden
+            .dropDown.hidden
+              p.info= day.info
+
 
 block scripts
   script(src="/javascript/training.js")
+  if user
+    script(src="/javascript/adminTraining.js")

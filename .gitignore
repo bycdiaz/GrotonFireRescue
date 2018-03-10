@@ -4,3 +4,5 @@ variables.env
 red-fire-color-combination-by-schemecolor.png
 .eslintrc.js
 .vscode
+.eslintrc.json
+public/images/gallery
