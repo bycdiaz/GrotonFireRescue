@@ -6,12 +6,18 @@ exports.showGalleries = (req, res, next) => { // TODO - add thumbnails
   dirContents(directory)
     .then(generateGalleryObjectsArray)
     .then(galleryObj => res.render('gallery/gallery', { galleryObj }))
-    .catch(err => next(err));
+    .catch(next);
 };
 
 exports.showGallery = (req, res, next) => {
-  generateGalleryInCategoryObj('category');
-  next(); // TODO - Show single gallery
+  getCategoryThumbs(req.params.category)
+    .then(generateImageCards)
+    .then(cards => res.render('gallery/category', { cards, category: req.params.category }))
+    .catch(next);
+};
+
+exports.showImage = (req, res, next) => {
+  res.send(`images/gallery/${req.params.category}/${req.params.image}`);
 };
 
 function dirContents(directory) {
@@ -41,13 +47,23 @@ function getCategoryThumbnail(category) {
   });
 }
 
-function generateGalleryInCategoryObj(category) {
-  return (category);
+function getCategoryThumbs(category) {
+  const categoryPath = path.join(__rootDir, 'public', 'images', 'gallery', category, 'thumbnails');
+  return new Promise((resolve, reject) => {
+    fs.readdir(categoryPath, (err, contents) => {
+      if (err) reject(err);
+      resolve(contents);
+    });
+  });
 }
 
+function generateImageCards(thumbnails) {
+  return thumbnails.map((thumbnail) => {
+    const imageName = thumbnail.slice(1);
 
-// {
-//   fileName: String,
-//   category: String,
-//   thumbnail: String,
-// }
+    return {
+      thumb: thumbnail,
+      image: imageName,
+    };
+  });
+}

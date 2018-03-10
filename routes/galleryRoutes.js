@@ -8,7 +8,7 @@ const galleryController = require('../controllers/galleryController');
 
 router.get('/', galleryController.showGalleries); // Shows Categories with thumbnail
 router.get('/:category', galleryController.showGallery); // Shows images from the category
-router.get('/:category/:imageName');
+router.get('/:category/:imageName', galleryController.showImage);
 
 router.get('/admin'); // Two panes, one for uploading, one for deleting
 router.post('/:category/:image'); // Finds directory and creates it if it doesn't exist, adds image to category

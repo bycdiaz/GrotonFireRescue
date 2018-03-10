@@ -6,5 +6,6 @@ block content
 
     for category in galleryObj
       .itemBox
-        h3= category.name
-        img(src=`images/gallery/${category.name}/thumbnails/${category.thumbnail}`, alt="thumbnail")
+        a(href=`/gallery/${category.name}`)
+          h3= category.name
+          img(src=`images/gallery/${category.name}/thumbnails/${category.thumbnail}`, alt="thumbnail")
