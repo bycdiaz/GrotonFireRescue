@@ -3,7 +3,8 @@ extends ../layout
 block content
   .inner
     h1 Gallery
-    
-    for item in dirList
+
+    for category in galleryObj
       .itemBox
-        a(href=`/gallery/${item}`) #{item}
+        h3= category.name
+        img(src=`images/gallery/${category.name}/thumbnails/${category.thumbnail}`, alt="thumbnail")

@@ -5,7 +5,7 @@ exports.showGalleries = (req, res, next) => { // TODO - add thumbnails
   const directory = path.join(__rootDir, 'public', 'images', 'gallery');
   dirContents(directory)
     .then(generateGalleryObjectsArray)
-    .then(galleryObj => res.json(galleryObj))
+    .then(galleryObj => res.render('gallery/gallery', { galleryObj }))
     .catch(err => next(err));
 };
 
@@ -24,26 +24,20 @@ function dirContents(directory) {
 }
 
 function generateGalleryObjectsArray(directoryArray) {
-  const promises = directoryArray.map((directory) => {
-    getCategoryThumbnail(directory)
-      .then(thumbnail => ({
-        name: directory,
-        thumbnail,
-      }))
-      .catch(err => err);
-  });
-
-  return Promise.all(promises)
-    .then((objects) => {
-      console.log(objects);
-      return objects;
-    })
-    .catch(err => err);
+  return Promise.all(directoryArray.map(directory => getCategoryThumbnail(directory)
+    .then(thumbnail => ({
+      name: directory,
+      thumbnail,
+    }))
+    .catch(err => err)));
 }
 
 function getCategoryThumbnail(category) {
   return new Promise((resolve, reject) => {
-    resolve('test');
+    fs.readdir(path.join(__rootDir, 'public', 'images', 'gallery', category, 'thumbnails'), (err, contents) => {
+      if (err) reject(err);
+      resolve(contents[0]);
+    });
   });
 }
 
