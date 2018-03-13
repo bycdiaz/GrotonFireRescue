@@ -1,4 +1,12 @@
 extends ../layout
 
 block content
-  p "Edit Pictures"
+  form(id="fileUpload" method="POST")
+    label(for="images") Images
+    input(type="file" id="images" name="images")
+    label(for="category") Category
+    input(type="text" id="category" name="category")
+    button(type="submit" id="uploadButton") Upload
+
+block scripts
+  script(src="/javascript/galleryAdmin.js")
