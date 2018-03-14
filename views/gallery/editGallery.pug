@@ -1,12 +1,18 @@
 extends ../layout
 
 block content
-  form(id="fileUpload" method="POST")
-    label(for="images") Images
-    input(type="file" id="images" name="images")
-    label(for="category") Category
-    input(type="text" id="category" name="category")
-    button(type="submit" id="uploadButton") Upload
+  .inner
+    .controls
+      label(for="category") Select Category
+      select(id="category", name="category")
+        option(value="") Select Category
+      label(for="newCategory") New Category
+      input(type="text", name="newCategory")
+      //- image upload box
+      //- type new category
+
+    .gallery
+      p gallery
 
 block scripts
   script(src="/javascript/galleryAdmin.js")
