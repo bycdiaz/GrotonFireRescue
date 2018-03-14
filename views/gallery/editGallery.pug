@@ -7,12 +7,15 @@ block content
       select(id="category", name="category")
         option(value="") Select Category
       label(for="newCategory") New Category
-      input(type="text", name="newCategory")
+      input#newCategory(type="text" name="newCategory")
       //- image upload box
       //- type new category
 
     .gallery
-      p gallery
+      br
+      br
+      h2 Images--------------------------------------------
+      .images#imageContainer
 
 block scripts
   script(src="/javascript/galleryAdmin.js")
