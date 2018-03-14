@@ -45,7 +45,6 @@ function getImagesFromCategory(category) {
 }
 
 function updateImages(images) {
-  console.log(images);
   const imageContainer = document.getElementById('imageContainer');
   imageContainer.innerHTML = '';
 
@@ -54,6 +53,10 @@ function updateImages(images) {
     const imageName = document.createElement('h3');
     imageName.innerText = image.imageName;
     imageCard.appendChild(imageName);
+
+    const img = document.createElement('img');
+    img.setAttribute('src', image.thumbURL);
+    imageCard.appendChild(img);
 
     imageContainer.appendChild(imageCard);
   });
