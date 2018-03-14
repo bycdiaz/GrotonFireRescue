@@ -7,9 +7,10 @@ const galleria = require('../handlers/gallery');
 
 const gallery = galleria();
 
-router.get('/', gallery.getIndex({ middleware: true }), galleryController.index);
+router.get('/', gallery.getIndex(), galleryController.index);
 router.get('/edit', galleryController.editGallery);
-router.get('/edit/categorylist', gallery.getIndex({ middleware: false }));
+router.get('/edit/categorylist', gallery.getIndex({ json: true }));
+router.get('/edit/:category', gallery.getImagesFromCategory({ json: true }));
 
 router.get('/:category', gallery.getImagesFromCategory, galleryController.category);
 
