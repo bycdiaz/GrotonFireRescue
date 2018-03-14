@@ -5,7 +5,7 @@ exports.index = (req, res) => {
 exports.category = (req, res) => {
   console.log(req.gallery);
   res.render('gallery/category', { cards: req.gallery });
-}
+};
 
 exports.editGallery = (req, res) => {
   res.render('gallery/editGallery');
