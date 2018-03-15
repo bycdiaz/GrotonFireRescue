@@ -15,6 +15,7 @@ router.get('/edit/:category', gallery.getImagesFromCategory({ json: true }));
 
 router.get('/:category', gallery.getImagesFromCategory(), galleryController.category);
 router.post('/:cateogry', gallery.upload());
+router.post('/:category/:image/delete', gallery.removeImage());
 
 
 module.exports = router;

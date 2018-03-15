@@ -69,22 +69,63 @@ function getImagesFromCategory(category) {
   return xhrGetRequest(`edit/${category}`);
 }
 
-function updateImages(images) {
+function updateImages(images) { // TODO Refactor
   const imageContainer = document.getElementById('imageContainer');
   imageContainer.innerHTML = '';
 
   images.forEach((image) => {
     const imageCard = document.createElement('div');
+    imageCard.classList.add('imageCard');
+
     const imageName = document.createElement('h3');
     imageName.innerText = image.imageName;
+    imageName.classList.add(image.imageExt);
     imageCard.appendChild(imageName);
+
+    const imageFullName = document.createElement('i');
+    imageFullName.classList.add('imageFullName');
+    imageFullName.innerText = `${image.imageName}${image.imageExt}`;
+    imageFullName.setAttribute('hidden', true);
+    imageCard.appendChild(imageFullName);
 
     const img = document.createElement('img');
     img.setAttribute('src', image.thumbURL);
     imageCard.appendChild(img);
 
+    const del = document.createElement('button');
+    del.classList.add('delete');
+    del.innerText = 'Delete';
+
+    imageCard.appendChild(del);
+    // TODO add event listeners to delete buttons
     imageContainer.appendChild(imageCard);
   });
+  activateDeleteButtons();
+}
+
+function activateDeleteButtons() {
+  document.querySelectorAll('.gallery .delete').forEach((element) => {
+    element.addEventListener('click', deleteImage);
+  });
+}
+
+function deleteImage() {
+  const imageName = this.parentElement.querySelector('i').innerText;
+  const category = categoryDropdown.value;
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', `${category}/${imageName}/delete`);
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 202) {
+        console.log(xhr.status);
+        fireEvent(categoryDropdown, 'change');
+      } else {
+        console.log(new Error(xhr.response));
+      }
+    }
+  };
+  xhr.send();
 }
 
 function xhrGetRequest(URL) {
@@ -123,7 +164,7 @@ function uploadImages(category, fileList) { // TODO refactor
     xhr.onreadystatechange = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
-          resolve(xhr.response)
+          resolve(xhr.response);
         } else {
           reject(new Error(xhr.status));
         }
@@ -131,17 +172,6 @@ function uploadImages(category, fileList) { // TODO refactor
     };
     xhr.send(formData);
   });
-}
-
-function generateFormData(category, fileList) {
-  const formData = new FormData();
-  formData.append('category', category);
-  for (let i = 0; i < fileList.length; i++) {
-    console.log(i);
-    formData.append('images', fileList[i]);
-  }
-  console.log(formData);
-  return formData;
 }
 
 function fireEvent(element, event) {

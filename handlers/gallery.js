@@ -98,18 +98,20 @@ function createGallery(options = {}) {
       .catch(next);
   }
 
-  function removeImage(req, res, next) {
-    const category = req.params.category;
-    const image = req.params.image;
+  function removeImage(funcOptions) { // TODO allow setting as middleware, dynamic params
+    return function removeImage(req, res, next) {
+      const category = req.params.category;
+      const image = req.params.image;
 
-    fs.unlink(path.join(options.galleryRoot, category, image))
-      .then(() => {
-        fs.unlink(path.join(options.galleryRoot, category, 'thumbnails', `_${image}`));
-      })
-      .then(() => {
-        res.status(202).send('');
-      })
-      .catch(err => res.status(400).send(err));
+      fs.unlink(path.join(options.galleryRoot, category, image))
+        .then(() => {
+          fs.unlink(path.join(options.galleryRoot, category, 'thumbnails', `_${image}`));
+        })
+        .then(() => {
+          res.status(202).send('');
+        })
+        .catch(err => res.status(400).send(err));
+    };
   }
 
   function saveImage(file, category) { // TODO allow renaming from form field
@@ -169,6 +171,7 @@ function createGallery(options = {}) {
           imageName: path.parse(image).name, // Thank you: Alex Chuev
           imageURL: `/${options.galleryPublicRoot}/${category}/${image}`,
           thumbURL: `/${options.galleryPublicRoot}/${category}/thumbnails/_${image}`,
+          imageExt: path.parse(image).ext,
         })));
       });
     });
