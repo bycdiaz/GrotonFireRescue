@@ -8,13 +8,14 @@ block content
         option(value="") Select Category
       label(for="newCategory") New Category
       input#newCategory(type="text" name="newCategory")
-      //- image upload box
-      //- type new category
+      input(type="file" id="images" name="images" multiple)
+      input(type="submit" id="submit" name="submit" value="Submit")
 
     .gallery
       br
       br
       h2 Images--------------------------------------------
+      br
       .images#imageContainer
 
 block scripts
