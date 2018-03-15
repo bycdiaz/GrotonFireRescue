@@ -55,8 +55,8 @@ function createGallery(options = {}) {
           saveImage(image, req.body[options.category]), // TODO set category
           saveThumbnail(image, req.body[options.category]),
         ])))
-          .then(() => { res.status(200).end(''); })
-          .catch(console.error);
+          .then(() => { res.status(200).send('Successful Upload'); })
+          .catch((err) => { res.status(500).send(err); });
       });
     };
   }
@@ -86,7 +86,7 @@ function createGallery(options = {}) {
           return next();
         })
         .catch((err) => {
-          if (funcOptions.json) return res.status(404).end('Category Not Found');
+          if (funcOptions.json) return res.status(404).send('Category Not Found');
           return next(err);
         });
     };
