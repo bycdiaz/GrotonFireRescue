@@ -1,4 +1,22 @@
 extends ../layout
 
 block content
-  p "Edit Pictures"
+  .inner
+    .controls
+      label(for="category") Select Category
+      select(id="category", name="category")
+        option(value="") Select Category
+      label(for="newCategory") New Category
+      input#newCategory(type="text" name="newCategory")
+      input(type="file" id="images" name="images" multiple)
+      input(type="submit" id="submit" name="submit" value="Submit")
+
+    .gallery
+      br
+      br
+      h2 Images--------------------------------------------
+      br
+      .images#imageContainer
+
+block scripts
+  script(src="/javascript/galleryAdmin.js")
