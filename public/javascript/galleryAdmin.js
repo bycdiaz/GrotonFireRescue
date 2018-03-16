@@ -33,7 +33,7 @@ function categoryChangeHandler(e) {
 }
 
 function submitHandler(e) {
-  if (newCategoryBox.value === '') messageModal('You must enter a category name or select a category');
+  if (newCategoryBox.value === '') handleUserError(new Error('No Category Selected'), 'You must enter a category name or select a category');
   if (categoryDropdown.selectedIndex === 0 && newCategoryBox.value !== '') { // TODO REFACTOR
     e.target.value = 'Uploading...';
     e.target.setAttribute('disabled', true);
@@ -61,11 +61,6 @@ function submitHandler(e) {
   }
 }
 
-function messageModal(message) {
-  const modal = document.createElement('div');
-  modal.className.add('modal');
-
-};
 
 function updateCategoriesDropdown(dropDown) {
   while (dropDown.childNodes.length > 1) {
@@ -198,6 +193,36 @@ function xhrGetRequest(URL) {
 
 function handleConnectionError(error) { // TODO Handle errors
   console.error(error);
+}
+
+function handleUserError(error, message) { // TODO handle errors properly
+  messageModal(message);
+}
+
+function messageModal(message) {
+  const modal = document.createElement('div');
+  modal.classList.add('modal');
+
+  const messageBox = document.createElement('div');
+  modal.appendChild(messageBox);
+  messageBox.classList.add('messageBox');
+
+  const text = document.createElement('p');
+  messageBox.appendChild(text);
+  text.innerText = message;
+
+  const okButton = document.createElement('button');
+  messageBox.appendChild(okButton);
+  okButton.innerText = 'OK';
+  okButton.id = 'ok';
+  okButton.addEventListener('click', removeModal);
+
+  document.querySelector('.flashes').appendChild(modal);
+}
+
+function removeModal(e) {
+  e.target.removeEventListener('click', removeModal);
+  document.querySelector('.flashes').innerHTML = '';
 }
 
 function uploadImages(category, fileList) { // TODO refactor
