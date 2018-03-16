@@ -117,7 +117,6 @@ function updateImages(images) { // TODO Refactor
     del.innerText = 'Delete';
 
     imageCard.appendChild(del);
-    // TODO add event listeners to delete buttons
     imageContainer.appendChild(imageCard);
   });
 
