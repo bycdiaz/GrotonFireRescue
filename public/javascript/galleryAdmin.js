@@ -15,7 +15,7 @@ newCategoryBox.oninput = (e) => {
 };
 
 categoryDropdown.onchange = (e) => {
-  if (e.target.value === '') return updateImages([]);
+  if (e.target.selectedIndex === 0) return updateImages([]);
   getImagesFromCategory(e.target.value)
     .then(updateImages)
     .catch(handleConnectionError);
@@ -46,6 +46,9 @@ submitButton.addEventListener('click', () => { // TODO change to onsubmit
 
 //* ************************************************ */
 function updateCategoriesDropdown(dropDown) {
+  while (dropDown.childNodes.length > 1) {
+    dropDown.removeChild(dropDown.lastChild);
+  }
   getCategorysList()
     .then(categories => fillDropdown(dropDown, categories))
     .catch(handleConnectionError);
@@ -100,6 +103,13 @@ function updateImages(images) { // TODO Refactor
     // TODO add event listeners to delete buttons
     imageContainer.appendChild(imageCard);
   });
+
+  const delCategory = document.createElement('button');
+  delCategory.id = 'deleteCategory';
+  delCategory.innerText = 'Delete Category';
+  if (categoryDropdown.selectedIndex === 0) { delCategory.hidden = true; }
+
+  imageContainer.appendChild(delCategory);
   activateDeleteButtons();
 }
 
@@ -107,6 +117,7 @@ function activateDeleteButtons() {
   document.querySelectorAll('.gallery .delete').forEach((element) => {
     element.addEventListener('click', deleteImage);
   });
+  document.getElementById('deleteCategory').addEventListener('click', deleteCategory);
 }
 
 function deleteImage() {
@@ -122,6 +133,24 @@ function deleteImage() {
         fireEvent(categoryDropdown, 'change');
       } else {
         console.log(new Error(xhr.response));
+      }
+    }
+  };
+  xhr.send();
+}
+
+function deleteCategory(e) {
+  const category = categoryDropdown.value;
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', `${category}/delete`);
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 204) {
+        categoryDropdown.selectedIndex = 0;
+        updateCategoriesDropdown(categoryDropdown);
+        fireEvent(categoryDropdown, 'change');
+      } else {
+        handleConnectionError(new Error(xhr.status));
       }
     }
   };
