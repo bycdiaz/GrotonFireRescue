@@ -4,7 +4,15 @@ const newCategoryBox = document.querySelector('#newCategory');
 const images = document.querySelector('#images');
 updateCategoriesDropdown(categoryDropdown);
 
-newCategoryBox.oninput = (e) => {
+newCategoryBox.oninput = categoryBoxInputHandler;
+
+categoryDropdown.onchange = categoryChangeHandler;
+
+submitButton.addEventListener('click', submitHandler);// TODO change to onsubmit
+
+//* ************************************************ */
+
+function categoryBoxInputHandler(e) {
   if (e.target.value !== '') {
     categoryDropdown.selectedIndex = 0;
     fireEvent(categoryDropdown, 'change');
@@ -12,23 +20,33 @@ newCategoryBox.oninput = (e) => {
   } else {
     categoryDropdown.removeAttribute('disabled');
   }
-};
+}
 
-categoryDropdown.onchange = (e) => {
-  if (e.target.selectedIndex === 0) return updateImages([]);
-  getImagesFromCategory(e.target.value)
-    .then(updateImages)
-    .catch(handleConnectionError);
-};
+function categoryChangeHandler(e) {
+  if (e.target.selectedIndex === 0) {
+    updateImages([]);
+  } else {
+    getImagesFromCategory(e.target.value)
+      .then(updateImages)
+      .catch(handleConnectionError);
+  }
+}
 
-submitButton.addEventListener('click', () => { // TODO change to onsubmit
-  if (categoryDropdown.selectedIndex === 0 && newCategoryBox !== '') { // TODO REFACTOR
+function submitHandler(e) {
+  if (newCategoryBox.value === '') messageModal('You must enter a category name or select a category');
+  if (categoryDropdown.selectedIndex === 0 && newCategoryBox.value !== '') { // TODO REFACTOR
+    e.target.value = 'Uploading...';
+    e.target.setAttribute('disabled', true);
+    newCategoryBox.setAttribute('disabled', true);
     uploadImages(newCategoryBox.value, images.files)
       .then(() => {
         fireEvent(categoryDropdown, 'change');
         updateCategoriesDropdown(categoryDropdown);
         newCategoryBox.value = '';
         categoryDropdown.removeAttribute('disabled');
+        e.target.value = 'Submit';
+        e.target.removeAttribute('disabled');
+        newCategoryBox.removeAttribute('disabled');
       })
       .catch(console.log);
   } else if (categoryDropdown.selectedIndex > 0) {
