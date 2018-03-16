@@ -216,12 +216,12 @@ function messageModal(message) {
   okButton.id = 'ok';
   okButton.addEventListener('click', removeModal);
 
-  document.querySelector('.flashes').appendChild(modal);
+  document.querySelector('body').appendChild(modal);
 }
 
 function removeModal(e) {
   e.target.removeEventListener('click', removeModal);
-  document.querySelector('.flashes').innerHTML = '';
+  e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
 }
 
 function uploadImages(category, fileList) { // TODO refactor
