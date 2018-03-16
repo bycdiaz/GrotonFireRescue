@@ -57,12 +57,16 @@ function submitHandler(e) {
         newCategoryBox.value = '';
         categoryDropdown.removeAttribute('disabled');
       })
-      .catch(console.log);
+      .catch(handleConnectionError);
   }
-});
+}
 
+function messageModal(message) {
+  const modal = document.createElement('div');
+  modal.className.add('modal');
 
-//* ************************************************ */
+};
+
 function updateCategoriesDropdown(dropDown) {
   while (dropDown.childNodes.length > 1) {
     dropDown.removeChild(dropDown.lastChild);
