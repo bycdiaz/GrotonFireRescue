@@ -10,7 +10,7 @@ block content
   .inner
     each page in pages
       .info
-        h2= page.pageTitle 
+        h2= page.pageTitle
         .contentContainer
-          img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Fire_Company_Tower.jpg/1920px-Fire_Company_Tower.jpg")
+          img(src=`images/home/${page.pageID}.jpg`)
           pre= page.content
