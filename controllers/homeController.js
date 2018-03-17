@@ -41,8 +41,9 @@ exports.updateHome = (req, res) => {
 exports.uploadImages = (req, res) => { // TODO - test extensively for issues with upload ordering
   Promise.all(req.files.map((file, index) => jimp.read(file.buffer)
     .then((image) => {
+      const pageID = req.body[file.originalname];
       image.resize(600, jimp.AUTO);
-      image.write(`public/images/home/${index}.jpg`);
+      image.write(`public/images/home/${pageID}.jpg`);
     })))
     .then(() => res.status(201).send(''))
     .catch(err => res.status(500).send(err));
