@@ -136,7 +136,6 @@ function createGallery(options = {}) {
       .then((image) => {
         image.resize(options.thumbNailWidth, jimp.AUTO);
         image.write(path.join(options.galleryRoot, category, 'thumbnails', `_${file.originalname}`));
-        console.log(path.join(options.galleryRoot, category, 'thumbnails', `_${file.originalname}`));
       })
       .catch(console.error);
   }

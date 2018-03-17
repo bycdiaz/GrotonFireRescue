@@ -3,7 +3,6 @@ exports.index = (req, res) => {
 };
 
 exports.category = (req, res) => {
-  console.log(req.gallery);
   res.render('gallery/category', { cards: req.gallery });
 };
 
