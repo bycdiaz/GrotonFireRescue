@@ -103,11 +103,11 @@ function createGallery(options = {}) {
           if (funcOptions.ajax) return res.status(400).send('');
           return next(err);
         });
-    }
+    };
   }
 
   function removeImage(funcOptions) { // TODO allow setting as middleware, dynamic params
-    return function removeImage(req, res, next) {
+    return function removeImageFromCategory(req, res, next) {
       const category = req.params.category;
       const image = req.params.image;
 
@@ -163,7 +163,7 @@ function createGallery(options = {}) {
     return new Promise((resolve, reject) => {
       fs.readdir(path.join(options.galleryRoot, category, 'thumbnails'), (err, contents) => {
         if (err) reject(err);
-        if (contents == null) { return reject('noThumb'); }
+        if (contents == null) { return reject(new Error('noThumb')); }
         resolve(contents.map(thumbnail => path.join(options.galleryPublicRoot, category, 'thumbnails', thumbnail)));
       });
     });
