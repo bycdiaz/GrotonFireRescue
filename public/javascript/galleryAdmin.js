@@ -72,7 +72,7 @@ function updateCategoriesDropdown(dropDown) {
 }
 
 function getCategorysList() {
-  return xhrGetRequest('edit/categorylist');
+  return xhrGetRequest('admin/categorylist');
 }
 
 function fillDropdown(dropDown, categories) {
@@ -86,7 +86,7 @@ function fillDropdown(dropDown, categories) {
 }
 
 function getImagesFromCategory(category) {
-  return xhrGetRequest(`edit/${category}`);
+  return xhrGetRequest(`admin/${category}`);
 }
 
 function updateImages(images) { // TODO Refactor

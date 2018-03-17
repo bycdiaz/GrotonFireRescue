@@ -9,9 +9,9 @@ const gallery = galleria();
 
 router.get('/', gallery.getIndex(), galleryController.index);
 
-router.get('/edit', galleryController.editGallery);
-router.get('/edit/categorylist', gallery.getIndex({ ajax: true }));
-router.get('/edit/:category', gallery.getImagesFromCategory({ ajax: true }));
+router.get('/admin', galleryController.editGallery);
+router.get('/admin/categorylist', gallery.getIndex({ ajax: true }));
+router.get('/admin/:category', gallery.getImagesFromCategory({ ajax: true }));
 
 router.get('/:category', gallery.getImagesFromCategory(), galleryController.category);
 router.post('/:cateogry', gallery.upload({ ajax: true }));
