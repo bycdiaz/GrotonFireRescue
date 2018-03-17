@@ -5,7 +5,8 @@ block content
     h1 Gallery
 
     for category in galleryObj
-      .itemBox
-        a(href=`/gallery/${category.category}`)
-          h3= category.category
-          img(src=`${category.thumbnail}`, alt="thumbnail")
+      if category.thumbnail
+        .itemBox
+          a(href=`/gallery/${category.category}`)
+            h3= category.category
+            img(src=`${category.thumbnail}`, alt="thumbnail")
