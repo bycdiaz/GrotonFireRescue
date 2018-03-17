@@ -36,7 +36,7 @@
   width: 67%;
 }
 
-.card .adminControls { 
+.card .adminControls {
   float: right;
   margin-top: 15px;
 }
@@ -45,3 +45,26 @@
   display: block;
 }
 
+.modal{
+  position: absolute;
+  top: 130px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(128, 128, 128, 0.59);
+}
+
+.modal .messageBox {
+  opacity: 1;
+  position: relative;
+  background-color: white;
+  left: 0;
+  right: 0;
+  top: 100px;
+  width: 585px;
+  /* height: 200px; */
+  text-align: center;
+  margin: auto;
+  padding: 100px 0;
+  z-index: 101;
+}

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const jimp = require('jimp');
 
 mongoose.Promise = global.Promise;
 const Page = mongoose.model('Page');
@@ -16,7 +17,6 @@ exports.home = (req, res, next) => {
 exports.editHome = (req, res, next) => {
   Page.find().sort({ pageID: 'asc' })
     .then((pages) => {
-      console.log(pages);
       res.render('editHome', { pages });
     })
     .catch((err) => {
@@ -34,6 +34,16 @@ exports.updateHome = (req, res) => {
   });
 
   Promise.all(promises)
-    .then(() => { res.status(201).send(); })
+    .then(() => { res.status(201).send(''); })
     .catch((err) => { res.status(503).json(err); });
+};
+
+exports.uploadImages = (req, res) => { // TODO - test extensively for issues with upload ordering
+  Promise.all(req.files.map((file, index) => jimp.read(file.buffer)
+    .then((image) => {
+      image.resize(600, jimp.AUTO);
+      image.write(`public/images/home/${index}.jpg`);
+    })))
+    .then(() => res.status(201).send(''))
+    .catch(err => res.status(500).send(err));
 };
