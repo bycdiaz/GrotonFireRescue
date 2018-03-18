@@ -30,7 +30,8 @@ exports.createTrainingDay = (req, res, next) => { // TODO - combine with update 
     title: req.body.title,
     info: req.body.info,
     location: req.body.location,
-    date: formatStartEndDateTime(req.body),
+    date: getDateObj(req.body),
+    trainingType: req.body.repeat ? 'repeat' : 'special',
   });
 
   trainingDay.save()
@@ -45,6 +46,23 @@ exports.updateTrainingDay = (req, res) => { // TODO make this work
   res.json(req.body);
   // Training.findOneAndUpdate({_id: req.body.id, req.body})
 };
+
+function getDateObj(body) {
+  if (body.repeat) {
+    return {
+      start: formatRepeatStartTime(body),
+      other: body.other,
+    };
+  }
+  return formatStartEndDateTime(body);
+}
+
+function formatRepeatStartTime(body) {
+  const date = new Date();
+  const startHour = convertTo24(body.hour, body.period);
+  date.setHours(startHour, body.minute, 0, 0);
+  return date;
+}
 
 function formatStartEndDateTime(body) {
   const startHour = convertTo24(body.hour, body.period);
