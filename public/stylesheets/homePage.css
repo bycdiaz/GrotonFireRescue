@@ -72,3 +72,9 @@
 .inner .info:nth-child(even) pre {
   float: left;
 }
+
+@media (max-width: 2000px) {
+  .title {
+  top: 112px;
+  }
+}
