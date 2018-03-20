@@ -3,9 +3,13 @@
   position: relative;
   border-color: #b8860b;
   border-style: solid;
+  padding: 58px 0px;
+  border-bottom-width: 3px;
+}
+
+.repeatTraining {
   border-top-width: 3px;
   border-bottom-width: 3px;
-  padding: 58px 0px;
 }
 
 
@@ -60,6 +64,16 @@
   box-shadow: 1px 1px 3px 1px #b7b7b7;
   margin: 10px 0px;
   background-color: #f5f5f5;
+}
+
+.training h4 {
+  margin-bottom: 24px;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #232f3c;
+  border-bottom: solid #232f3c 1px;
+  position: relative;
+  width: 261px;
 }
 
 .hidden {

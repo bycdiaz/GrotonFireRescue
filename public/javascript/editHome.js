@@ -15,7 +15,8 @@ function uploadImages() {
   const imageFields = document.querySelectorAll('input[type=file]');
   const formData = new FormData();
 
-  imageFields.forEach((imageField) => {
+  imageFields.forEach((imageField, index) => {
+    formData.append(imageField.files[0] ? imageField.files[0].name : 'No Image', index);
     formData.append('images', imageField.files[0]);
   });
 
