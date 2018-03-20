@@ -1,5 +1,31 @@
+.inner h1 {
+  border-bottom: 3px solid #b8860b;
+  padding-bottom: 60px;
+  margin-bottom: 75px;
+}
+
 .images {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: flex-end;
 }
+
+.card {
+  border: 2px solid white;
+  box-shadow: 2px 1px 7px 1px black;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  width: 250px;
+}
+
+.card a {
+  text-decoration: none;
+  color: #232f3c;
+  text-decoration-line: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.card h4 {padding: 10px;}
