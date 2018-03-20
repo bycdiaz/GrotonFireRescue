@@ -5,9 +5,11 @@ block stylesheets
 
 
 block content
-  .images
-    for card in cards
-      .card
-        p= card.imageName
-        a(href= card.imageURL)
-          img(src= card.thumbURL)
+  .inner
+    h1= categoryName
+    .images
+      for card in cards
+        .card
+          a(href= card.imageURL)
+            img(src= card.thumbURL)
+            h4= card.imageName
