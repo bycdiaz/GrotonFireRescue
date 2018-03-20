@@ -149,11 +149,12 @@ function createGallery(options = {}) {
     });
   }
 
-  function generateCategoryCards(categories) {
+
+  function generateCategoryCards(categories, funcOptions = {}) {
     return Promise.all(categories.map(category => getCategoryThumbnails(category)
       .then(thumbnails => ({
         category,
-        thumbnail: thumbnails[0],
+        thumbnails,
       }))
       .catch(err => err)));
   }
