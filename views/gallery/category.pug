@@ -1,7 +1,13 @@
 extends ../layout
 
+block stylesheets
+    link(rel="stylesheet" href="/stylesheets/category.css")
+
+
 block content
-  for card in cards
-    p= card.imageName
-    a(href= card.imageURL)
-      img(src= card.thumbURL)
+  .images
+    for card in cards
+      .card
+        p= card.imageName
+        a(href= card.imageURL)
+          img(src= card.thumbURL)
