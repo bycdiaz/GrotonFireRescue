@@ -33,7 +33,7 @@ function categoryChangeHandler(e) {
 }
 
 function submitHandler(e) {
-  if (newCategoryBox.value === '') handleUserError(new Error('No Category Selected'), 'You must enter a category name or select a category');
+  if (newCategoryBox.value === '' && categoryDropdown.selectedIndex === 0) handleUserError(new Error('No Category Selected'), 'You must enter a category name or select a category');
   if (categoryDropdown.selectedIndex === 0 && newCategoryBox.value !== '') { // TODO REFACTOR
     e.target.value = 'Uploading...';
     e.target.setAttribute('disabled', true);
