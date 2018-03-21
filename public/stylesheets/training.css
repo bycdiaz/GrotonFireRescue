@@ -3,12 +3,11 @@
   position: relative;
   border-color: #b8860b;
   border-style: solid;
-  padding: 58px 0px;
+  padding: 60px 0px;
   border-bottom-width: 3px;
 }
 
 .repeatTraining {
-  border-top-width: 3px;
   border-bottom-width: 3px;
 }
 
