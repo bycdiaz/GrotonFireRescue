@@ -23,4 +23,8 @@ const winnerSchema = mongoose.Schema({
   },
 });
 
+winnerSchema.virtual('fullName').get(function fullName() {
+  return `${this.name.first} ${this.name.last}`;
+});
+
 module.exports = mongoose.model('Winner', winnerSchema);
