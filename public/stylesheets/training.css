@@ -3,14 +3,10 @@
   position: relative;
   border-color: #b8860b;
   border-style: solid;
-  padding: 45px 0px 45px 0px;
+  padding: 0px 0px 50px 0px;
   border-bottom-width: 3px;
+  margin-bottom: 50px;
 }
-
-.repeatTraining {
-  border-bottom-width: 3px;
-}
-
 
 .training .cardInfo {
   background-color: #ededed;
