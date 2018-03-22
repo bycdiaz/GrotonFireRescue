@@ -1,12 +1,26 @@
 extends ../layout
 
+block stylesheets
+    link(rel="stylesheet", href="/stylesheets/gallery.css")
+
+
 block content
   .inner
     h1 Gallery
 
-    for category in galleryObj
-      if category.thumbnail
-        .itemBox
-          a(href=`/gallery/${category.category}`)
-            h3= category.category
-            img(src=`${category.thumbnail}`, alt="thumbnail")
+    .categories
+      for category in galleryObj
+        if category.thumbnails[0]
+          .itemBox
+            a(href=`/gallery/${category.category}`)
+              .thumbNails
+              - i = 0
+              - offset = 15
+              - zIndex = 3
+              while i < 3 && i < category.thumbnails.length
+                .thumbContainer(style=`bottom:${offset}px; left:${offset}px; z-index: ${zIndex}`)
+                  img(src=category.thumbnails[i] alt="thumbnail" )
+                - i++
+                - offset += 15
+                - zIndex -= 1
+              h3= category.category

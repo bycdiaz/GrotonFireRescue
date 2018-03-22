@@ -1,0 +1,37 @@
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  position: relative;
+  margin-top: 70px;
+}
+
+.itemBox {
+  position: relative;
+  width: 295px;
+  height: 219px;
+  /* border: 1px solid black; */
+  margin-bottom: 10px;
+}
+
+.itemBox .thumbContainer {
+  width: 230px;
+  height: 140px;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 2px 3px 6px 1px #00000069;
+  border: 2px solid #ffffff;
+  border-bottom: 7px solid white;
+}
+
+.itemBox h3 {
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  font-size: 2.3em;
+  text-decoration: none;
+  color: #232f3c;
+  background-color: white;
+  box-shadow: 3px 2px 6px 1px #232f3ca1;
+}

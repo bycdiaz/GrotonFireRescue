@@ -15,10 +15,11 @@ const trainingSchema = mongoose.Schema({
   date: {
     start: {
       type: Date,
-      required: 'You must enter a date and time',
     },
     end: Date,
+    other: String,
   },
+  trainingType: String,
 });
 
 trainingSchema.virtual('dateTimeRange').get(function formatDate() { // TODO rename to formatDate
@@ -26,6 +27,11 @@ trainingSchema.virtual('dateTimeRange').get(function formatDate() { // TODO rena
   return date.toLocaleDateString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit',
   });
+});
+
+trainingSchema.virtual('whenMessage').get(function formatDate() {
+  const time = this.date.start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  return `${this.date.other} - ${time}`;
 });
 
 trainingSchema.methods.hoursIn12 = function hoursIn12(date) {

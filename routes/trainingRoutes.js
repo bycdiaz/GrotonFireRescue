@@ -6,7 +6,7 @@ const trainingController = require('../controllers/trainingController.js');
 
 router.get('/', trainingController.trainingSchedule);
 router.get('/new', trainingController.editTrainingDay);
-router.post('/new', trainingController.updateTrainingDay);
+router.post('/new', trainingController.createTrainingDay);
 
 router.get('/edit/:id', trainingController.editTrainingDay);
 router.post('/edit/:id', trainingController.updateTrainingDay);

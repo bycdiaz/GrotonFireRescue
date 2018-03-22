@@ -53,18 +53,19 @@ header .primary-nav li a {
 .inner {
   position: relative;
   width: 85%;
-  padding-bottom: 90px;
+  /* padding-bottom: 90px;  for footer*/
   margin: auto;
   text-align: left;
 }
 
 .inner h1 {
   font-size: 6.5em;
-  margin-bottom: 46px;
-  margin-top: -4%;
-  padding-bottom: 0px;
+  margin-top: 20px;
   font-family: 'Alfa Slab One', cursive;
   text-align: center;
+  border-bottom: 3px solid #b8860b;
+  padding-bottom: 60px;
+  margin-bottom: 0px;
 }
 
 .inner pre {

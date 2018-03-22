@@ -5,27 +5,57 @@ block stylesheets
 
 
 block content
+
+  - const anyRepeats = trainingDays.some((day) => day.trainingType === 'repeat')
+  - const anySpecial = trainingDays.some((day) => day.trainingType === 'special')
+
   .inner
-    h1 Training
-    .training
-      for day in trainingDays
-        .card(id= day._id)
+    if(anyRepeats)
+      h1 Training/Meetings
+      .repeatTraining.training
+        h4 Repeat Trainings/Meetings
+        for day in trainingDays
+          if (day.trainingType === 'repeat')
+            .card(id= day._id)
 
-          if user
-            .adminControls
-              button(type="button").delete delete
-              button(type="button").edit edit
+              if user
+                .adminControls
+                  button(type="button").edit edit
+                  button(type="button").delete delete
 
-          .cardInfo
-            .cardTitle
-              h3.title= day.title
-              p.location= day.location
-              p.date= day.dateTimeRange
-              .arrowButton
-                .arrow
-              .accentLine.hidden
-            .dropDown.hidden
-              p.info= day.info
+              .cardInfo
+                .cardTitle
+                  h3.title= day.title
+                  p.location= day.location
+                  p.date= day.whenMessage
+                  .arrowButton
+                    .arrow
+                  .accentLine.hidden
+                .dropDown.hidden
+                  p.info= day.info
+
+    if(anySpecial)
+      .training
+        h4 Special Trainings/Meetings
+        for day in trainingDays
+          if (day.trainingType === 'special')
+            .card(id= day._id)
+
+              if user
+                .adminControls
+                  button(type="button").delete delete
+                  button(type="button").edit edit
+
+              .cardInfo
+                .cardTitle
+                  h3.title= day.title
+                  p.location= day.location
+                  p.date= day.dateTimeRange
+                  .arrowButton
+                    .arrow
+                  .accentLine.hidden
+                .dropDown.hidden
+                  p.info= day.info
 
 
 block scripts
