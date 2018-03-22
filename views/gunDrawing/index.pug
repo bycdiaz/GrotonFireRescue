@@ -1,5 +1,18 @@
 extends ../layout
 
+block stylesheets
+  link(rel="stylesheet", href="/stylesheets/gunDrawing.css")
+
+
 block content
-  h1 Gun Drawing
-  p= winners
+  .inner
+    h1 Gun-Drawing Winners
+
+    p Please note: You have one year from your win date to pick up your gun
+    br
+    for winner in winners
+      .card
+        h3.name= winner.fullName
+        p.gun= winner.gun
+        p.date= winner.date
+        .shortLine
