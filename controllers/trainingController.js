@@ -51,6 +51,7 @@ function getDateObj(body) {
   if (body.repeat) {
     return {
       start: formatRepeatStartTime(body),
+      end: formatRepeatEndTime(body),
       other: body.other,
     };
   }
@@ -61,6 +62,13 @@ function formatRepeatStartTime(body) {
   const date = new Date();
   const startHour = convertTo24(body.hour, body.period);
   date.setHours(startHour, body.minute, 0, 0);
+  return date;
+}
+
+function formatRepeatEndTime(body) {
+  const date = new Date();
+  const endHour = convertTo24(body.endHour, body.endPeriod);
+  date.setHours(endHour, body.endMinute, 0, 0);
   return date;
 }
 

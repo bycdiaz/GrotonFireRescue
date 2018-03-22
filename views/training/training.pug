@@ -10,8 +10,12 @@ block content
   - const anySpecial = trainingDays.some((day) => day.trainingType === 'special')
 
   .inner
+    h1 Training/Meetings
+
+    if(user)
+      a.addTraining(href="/training/new") New Training Item
+
     if(anyRepeats)
-      h1 Training/Meetings
       .repeatTraining.training
         h4 Repeat Trainings/Meetings
         for day in trainingDays
