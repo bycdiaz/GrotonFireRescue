@@ -13,6 +13,7 @@ require('./models/Firefighter');
 require('./models/Admin');
 require('./models/Info');
 require('./models/Training');
+require('./models/GunWinner');
 
 const app = require('./app');
 

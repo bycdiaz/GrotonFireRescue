@@ -1,0 +1,29 @@
+.inner .card {
+  padding: 10px 0;
+  color: #232f3c;
+}
+
+.inner .card:nth-child(odd) {
+  background-color: #efefef;
+}
+
+.inner .card .name {
+  color: #232f3c;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.inner .card .gun {
+  color: #314050;
+}
+
+.inner .card .date {
+  color: #314050;
+}
+
+.shortLine {
+  width: 122px;
+  border-bottom: 2px solid #9f2122;
+  padding-top: 5px;
+}

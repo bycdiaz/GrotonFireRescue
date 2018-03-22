@@ -3,7 +3,7 @@ exports.index = (req, res) => {
 };
 
 exports.category = (req, res) => {
-  res.render('gallery/category', { cards: req.gallery });
+  res.render('gallery/category', { cards: req.gallery, categoryName: req.params.category });
 };
 
 exports.editGallery = (req, res) => {
