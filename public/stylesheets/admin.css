@@ -72,3 +72,15 @@
 form {
   margin-top: 60px;
 }
+
+.addTraining {
+  position: absolute;
+  top: 115px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 7%;
+  background-color: #9f2122;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: bold;
+}
