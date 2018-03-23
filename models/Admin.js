@@ -4,7 +4,6 @@ mongoose.Promise = global.Promise;
 
 const passportLocalMongoose = require('passport-local-mongoose');
 const validator = require('validator');
-const md5 = require('md5');
 
 const adminSchema = new mongoose.Schema({
   name: {
@@ -23,7 +22,11 @@ const adminSchema = new mongoose.Schema({
     required: 'Please supply an email address',
   },
   resetPasswordToken: String,
-  resetPasswordExpires: Date
+  resetPasswordExpires: Date,
+  isSuperAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 adminSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
