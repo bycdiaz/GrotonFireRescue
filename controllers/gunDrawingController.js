@@ -30,3 +30,15 @@ exports.createWinner = (req, res, next) => {
     })
     .catch(next);
 };
+}
+
+exports.updateWinner = (req, res, next) => {
+  const winner = makeWinnerObj(req.body);
+
+  Winner.findByIdAndUpdate(req.params.id, winner)
+    .then(() => {
+      res.redirect('/gun-drawing');
+    })
+    .catch(next);
+};
+
