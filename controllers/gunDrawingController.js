@@ -30,7 +30,7 @@ exports.editWinner = (req, res, next) => {
       res.render('gunDrawing/editWinner', { winner });
     })
     .catch(next);
-}
+};
 
 exports.updateWinner = (req, res, next) => {
   const winner = makeWinnerObj(req.body);
