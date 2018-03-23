@@ -23,3 +23,13 @@ exports.isLoggedIn = (req, res, next) => {
   req.flash('You must be logged in to do that');
   res.redirect('/admin');
 };
+
+exports.isSuperAdmin = (req, res, next) => {
+  Admin.findOne({ email: req.user.email })
+    .then((admin) => {
+      if (admin.isSuperAdmin) return next();
+      req.flash('You must be a super Admin to do that');
+      return res.redirect('/admin/panel');
+    })
+    .catch(next);
+};
