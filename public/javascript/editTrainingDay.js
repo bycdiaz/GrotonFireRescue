@@ -25,7 +25,7 @@ function createOtherBox() {
 
   const textBox = document.createElement('input');
   otherFieldset.appendChild(textBox);
-  textBox.type = 'input';
+  textBox.type = 'text';
   textBox.name = 'other';
 
   return otherFieldset;
