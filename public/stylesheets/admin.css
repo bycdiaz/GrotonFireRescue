@@ -84,3 +84,16 @@ form {
   text-decoration: none;
   font-weight: bold;
 }
+
+.howTo {
+  margin: 20px 0;
+}
+
+.howTo h4 {
+  font-size: 2em;
+  padding-bottom: 10px;
+}
+
+em {
+  font-weight: bold;
+}
