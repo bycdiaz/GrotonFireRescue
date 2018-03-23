@@ -42,6 +42,15 @@ exports.updateWinner = (req, res, next) => {
     .catch(next);
 };
 
+exports.deleteWinner = (req, res) => {
+  Winner.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.status(204).send();
+    })
+    .catch(() => {
+      res.status(500).send();
+    });
+};
 
 function makeWinnerObj(body) {
   const date = new Date(body.year, body.month - 1, body.day);
