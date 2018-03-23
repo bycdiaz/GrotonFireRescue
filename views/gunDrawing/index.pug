@@ -7,12 +7,22 @@ block stylesheets
 block content
   .inner
     h1 Gun-Drawing Winners
+    if(user)
+      a.adminButton(href="gun-drawing/add") Add Winner
 
     p Please note: You have one year from your win date to pick up your gun
     br
     for winner in winners
-      .card
+      .card(id=winner._id)
+        if user
+          .adminControls
+            button(type="button").edit edit
+            button(type="button").delete delete
         h3.name= winner.fullName
         p.gun= winner.gun
         p.date= winner.date
         .shortLine
+
+block scripts
+  if user
+    script(src="/javascript/adminGunDrawing.js")

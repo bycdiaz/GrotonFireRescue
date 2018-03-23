@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const passport = require('passport');
+
 const Admin = mongoose.model('Admin');
 
 
