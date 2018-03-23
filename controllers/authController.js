@@ -25,11 +25,7 @@ exports.isLoggedIn = (req, res, next) => {
 };
 
 exports.isSuperAdmin = (req, res, next) => {
-  Admin.findOne({ email: req.user.email })
-    .then((admin) => {
-      if (admin.isSuperAdmin) return next();
-      req.flash('You must be a super Admin to do that');
-      return res.redirect('/admin/panel');
-    })
-    .catch(next);
+  if (req.user.isSuperAdmin) { return next(); }
+  req.flash('You must be a superAdmin to do that');
+  return res.redirect('/admin');
 };
