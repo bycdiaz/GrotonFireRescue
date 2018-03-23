@@ -7,16 +7,22 @@ block content
     form(method="POST" id="trainingForm")
       .repeat
         label(for="repeat") Repeat Training?
-        input(type="checkbox" name="repeat" id="repeat" value="repeat")
+        input(type="checkbox" name="repeat" id="repeat" value="repeat" checked= trainingDay ? trainingDay.trainingType === 'repeat' : false)
       .trainingTitle
         label(for="title") Title
         input(type="text" name="title" placeholder="Truck Training" required value= trainingDay ? trainingDay.title : "")
 
-      fieldset(name="date")
-        legend Date - mm/dd/yyyy
-        input(type='number' name='month' min='1' max='12' placeholder='3' required value= trainingDay ? trainingDay.date.start.getMonth() + 1 : "")
-        input(type='number' name='day'  min='1' max='31' placeholder='24' required value= trainingDay ? trainingDay.date.start.getDate() : "")
-        input(type='number' name='year'  min='2018' max='2099' placeholder='2018' required value= trainingDay ? trainingDay.date.start.getFullYear() : "")
+      if(trainingDay && trainingDay.trainingType === 'repeat')
+        fieldset(name='other')
+          legend(for='other') Dates/Other
+          input(type='text' name='other' value= trainingDay.date.other)
+
+      unless(trainingDay && trainingDay.trainingType === 'repeat')
+        fieldset(name="date")
+          legend Date - mm/dd/yyyy
+          input(type='number' name='month' min='1' max='12' placeholder='3' required value= trainingDay ? trainingDay.date.start.getMonth() + 1 : "")
+          input(type='number' name='day'  min='1' max='31' placeholder='24' required value= trainingDay ? trainingDay.date.start.getDate() : "")
+          input(type='number' name='year'  min='2018' max='2099' placeholder='2018' required value= trainingDay ? trainingDay.date.start.getFullYear() : "")
 
       fieldset(name='startTime')
         legend Start Time

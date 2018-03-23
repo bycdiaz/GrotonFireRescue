@@ -25,7 +25,7 @@ exports.editTrainingDay = (req, res, next) => {
     .catch(err => next(err));
 };
 
-exports.createTrainingDay = (req, res, next) => { // TODO - combine with update route
+exports.createTrainingDay = (req, res, next) => {
   const trainingDay = new Training({
     title: req.body.title,
     info: req.body.info,
@@ -42,15 +42,23 @@ exports.createTrainingDay = (req, res, next) => { // TODO - combine with update 
     .catch(err => next(err));
 };
 
-exports.updateTrainingDay = (req, res) => { // TODO make this work
-  res.json(req.body);
-  // Training.findOneAndUpdate({_id: req.body.id, req.body})
+exports.updateTrainingDay = (req, res, next) => {
+  Training.findByIdAndUpdate(req.params.id, {
+    title: req.body.title,
+    info: req.body.info,
+    localtion: req.body.location,
+    date: getDateObj(req.body),
+    trainingType: req.body.repeat ? 'repeat' : 'special',
+  }).then(() => {
+    res.redirect('/training');
+  }).catch(next);
 };
 
 function getDateObj(body) {
   if (body.repeat) {
     return {
       start: formatRepeatStartTime(body),
+      end: formatRepeatEndTime(body),
       other: body.other,
     };
   }
@@ -61,6 +69,13 @@ function formatRepeatStartTime(body) {
   const date = new Date();
   const startHour = convertTo24(body.hour, body.period);
   date.setHours(startHour, body.minute, 0, 0);
+  return date;
+}
+
+function formatRepeatEndTime(body) {
+  const date = new Date();
+  const endHour = convertTo24(body.endHour, body.endPeriod);
+  date.setHours(endHour, body.endMinute, 0, 0);
   return date;
 }
 
