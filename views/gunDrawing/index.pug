@@ -13,7 +13,7 @@ block content
     p Please note: You have one year from your win date to pick up your gun
     br
     for winner in winners
-      .card
+      .card(id=winner._id)
         if user
           .adminControls
             button(type="button").edit edit
@@ -22,3 +22,7 @@ block content
         p.gun= winner.gun
         p.date= winner.date
         .shortLine
+
+block scripts
+  if user
+    script(src="/javascript/adminGunDrawing.js")
