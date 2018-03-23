@@ -14,6 +14,10 @@ block content
     br
     for winner in winners
       .card
+        if user
+          .adminControls
+            button(type="button").edit edit
+            button(type="button").delete delete
         h3.name= winner.fullName
         p.gun= winner.gun
         p.date= winner.date
