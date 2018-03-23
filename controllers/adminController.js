@@ -18,8 +18,8 @@ exports.registerNewAdmin = (req, res, next) => {
   const admin = new Admin({ email: req.body.email, name: req.body.name });
   Admin.register(admin, req.body.password)
     .then(() => {
-    req.flash('success', 'You have registered');
-    res.redirect('/admin');
+      req.flash('success', 'You have registered');
+      res.redirect('/admin');
     })
     .catch(next);
 };
