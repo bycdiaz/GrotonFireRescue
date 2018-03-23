@@ -12,7 +12,7 @@ const adminSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     trim: true,
-    required: "Please supply a name"
+    required: 'Please supply a name',
   },
   email: {
     type: String,
@@ -20,12 +20,12 @@ const adminSchema = new mongoose.Schema({
     lowercase: true,
     trim: true,
     validate: [validator.isEmail, 'Invalid Email Address'],
-    required: "Please supply an email address"
+    required: 'Please supply an email address',
   },
   resetPasswordToken: String,
   resetPasswordExpires: Date
 });
 
-adminSchema.plugin(passportLocalMongoose, {usernameField: 'email'});
+adminSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 
 module.exports = mongoose.model('Admin', adminSchema);
