@@ -7,6 +7,8 @@ block stylesheets
 block content
   .inner
     h1 Gallery
+    if(user)
+      a.adminButton(href="/gallery/admin") Edit Gallery
 
     .categories
       for category in galleryObj
