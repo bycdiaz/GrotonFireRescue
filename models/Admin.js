@@ -21,13 +21,34 @@ const adminSchema = new mongoose.Schema({
     validate: [validator.isEmail, 'Invalid Email Address'],
     required: 'Please supply an email address',
   },
-  resetPasswordToken: String,
-  resetPasswordExpires: Date,
   isSuperAdmin: {
     type: Boolean,
     default: false,
   },
+  siteAdmin: {
+    type: Boolean,
+    default: false,
+  },
+  passReset: {
+    type: Boolean,
+    default: true,
+  },
+  resetToken: {
+    token: String,
+    expires: {
+      type: Date,
+      default: expireDate(),
+    },
+  },
+  firstLogin: {
+    type: Boolean,
+    default: true,
+  },
 });
+
+function expireDate() {
+  return new Date(Date.now() + 864e5);
+}
 
 adminSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 
