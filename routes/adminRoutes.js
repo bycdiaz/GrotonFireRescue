@@ -12,4 +12,8 @@ router.get('/logout', authController.logout);
 router.get('/panel', adminController.adminPanel);
 router.get('/password-reset', authController.resetPasswordPage);
 router.post('/password-reset', authController.resetPassword);
+
+router.post('/:id/remove', authController.removeAdmin);
+router.post('/:id/resetPassword', authController.resetPassword);
+// router.post('/:id/setSuperAdmin', authController.setSuperAdmin); // TODO - maybe
 module.exports = router;
