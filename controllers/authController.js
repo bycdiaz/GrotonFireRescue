@@ -100,6 +100,42 @@ exports.resetPassword = (req, res, next) => {
   })(req, res, next);
 };
 
+exports.resetPassword = (req, res) => {
+  const resetToken = randomResetToken();
+  Admin.findByIdAndUpdate(req.body.id, {
+    passReset: true,
+    resetToken: {
+      token: resetToken,
+    },
+  })
+    .then(() => {
+      res.status(202).json({ resetToken });
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+};
+
+exports.removeAdmin = (req, res) => {
+  Admin.findByIdAndRemove(req.body.id)
+    .then(() => {
+      res.status(204).send('');
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+};
+
+exports.setSuperAdmin = (req, res) => {
+  Admin.findByIdAndUpdate(req.body.id, { isSuperAdmin: true })
+    .then(() => {
+      res.status(202).send('');
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+};
+
 
 function randomResetToken() {
   return Math.floor(Math.random() * (9999 - (1111 + 1))) + 1111;
