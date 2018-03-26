@@ -126,7 +126,7 @@ exports.removeAdmin = (req, res) => {
     });
 };
 
-exports.setSuperAdmin = (req, res) => {
+exports.setSuperAdmin = (req, res) => { // TODO - make toggleable
   Admin.findByIdAndUpdate(req.body.id, { isSuperAdmin: true })
     .then(() => {
       res.status(202).send('');
