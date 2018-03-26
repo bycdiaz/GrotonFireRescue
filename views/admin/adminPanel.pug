@@ -23,11 +23,15 @@ block content
         .admins
           h5 Admins
           for admin in admins
-            if (!admin.siteAdmin)
+            if (!admin.siteAdmin && !admin.isSuperAdmin)
               .adminCard(id=admin._id)
                 h6= `Name: ${admin.name}`
                 h6= `Login Email: ${admin.email}`
                 label(for='superAdminStatus') Super Admin?
-                input(type='checkbox' name='superAdminStatus' checked= admin.isSuperAdmin)
+                //- input(type='checkbox' name='superAdminStatus' checked= admin.isSuperAdmin)
                 input.reset(type='button' name='resetPassword' value="Reset Password")
                 input.remove(type='button' name='removeAdmin' value='Remove Admin')
+
+block scripts
+  if (user.isSuperAdmin)
+    script(src="/javascript/adminPanel.js")
