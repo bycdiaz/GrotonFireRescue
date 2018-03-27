@@ -50,6 +50,10 @@ function expireDate() {
   return new Date(Date.now() + 864e5);
 }
 
+adminSchema.virtual('resetToken.isNotExpired').get(function isTokenExpired() {
+  return this.resetToken.expires > Date.now();
+});
+
 adminSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 
 module.exports = mongoose.model('Admin', adminSchema);
