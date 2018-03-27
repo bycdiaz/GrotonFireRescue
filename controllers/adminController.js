@@ -17,7 +17,7 @@ exports.validateRegister = (req, res, next) => {
 exports.adminPanel = (req, res, next) => {
   Admin.find()
     .then((admins) => {
-      res.render('admin/adminPanel', { admins });
+      res.render('admin/adminPanel', { admins, defaultPassword: process.env.DEFAULT_ADMIN_PASSWORD });
     })
     .catch(next);
 };
