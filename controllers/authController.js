@@ -100,14 +100,19 @@ exports.resetPassword = (req, res, next) => {
   })(req, res, next);
 };
 
-exports.resetPassword = (req, res) => {
+exports.forceResetPassword = (req, res) => {
   const resetToken = randomResetToken();
-  Admin.findByIdAndUpdate(req.body.id, {
+  Admin.findByIdAndUpdate(req.params.id, {
     passReset: true,
     resetToken: {
       token: resetToken,
     },
   })
+    .then((admin) => {
+      admin.setPassword(process.env.DEFAULT_ADMIN_PASSWORD, () => {
+        admin.save();
+      });
+    })
     .then(() => {
       res.status(202).json({ resetToken });
     })
@@ -117,13 +122,33 @@ exports.resetPassword = (req, res) => {
 };
 
 exports.removeAdmin = (req, res) => {
-  Admin.findByIdAndRemove(req.body.id)
+  Admin.findByIdAndRemove(req.params.id)
     .then(() => {
       res.status(204).send('');
     })
     .catch((err) => {
       res.status(500).send(err);
     });
+};
+
+exports.selfResetPasswordForm = (req, res) => {
+  res.render('admin/selfResetPasswordForm');
+};
+
+exports.selfResetPassword = (req, res) => {
+  if (req.body.newPassword !== req.body.confirmPassword) {
+    req.flash('failure', 'passwords did not match');
+    return res.redirect('/admin/reset-my-password');
+  }
+  req.user.changePassword(req.body.password, req.body.newPassword, (err) => {
+    if (err) {
+      req.flash('failure', 'your password is incorrect, try again or contact the site admin');
+      res.redirect('/admin/reset-my-password');
+    }
+
+    req.flash('success', 'your password has been updated');
+    res.redirect('/admin/panel');
+  });
 };
 
 exports.setSuperAdmin = (req, res) => { // TODO - make toggleable
@@ -142,7 +167,7 @@ function randomResetToken() {
 }
 
 function validateToken(user, token) {
-  if (user.resetToken.expires > Date.now() && user.resetToken.token === token) {
+  if (user.resetToken.isNotExpired && user.resetToken.token === token) {
     return true;
   }
   return false;
