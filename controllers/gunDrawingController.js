@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 const Winner = mongoose.model('Winner');
 
 exports.index = (req, res) => {
-  Winner.find()
+  Winner.find().sort({ date: -1 })
     .then((winners) => {
       res.render('gunDrawing/index', { winners });
     });
