@@ -20,7 +20,7 @@ block content
             button(type="button").delete delete
         h3.name= winner.fullName
         p.gun= winner.gun
-        p.date= winner.date
+        p.date= winner.date.toDateString()
         .shortLine
 
 block scripts
