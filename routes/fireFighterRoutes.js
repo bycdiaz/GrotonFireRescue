@@ -1,12 +1,12 @@
-const express = require('express');
+// const express = require('express');
 
-const router = express.Router();
+// const router = express.Router();
 
-const fireFighterController = require('../controllers/fireFighterController.js');
+// const fireFighterController = require('../controllers/fireFighterController.js');
 
-router.get('/', fireFighterController.fireFighters);
+// router.get('/', fireFighterController.fireFighters);
 
-router.get('/edit', fireFighterController.editFirefightersForm);
-router.post('/edit', fireFighterController.editFirefighters);
+// router.get('/edit', fireFighterController.editFirefightersForm);
+// router.post('/edit', fireFighterController.editFirefighters);
 
-module.exports = router;
+// module.exports = router;

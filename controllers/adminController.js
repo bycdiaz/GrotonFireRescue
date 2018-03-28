@@ -11,19 +11,13 @@ exports.addAdminForm = (req, res) => {
 };
 
 exports.validateRegister = (req, res, next) => {
-  // validation of input for admin
+  // TODO - validation of input for admin
 };
 
-exports.registerNewAdmin = (req, res, next) => {
-  const admin = new Admin({ email: req.body.email, name: req.body.name });
-  Admin.register(admin, req.body.password)
-    .then(() => {
-      req.flash('success', 'You have registered');
-      res.redirect('/admin');
+exports.adminPanel = (req, res, next) => {
+  Admin.find()
+    .then((admins) => {
+      res.render('admin/adminPanel', { admins, defaultPassword: process.env.DEFAULT_ADMIN_PASSWORD });
     })
     .catch(next);
-};
-
-exports.adminPanel = (req, res) => {
-  res.render('admin/adminPanel');
 };

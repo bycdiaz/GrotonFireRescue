@@ -89,11 +89,41 @@ form {
   margin: 20px 0;
 }
 
-.howTo h4 {
+.admins {
+  margin: 10px 0;
+}
+
+.adminCard {
+  padding: 10px 10px;
+  border-left: 1px solid black;
+}
+
+.adminCard:nth-child(odd) {
+  background-color: #d2d2d2;
+}
+
+h3 {
   font-size: 2em;
   padding-bottom: 10px;
 }
 
+.superAdminManager h4 {
+  margin-bottom: 20px;
+}
+
+.superAdminManager h5 {
+  font-size: 1.5em;
+  padding-bottom: 8px;
+}
+
+h6 {
+  font-size: 1.3em;
+}
+
 em {
   font-weight: bold;
+}
+
+.links {
+  margin-bottom: 20px;
 }
