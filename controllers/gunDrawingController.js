@@ -15,18 +15,51 @@ exports.addWinner = (req, res) => {
 };
 
 exports.createWinner = (req, res, next) => {
-  const date = new Date(req.body.year, req.body.month - 1, req.body.day);
-  const winner = new Winner({
-    name: {
-      first: req.body.firstName,
-      last: req.body.lastName,
-    },
-    gun: req.body.gun,
-    date,
-  });
+  const winner = new Winner(makeWinnerObj(req.body));
+
   winner.save()
     .then(() => {
       res.redirect('/gun-drawing/add');
     })
     .catch(next);
 };
+
+exports.editWinner = (req, res, next) => {
+  Winner.findById(req.params.id)
+    .then((winner) => {
+      res.render('gunDrawing/editWinner', { winner });
+    })
+    .catch(next);
+};
+
+exports.updateWinner = (req, res, next) => {
+  const winner = makeWinnerObj(req.body);
+
+  Winner.findByIdAndUpdate(req.params.id, winner)
+    .then(() => {
+      res.redirect('/gun-drawing');
+    })
+    .catch(next);
+};
+
+exports.deleteWinner = (req, res) => {
+  Winner.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.status(204).send();
+    })
+    .catch(() => {
+      res.status(500).send();
+    });
+};
+
+function makeWinnerObj(body) {
+  const date = new Date(body.year, body.month - 1, body.day);
+  return {
+    name: {
+      first: body.firstName,
+      last: body.lastName,
+    },
+    gun: body.gun,
+    date,
+  };
+}

@@ -4,7 +4,6 @@ mongoose.Promise = global.Promise;
 
 const passportLocalMongoose = require('passport-local-mongoose');
 const validator = require('validator');
-const md5 = require('md5');
 
 const adminSchema = new mongoose.Schema({
   name: {
@@ -12,7 +11,7 @@ const adminSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     trim: true,
-    required: "Please supply a name"
+    required: 'Please supply a name',
   },
   email: {
     type: String,
@@ -20,12 +19,41 @@ const adminSchema = new mongoose.Schema({
     lowercase: true,
     trim: true,
     validate: [validator.isEmail, 'Invalid Email Address'],
-    required: "Please supply an email address"
+    required: 'Please supply an email address',
   },
-  resetPasswordToken: String,
-  resetPasswordExpires: Date
+  isSuperAdmin: {
+    type: Boolean,
+    default: false,
+  },
+  siteAdmin: {
+    type: Boolean,
+    default: false,
+  },
+  forcePassReset: {
+    type: Boolean,
+    default: true,
+  },
+  resetToken: {
+    token: String,
+    expires: {
+      type: Date,
+      default: expireDate(),
+    },
+  },
+  firstLogin: {
+    type: Boolean,
+    default: true,
+  },
 });
 
-adminSchema.plugin(passportLocalMongoose, {usernameField: 'email'});
+function expireDate() {
+  return new Date(Date.now() + 864e5);
+}
+
+adminSchema.virtual('resetToken.isNotExpired').get(function isTokenExpired() {
+  return this.resetToken.expires > Date.now();
+});
+
+adminSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 
 module.exports = mongoose.model('Admin', adminSchema);

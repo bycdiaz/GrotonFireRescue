@@ -15,7 +15,7 @@ require('./handlers/passport');
 
 const app = express();
 
-global.__rootDir = __dirname;
+global.__rootDir = __dirname; // TODO - see if this can be removed
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

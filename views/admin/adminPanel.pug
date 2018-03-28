@@ -4,7 +4,52 @@ extends ../layout
 block content
   .inner
     h1 Admin Panel
+    .howTo
+      h3 How To Use:
+      p To edit a page (other than the home page), navigate to the page with the links in the header.
+      p Any other miscellaneous items can be found here. If you find any issues, please email briggs at
+      p <em>briggse@protonmail.com</em> or call/text at <em>605-290-0225</em>. Feature requests are welcome as well.
+      br
+      p Note: The stylizing of the admin pages will be improved upon in the future.
+
     .links
+      a(href='reset-my-password') Reset password
       a(href="/edit") Edit Homepage
-      a(href="../training/new") New training Item
-      a(href='../gallery/admin') Edit Gallery
+
+    if (user.isSuperAdmin)
+      .superAdminManager
+        h3 Super-Admin Controls
+        .thinLine
+
+        h4 Adding Admins:
+        p When adding Admins, the default password ( #{defaultPassword} ), and the admin's reset token will be needed
+        p Give the new admin the default password and the token, which is listed next to their name listed below
+        p Instruct the new admin to go to the homepage and add '/admin' to the end of the URL eg. 'http://www.grotonfiredept.com/admin'
+        p The new admin can then sign in with their email and the default password, which will take them to the reset page
+        p where they can enter their default password and the token, along with their new password that they chose
+        br
+        h4 Resetting Passwords:
+        p When resetting an admin's password (in case they forgot or for security issues), a reset token will be generated
+        p and the password will be set back to the default password ( #{defaultPassword} ), the admin who has their password reset
+        p will need to enter those at the reset password link: 'http://www.grotonfiredept.com/admin/password-reset'.
+        p Note: Admins can reset their own password by going to 'http://www.grotonfiredept.com/admin/reset-my-password'
+        br
+        a.addAdmin(href="/admin/add") Add New Admin
+        p Default Password: #{defaultPassword}
+        p Reset tokens are valid for 24 hours
+        .admins
+          h5 Admins
+          for admin in admins
+            if (!admin.siteAdmin && !admin.isSuperAdmin)
+              .adminCard(id=admin._id)
+                h6= `Name: ${admin.name}`
+                h6= `Login Email: ${admin.email}`
+                p.token= admin.resetToken.isNotExpired ? `Reset Token: ${admin.resetToken.token}` : ''
+                //- label(for='superAdminStatus') Super Admin?
+                //- input(type='checkbox' name='superAdminStatus' checked= admin.isSuperAdmin)
+                input.reset(type='button' name='resetPassword' value="Reset Password")
+                input.remove(type='button' name='removeAdmin' value='Remove Admin')
+
+block scripts
+  if (user.isSuperAdmin)
+    script(src="/javascript/adminPanel.js")

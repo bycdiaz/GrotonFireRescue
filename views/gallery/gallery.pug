@@ -7,6 +7,8 @@ block stylesheets
 block content
   .inner
     h1 Gallery
+    if(user)
+      a.adminButton(href="/gallery/admin") Edit Gallery
 
     .categories
       for category in galleryObj
@@ -24,3 +26,5 @@ block content
                 - offset += 15
                 - zIndex -= 1
               h3= category.category
+
+//- TODO - add back button to categories

@@ -6,10 +6,12 @@ const upload = multer({ storage: multer.memoryStorage() });
 const router = express.Router();
 
 const homeController = require('../controllers/homeController.js');
+const authController = require('../controllers/authController');
 
 router.get('/', homeController.home);
-router.get('/edit', homeController.editHome);
-router.post('/', homeController.updateHome);
-router.post('/uploadImages', upload.array('images'), homeController.uploadImages);
+
+router.get('/edit', authController.isLoggedIn, homeController.editHome);
+router.post('/', authController.isLoggedIn, homeController.updateHome);
+router.post('/uploadImages', authController.isLoggedIn, upload.array('images'), homeController.uploadImages);
 
 module.exports = router;

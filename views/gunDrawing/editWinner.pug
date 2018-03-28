@@ -7,18 +7,18 @@ block content
       fieldSet(name='name')
         legend Name
         label(for='firstName') First Name
-        input(type='text' name='firstName' required)
+        input(type='text' name='firstName' required value= winner ? winner.name.first : '')
         label(for='lastName') Last Name
-        input(type='text' name='lastName' required)
+        input(type='text' name='lastName' required value= winner ? winner.name.last : '')
 
       fieldset(name="date")
         legend Date - mm/dd/yyyy
-        input(type='number' name='month' min='1' max='12' placeholder='3' required)
-        input(type='number' name='day'  min='1' max='31' placeholder='22' required)
-        input(type='number' name='year'  min='2018' max='2099' placeholder='2018' required)
+        input(type='number' name='month' min='1' max='12' placeholder='3' required value= winner ? winner.date.getMonth() + 1 : '')
+        input(type='number' name='day'  min='1' max='31' placeholder='22' required value= winner ? winner.date.getDate() : '')
+        input(type='number' name='year'  min='2018' max='2099' placeholder='2018' required value= winner ? winner.date.getFullYear() : '')
 
       fieldset(name='gun')
         legend Gun
-        input(type='text' name='gun' required)
+        input(type='text' name='gun' required value= winner ? winner.gun : '')
 
       input(type='submit' value='Submit')
