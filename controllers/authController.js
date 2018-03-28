@@ -15,11 +15,14 @@ exports.login = (req, res, next) => {
 
     if (user.firstLogin) {
       req.flash('failure', 'Please create your password using the code provided');
-      console.log(user);
       return res.redirect('/admin/password-reset');
     }
 
-    // TODO - allow user to reset own password
+    if (user.forcePassReset) {
+      req.flash('failure', 'You must reset your password with the code provided');
+      req.flash('failure', 'If you do not know why you are seeing this, contact the site admin');
+      return res.redirect('/admin/password-reset');
+    }
 
     req.logIn(user, (err) => {
       if (err) { return next(err); }
@@ -87,7 +90,7 @@ exports.resetPassword = (req, res, next) => {
       return res.redirect('/admin/password-reset');
     }
 
-    user.passReset = false;
+    user.forcePassReset = false;
     user.firstLogin = false;
     user.changePassword(req.body.password, req.body.newPassword, (err) => {
       if (err) return next(err);
@@ -103,7 +106,7 @@ exports.resetPassword = (req, res, next) => {
 exports.forceResetPassword = (req, res) => {
   const resetToken = randomResetToken();
   Admin.findByIdAndUpdate(req.params.id, {
-    passReset: true,
+    forcePassReset: true,
     resetToken: {
       token: resetToken,
     },
