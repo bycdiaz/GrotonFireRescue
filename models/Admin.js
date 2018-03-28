@@ -29,7 +29,7 @@ const adminSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  passReset: {
+  forcePassReset: {
     type: Boolean,
     default: true,
   },
