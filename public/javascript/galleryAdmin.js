@@ -50,12 +50,18 @@ function submitHandler(e) {
       })
       .catch(console.log);
   } else if (categoryDropdown.selectedIndex > 0) {
+    e.target.value = 'Uploading...';
+    e.target.setAttribute('disabled', true);
+    newCategoryBox.setAttribute('disabled', true);
     uploadImages(categoryDropdown.value, images.files)
       .then(() => {
         fireEvent(categoryDropdown, 'change');
         updateCategoriesDropdown(categoryDropdown);
         newCategoryBox.value = '';
+        newCategoryBox.removeAttribute('disabled');
         categoryDropdown.removeAttribute('disabled');
+        e.target.value = 'Submit';
+        e.target.removeAttribute('disabled');
       })
       .catch(handleConnectionError);
   }
