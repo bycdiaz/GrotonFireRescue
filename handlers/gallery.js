@@ -17,15 +17,6 @@ const mUpload = multer({
 
 const publicRootDir = path.join(process.mainModule.paths[0].split('node_modules')[0].slice(0, -1), 'public'); // Thank you pddivine: Finds root of express app.
 
-(function init() {
-  fs.stat(path.join(publicRootDir, 'images', 'gallery'))
-    .catch((err) => {
-      if (err.code === 'ENOENT') {
-        fs.mkdir(path.join(publicRootDir, 'images', 'gallery'));
-      }
-    });
-}());
-
 exports = module.exports = createGallery;
 
 //* ***********************************************************************//
@@ -44,6 +35,15 @@ function createGallery(options = {}) {
       options[opt] = defaultOptions[opt];
     }
   }
+
+  (function init() {
+    fs.stat(options.galleryRoot)
+      .catch((err) => {
+        if (err.code === 'ENOENT') {
+          fs.mkdir(path.join(publicRootDir, 'images', 'gallery'));
+        }
+      });
+  }());
 
 
   return {
