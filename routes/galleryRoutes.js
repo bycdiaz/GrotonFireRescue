@@ -9,11 +9,11 @@ const galleria = require('../handlers/gallery');
 const gallery = galleria();
 
 router.get('/', gallery.getIndex(), galleryController.index);
+router.get('/admin', authController.isLoggedIn, galleryController.editGallery);
 router.get('/:category', gallery.getImagesFromCategory(), galleryController.category);
 
 
 router.use(authController.isLoggedIn);
-router.get('/admin', galleryController.editGallery);
 router.get('/admin/categorylist', gallery.getIndex({ ajax: true }));
 router.get('/admin/:category', gallery.getImagesFromCategory({ ajax: true }));
 
