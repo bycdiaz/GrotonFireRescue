@@ -17,10 +17,18 @@ const mUpload = multer({
 
 const publicRootDir = path.join(process.mainModule.paths[0].split('node_modules')[0].slice(0, -1), 'public'); // Thank you pddivine: Finds root of express app.
 
+(function init() {
+  fs.stat(path.join(publicRootDir, 'images', 'gallery'))
+    .catch((err) => {
+      if (err.code === 'ENOENT') {
+        fs.mkdir(path.join(publicRootDir, 'images', 'gallery'));
+      }
+    });
+}());
+
 exports = module.exports = createGallery;
 
 //* ***********************************************************************//
-
 function createGallery(options = {}) {
   const defaultOptions = {
     galleryRoot: path.join(publicRootDir, 'images', 'gallery'),
@@ -71,7 +79,8 @@ function createGallery(options = {}) {
           return next();
         })
         .catch((err) => {
-          if (!funcOptions.ajax) return res.status(500).send(err);
+          if (funcOptions.ajax) return res.status(500).send(err);
+          if (err.code === 'ENOENT') { return next(new Error('Images Not Found')); }
           return next(err);
         });
     };
