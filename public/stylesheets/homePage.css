@@ -68,8 +68,10 @@
 .inner pre {
   border: none;
   position: relative;
-  width: 50%;
+  max-width: 50%;
+  min-width: 50%;
   float: right;
+  word-wrap: break-word;
   font-size: 1.2em;
 }
 
