@@ -61,7 +61,7 @@ header .primary-nav li a {
 .inner h1 {
   font-size: 6.5em;
   margin-top: 20px;
-  font-family: 'Alfa Slab One', cursive;
+  font-family: 'Alfa Slab One', 'Helvetica', cursive;
   text-align: center;
   border-bottom: 3px solid #b8860b;
   padding-bottom: 60px;
