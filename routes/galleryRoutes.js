@@ -6,7 +6,7 @@ const galleryController = require('../controllers/galleryController');
 const authController = require('../controllers/authController');
 const galleria = require('../handlers/gallery');
 
-const gallery = galleria();
+const gallery = galleria({ imageWidth: 700 });
 
 router.get('/', gallery.getIndex(), galleryController.index);
 router.get('/admin', authController.isLoggedIn, galleryController.editGallery);
