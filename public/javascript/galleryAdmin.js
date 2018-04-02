@@ -28,7 +28,7 @@ function categoryChangeHandler(e) {
   } else {
     getImagesFromCategory(e.target.value)
       .then(updateImages)
-      .catch(handleConnectionError);
+      .catch(errorHandler);
   }
 }
 
@@ -39,6 +39,7 @@ function submitHandler(e) {
     e.target.setAttribute('disabled', true);
     newCategoryBox.setAttribute('disabled', true);
     uploadImages(newCategoryBox.value, images.files)
+      .catch(errorHandler)
       .then(() => {
         fireEvent(categoryDropdown, 'change');
         updateCategoriesDropdown(categoryDropdown);
@@ -47,13 +48,13 @@ function submitHandler(e) {
         e.target.value = 'Submit';
         e.target.removeAttribute('disabled');
         newCategoryBox.removeAttribute('disabled');
-      })
-      .catch(console.log);
+      });
   } else if (categoryDropdown.selectedIndex > 0) {
     e.target.value = 'Uploading...';
     e.target.setAttribute('disabled', true);
     newCategoryBox.setAttribute('disabled', true);
     uploadImages(categoryDropdown.value, images.files)
+      .catch(errorHandler)
       .then(() => {
         fireEvent(categoryDropdown, 'change');
         updateCategoriesDropdown(categoryDropdown);
@@ -62,8 +63,7 @@ function submitHandler(e) {
         categoryDropdown.removeAttribute('disabled');
         e.target.value = 'Submit';
         e.target.removeAttribute('disabled');
-      })
-      .catch(handleConnectionError);
+      });
   }
 }
 
@@ -74,7 +74,7 @@ function updateCategoriesDropdown(dropDown) {
   }
   getCategorysList()
     .then(categories => fillDropdown(dropDown, categories))
-    .catch(handleConnectionError);
+    .catch(errorHandler);
 }
 
 function getCategorysList() {
@@ -151,10 +151,9 @@ function deleteImage() {
   xhr.onreadystatechange = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 202) {
-        console.log(xhr.status);
         fireEvent(categoryDropdown, 'change');
       } else {
-        console.log(new Error(xhr.response));
+        errorHandler(new Error(`${xhr.status} ${xhr.statusText}`));
       }
     }
   };
@@ -172,7 +171,7 @@ function deleteCategory(e) {
         updateCategoriesDropdown(categoryDropdown);
         fireEvent(categoryDropdown, 'change');
       } else {
-        handleConnectionError(new Error(xhr.status));
+        errorHandler(new Error(`${xhr.status} ${xhr.statusText}`));
       }
     }
   };
@@ -188,7 +187,7 @@ function xhrGetRequest(URL) {
         if (xhr.status === 200) {
           resolve(JSON.parse(xhr.response));
         } else {
-          reject(new Error(xhr.status));
+          reject(new Error(`${xhr.status} ${xhr.statusText}`));
         }
       }
     };
@@ -196,8 +195,18 @@ function xhrGetRequest(URL) {
   });
 }
 
-function handleConnectionError(error) { // TODO Handle errors
-  console.error(error);
+function errorHandler(error) { // TODO Handle errors
+  const status = error.message.slice(0, 3);
+  switch (status) {
+    case '413':
+      messageModal('Image filesize too large');
+      break;
+    case '500':
+      messageModal('There has been a server error try again a few times then conatact Briggs');
+      break;
+    default:
+      messageModal(error);
+  }
 }
 
 function handleUserError(error, message) { // TODO handle errors properly
@@ -247,7 +256,7 @@ function uploadImages(category, fileList) { // TODO refactor
         if (xhr.status === 200) {
           resolve(xhr.response);
         } else {
-          reject(new Error(xhr.status));
+          reject(new Error(`${xhr.status} ${xhr.statusText}`));
         }
       }
     };
