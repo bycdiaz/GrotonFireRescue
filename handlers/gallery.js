@@ -60,7 +60,7 @@ function createGallery(options = {}) {
     return function uploadImages(req, res, next) {
       mUpload.array(options.imageFileSelectField)(req, res, () => {
         Promise.all(req.files.map(image => Promise.all([
-          saveImage(image, req.body[options.category]), // TODO set category
+          saveImage(image, req.body[options.category]),
           saveThumbnail(image, req.body[options.category]),
         ])))
           .then(() => { res.status(200).send('Successful Upload'); })
