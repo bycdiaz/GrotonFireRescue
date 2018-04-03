@@ -1,4 +1,5 @@
 document.querySelector('#submit').addEventListener('click', submitHandler);
+errorHandler('test');
 
 function submitHandler(e) {
   e.target.setAttribute('disabled', true);
@@ -8,7 +9,7 @@ function submitHandler(e) {
       const formData = getFormData();
       sendXML(formData);
     })
-    .catch(console.error);
+    .catch(errorHandler);
 }
 
 function uploadImages() {
@@ -29,7 +30,7 @@ function uploadImages() {
         if (xhr.status === 201) {
           resolve(xhr.response);
         } else {
-          reject(xhr.status);
+          reject(new Error(`${xhr.status} ${xhr.statusText}`));
         }
       }
     };
@@ -63,4 +64,44 @@ function sendXML(data) {
   };
 
   xmlhttp.send(JSON.stringify(data));
+}
+
+function errorHandler(error) {
+  const status = error.message.slice(0, 3);
+  switch (status) {
+    case '413':
+      messageModal('Image filesize too large');
+      break;
+    case '500':
+      messageModal('There has been a server error try again a few times then conatact Briggs');
+      break;
+    default:
+      messageModal(error);
+  }
+}
+
+function messageModal(message) {
+  const modal = document.createElement('div');
+  modal.classList.add('modal');
+
+  const messageBox = document.createElement('div');
+  modal.appendChild(messageBox);
+  messageBox.classList.add('messageBox');
+
+  const text = document.createElement('p');
+  messageBox.appendChild(text);
+  text.innerText = message;
+
+  const okButton = document.createElement('button');
+  messageBox.appendChild(okButton);
+  okButton.innerText = 'OK';
+  okButton.id = 'ok';
+  okButton.addEventListener('click', removeModal);
+
+  document.querySelector('body').appendChild(modal);
+}
+
+function removeModal(e) {
+  e.target.removeEventListener('click', removeModal);
+  e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
 }
