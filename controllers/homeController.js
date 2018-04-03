@@ -37,7 +37,7 @@ exports.updateHome = (req, res) => {
 };
 
 exports.uploadImages = (req, res) => {
-  Promise.all(req.files.map((file) => jimp.read(file.buffer)
+  Promise.all(req.files.map(file => jimp.read(file.buffer)
     .then((image) => {
       const pageID = req.body[file.originalname];
       image.resize(600, jimp.AUTO);
