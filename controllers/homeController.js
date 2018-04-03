@@ -22,8 +22,6 @@ exports.editHome = (req, res, next) => {
     .catch((err) => {
       next(err);
     });
-
-  // TODO - add picture uploading
 };
 
 exports.updateHome = (req, res) => {
@@ -38,8 +36,8 @@ exports.updateHome = (req, res) => {
     .catch((err) => { res.status(503).json(err); });
 };
 
-exports.uploadImages = (req, res) => { // TODO - test extensively for issues with upload ordering
-  Promise.all(req.files.map((file, index) => jimp.read(file.buffer)
+exports.uploadImages = (req, res) => {
+  Promise.all(req.files.map((file) => jimp.read(file.buffer)
     .then((image) => {
       const pageID = req.body[file.originalname];
       image.resize(600, jimp.AUTO);
