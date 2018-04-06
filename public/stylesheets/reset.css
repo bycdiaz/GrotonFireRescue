@@ -34,7 +34,7 @@ body {
 }
 ol, ul {
 	list-style: none;
-	display: inline-block;
+	display: flex;
 }
 blockquote, q {
 	quotes: none;

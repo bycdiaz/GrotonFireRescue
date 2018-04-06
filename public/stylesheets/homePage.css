@@ -7,8 +7,7 @@
 }
 
 .content {
-  position: absolute;
-  top: 110px;
+  position: relative;
   z-index: -1;
 }
 
@@ -30,7 +29,23 @@
   position: relative;
   -webkit-text-stroke: 3px #000000;
   -webkit-text-fill-color: #B8860B;
-  top: 50px;
+}
+
+@media (max-width: 2000px) {
+  .title {
+  top: 112px;
+  }
+}
+
+@media (max-width: 635px) {
+  .hero {
+    height: 35vh;
+  }
+
+  .title {
+    font-size: 4em;
+    top: 40px;
+  }
 }
 
 .inner {
@@ -81,10 +96,4 @@
 
 .inner .info:nth-child(even) pre {
   float: left;
-}
-
-@media (max-width: 2000px) {
-  .title {
-  top: 112px;
-  }
 }
