@@ -32,16 +32,6 @@ header .primary-nav {
   padding-left: 200px;
 }
 
-@media (max-width: 635px) {
-  header img {
-    width: 100px;
-    height: 100px;
-  }
-
-  header .primary-nav {
-    padding-left: 120px;
-  }
-}
 
 header .primary-nav a {
   text-decoration: none;
@@ -53,6 +43,19 @@ header .primary-nav a {
 
 header .primary-nav a:last-child {
   margin-right: 0;
+}
+
+@media (max-width: 635px) {
+  header img {
+    width: 100px;
+    height: 100px;
+  }
+
+  header .primary-nav {
+    padding-left: 105px;
+    flex-direction: column;
+    align-items: right;
+  }
 }
 
 .flashes {
