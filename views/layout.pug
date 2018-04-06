@@ -15,12 +15,11 @@ html
     header
       a(href="/") #[img#cross(src="/images/cross.png")]
       nav.primary-nav
-        ul
-          li #[a(href="/") Home]
-          li #[a(href="/gallery") Photo Gallery]
-          li #[a(href="/gun-drawing") Gun Drawing]
-          li #[a(href="/training") Training/Meetings]
-          //- li #[a(href="/calender") Calender Fundraiser] //- TODO - implement
+        a(href="/") Home
+        a(href="/gallery") Photo Gallery
+        a(href="/gun-drawing") Gun Drawing
+        a(href="/training") Training/Meetings
+        //- li #[a(href="/calender") Calender Fundraiser] //- TODO - implement
 
       if user
         include admin/mixins/_adminBar

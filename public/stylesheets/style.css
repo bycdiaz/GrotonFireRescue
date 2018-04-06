@@ -7,36 +7,52 @@ html {
 
 header {
   position: relative;
-  height: 200px;
   width: 100%;
+  z-index: 100;
 }
 
 header img {
+  top: 0;
+  left: 0;
   width: 200px;
   height: 200px;
-  float: left;
-  clear: right;
+  position: absolute;
+  z-index: 1;
 }
+
 
 header .primary-nav {
   background-color: #9F2122;
-  width: 100%;
   border-bottom: 10px solid #b8860b;
-  height: 100px;
+  min-height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 200px;
 }
 
-header li {
-  display: inline-block;
-  height: 100px;
-  line-height: 100px;
-  margin: 0% 46px 0 0;
+@media (max-width: 635px) {
+  header img {
+    width: 100px;
+    height: 100px;
+  }
+
+  header .primary-nav {
+    padding-left: 120px;
+  }
 }
 
-header .primary-nav li a {
+header .primary-nav a {
   text-decoration: none;
   color: white;
   font-size: 1.5em;
   font-weight: bold;
+  margin-right: 30px;
+}
+
+header .primary-nav a:last-child {
+  margin-right: 0;
 }
 
 .flashes {
