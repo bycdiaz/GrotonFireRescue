@@ -65,13 +65,14 @@
 }
 
 .inner pre {
-  border: none;
   position: relative;
   max-width: 50%;
   min-width: 50%;
   float: right;
   word-wrap: break-word;
   font-size: 1.2em;
+  white-space: pre-line;
+  padding: 60px 0;
 }
 
 .inner .info:nth-child(even) img {
