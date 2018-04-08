@@ -34,7 +34,7 @@
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -50,5 +50,5 @@
 }
 
 .overlay img {
-  height: 90vh;
+  width: 90vw;
 }
