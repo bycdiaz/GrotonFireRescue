@@ -3,6 +3,9 @@ extends ../layout
 block stylesheets
   link(rel="stylesheet" href="/stylesheets/training.css")
 
+block adminButton
+  if(user)
+    a.adminButton(href="/training/new") New Training Item
 
 block content
 
@@ -10,11 +13,6 @@ block content
   - const anySpecial = trainingDays.some((day) => day.trainingType === 'special')
 
   .inner
-    h1 Training & Meetings
-
-    if(user)
-      a.adminButton(href="/training/new") New Training Item
-
     if(anyRepeats)
       .repeatTraining.training
         h4 Repeat Trainings/Meetings
@@ -36,7 +34,7 @@ block content
                     .arrow
                   .accentLine.hidden
                 .dropDown.hidden
-                  p.info= day.info
+                  pre.info= day.info
 
     if(anySpecial)
       .training
@@ -59,7 +57,7 @@ block content
                     .arrow
                   .accentLine.hidden
                 .dropDown.hidden
-                  p.info= day.info
+                  pre.info= day.info
 
 
 block scripts
