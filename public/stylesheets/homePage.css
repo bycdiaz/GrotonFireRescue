@@ -33,6 +33,7 @@
 
 .inner {
   width: auto;
+  text-align: left;
 }
 
 .inner .info:nth-child(odd) {
