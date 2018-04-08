@@ -37,17 +37,6 @@
   }
 }
 
-@media (max-width: 635px) {
-  .hero {
-    height: 300px;
-  }
-
-  .title {
-    font-size: 4em;
-    top: 40px;
-  }
-}
-
 .inner {
   width: auto;
 }
@@ -96,4 +85,17 @@
 
 .inner .info:nth-child(even) pre {
   float: left;
+}
+
+@media (max-width: 635px) {
+  .hero {
+    height: 300px;
+  }
+
+  .title {
+    font-size: 4em;
+    top: 40px;
+  }
+
+
 }
