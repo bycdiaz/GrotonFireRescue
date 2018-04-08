@@ -98,8 +98,9 @@
   }
 
   .inner .info h2 {
-    font-size: 2em;
+    font-size: 1.9em;
     text-align: center;
+    font-weight: bold;
   }
 
   .inner .info:nth-child(even) h2 {
@@ -115,8 +116,4 @@
     width: 100%;
     min-width: 100%;
   }
-}
-
-.js-hidden {
-  display: none;
 }
