@@ -97,10 +97,20 @@ footer {
   }
 
   header .primary-nav {
-    padding-left: 15%;
+    padding-left: 30%;
     flex-direction: column;
-    align-items: center;
     min-height: 50px;
+    margin-bottom: 50px;
+    align-items: left;
+  }
+
+  header .primary-nav a::before {
+    content: '• ';
+  }
+
+  header .primary-nav a {
+    padding: 5px 0;
+    font-size: 1.1em;
   }
 
   header .primary-nav a:last-child {
@@ -114,15 +124,10 @@ footer {
   #hamburgerMenu {
     position: absolute;
     right: 10px;
-    top: 40%;
-    transform: translateY(-50%);
+    top: 6px;
     left: auto;
     width: 40px;
     height: 40px;
-  }
-
-  #hamburgerMenu.expanded {
-    top: 22%;
   }
 }
 
