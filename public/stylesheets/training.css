@@ -62,6 +62,10 @@
   background-color: #f5f5f5;
 }
 
+.training .card pre {
+  white-space: pre-wrap;
+}
+
 .training h4 {
   margin-bottom: 24px;
   font-size: 1.4em;
