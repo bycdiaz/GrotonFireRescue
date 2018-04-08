@@ -3,6 +3,9 @@ extends ../layout
 block stylesheets
   link(rel="stylesheet" href="/stylesheets/training.css")
 
+block adminButton
+  if(user)
+    a.adminButton(href="/training/new") New Training Item
 
 block content
 
@@ -10,9 +13,6 @@ block content
   - const anySpecial = trainingDays.some((day) => day.trainingType === 'special')
 
   .inner
-    if(user)
-      a.adminButton(href="/training/new") New Training Item
-
     if(anyRepeats)
       .repeatTraining.training
         h4 Repeat Trainings/Meetings

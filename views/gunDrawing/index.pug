@@ -3,12 +3,12 @@ extends ../layout
 block stylesheets
   link(rel="stylesheet", href="/stylesheets/gunDrawing.css")
 
+block adminButton
+  if(user)
+    a.adminButton(href="gun-drawing/add") Add Winner
 
 block content
   .inner
-    if(user)
-      a.adminButton(href="gun-drawing/add") Add Winner
-
     p Please note: You have one year from your win date to pick up your gun
     br
     for winner in winners

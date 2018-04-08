@@ -3,10 +3,11 @@ extends ../layout
 block stylesheets
     link(rel="stylesheet", href="/stylesheets/gallery.css")
 
-
-block content
+block adminButton
   if(user)
     a.adminButton(href="/gallery/admin") Edit Gallery
+
+block content
   .inner
     .categories
       for category in galleryObj
