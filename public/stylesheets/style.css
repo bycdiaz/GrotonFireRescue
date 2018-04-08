@@ -52,9 +52,9 @@ header .primary-nav a:last-child {
   }
 
   header .primary-nav {
-    padding-left: 105px;
+    padding-left: 15%;
     flex-direction: column;
-    align-items: right;
+    align-items: center;
   }
 }
 
