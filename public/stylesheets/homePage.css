@@ -116,4 +116,8 @@
     width: 100%;
     min-width: 100%;
   }
+
+  header .primary-nav {
+    margin-bottom: 0;
+  }
 }
