@@ -63,30 +63,13 @@ header .primary-nav a:last-child {
   text-align: left;
 }
 
-/* .titleContainer {
-  position: relative;
-  width: 85%;
-  margin: auto
-} */
-
 #pageTitle {
-  padding-left: auto;
-  padding-right: auto;
   font-size: 6.5em;
-  margin-top: 20px;
   font-family: 'Alfa Slab One', 'Helvetica', sans-serif;
   text-align: center;
   border-bottom: 3px solid #b8860b;
-  padding-bottom: 60px;
+  padding: 30px 0;
   margin-bottom: 50px;
-}
-
-.inner pre {
-  font-size: 1.5em;
-  white-space: pre-line;
-  padding: 60px 0px;
-  border-bottom: solid 3px #b8860b;
-  border-top: solid 3px #b8860b;
 }
 
 footer {
@@ -112,6 +95,7 @@ footer {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 70px;
   }
 }
 
