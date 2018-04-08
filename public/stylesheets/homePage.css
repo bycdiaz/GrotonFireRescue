@@ -31,12 +31,6 @@
   -webkit-text-fill-color: #B8860B;
 }
 
-@media (max-width: 2000px) {
-  .title {
-  top: 112px;
-  }
-}
-
 .inner {
   width: auto;
 }
@@ -87,6 +81,12 @@
   float: left;
 }
 
+@media (max-width: 2000px) {
+  .title {
+  top: 112px;
+  }
+}
+
 @media (max-width: 635px) {
   .hero {
     height: 300px;
@@ -97,5 +97,26 @@
     top: 40px;
   }
 
+  .inner .info h2 {
+    font-size: 2em;
+    text-align: center;
+  }
 
+  .inner .info:nth-child(even) h2 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .inner .info:nth-child(even) img,
+  .inner .info:nth-child(even) pre,
+  .inner img,
+  .inner pre {
+    float: none;
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+.js-hidden {
+  display: none;
 }
