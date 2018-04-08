@@ -32,16 +32,6 @@ header .primary-nav {
   padding-left: 200px;
 }
 
-@media (max-width: 635px) {
-  header img {
-    width: 100px;
-    height: 100px;
-  }
-
-  header .primary-nav {
-    padding-left: 120px;
-  }
-}
 
 header .primary-nav a {
   text-decoration: none;
@@ -98,4 +88,48 @@ footer {
   right: 0;
   height: 40px;
   background-color: grey;
+}
+
+@media (max-width: 635px) {
+  header img {
+    width: 100px;
+    height: 100px;
+  }
+
+  header .primary-nav {
+    padding-left: 15%;
+    flex-direction: column;
+    align-items: center;
+    min-height: 50px;
+  }
+
+  header .primary-nav a:last-child {
+    padding-bottom: 5px;
+  }
+
+  .inner h1 {
+    font-size: 2em;
+  }
+
+  #hamburgerMenu {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    left: auto;
+    width: 40px;
+    height: 40px;
+  }
+
+  #hamburgerMenu.expanded {
+    top: 22%;
+  }
+}
+
+.js-hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
 }

@@ -21,6 +21,7 @@ html
         a(href="/training") Training/Meetings
         //- li #[a(href="/calender") Calender Fundraiser] //- TODO - implement
 
+      img#hamburgerMenu.collapsed.hidden(src='/images/hamburgerMenuWhite.png')
       if user
         include admin/mixins/_adminBar
         +adminBar()
@@ -38,5 +39,5 @@ html
     //- footer
 
 
-  script(src="/javascript/layout.js")
   block scripts
+  script(src="/javascript/layout.js")
