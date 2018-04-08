@@ -5,11 +5,9 @@ block stylesheets
 
 
 block content
+  if(user)
+    a.adminButton(href="/gallery/admin") Edit Gallery
   .inner
-    h1 Gallery
-    if(user)
-      a.adminButton(href="/gallery/admin") Edit Gallery
-
     .categories
       for category in galleryObj
         if category.thumbnails[0]

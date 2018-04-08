@@ -1,8 +1,10 @@
 mixin editForm(page = {})
   label(for="pageTitle") Title
   input(type="text" name="pageTitle" value= page.pageTitle)
+  br
   label(for="image") Image
   input.imageUpload(type="file" name=page.pageID)
+  br
   label(for="content") Content
   textarea(name="content" rows="20" cols="60")= page.content
   br

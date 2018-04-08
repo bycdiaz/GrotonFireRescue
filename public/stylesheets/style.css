@@ -55,15 +55,23 @@ header .primary-nav a:last-child {
   color: #232f3c;
 }
 
-.inner {
+.inner, .titleContainer {
   position: relative;
   width: 85%;
   /* padding-bottom: 90px;  for footer*/
   margin: auto;
-  text-align: center;
+  text-align: left;
 }
 
-.inner h1 {
+/* .titleContainer {
+  position: relative;
+  width: 85%;
+  margin: auto
+} */
+
+#pageTitle {
+  padding-left: auto;
+  padding-right: auto;
   font-size: 6.5em;
   margin-top: 20px;
   font-family: 'Alfa Slab One', 'Helvetica', sans-serif;
@@ -99,16 +107,16 @@ footer {
 }
 
 @media (max-width: 1075px) {
-  .inner h1 {
+  #pageTitle {
     font-size: 5em;
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (max-width: 635px) {
-  .inner h1 {
+  #pageTitle {
     font-size: 2em;
   }
 

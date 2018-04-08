@@ -6,12 +6,12 @@ const Winner = mongoose.model('Winner');
 exports.index = (req, res) => {
   Winner.find().sort({ date: -1 })
     .then((winners) => {
-      res.render('gunDrawing/index', { winners });
+      res.render('gunDrawing/index', { winners, title: 'Gun-Drawing Winners' });
     });
 };
 
 exports.addWinner = (req, res) => {
-  res.render('gunDrawing/editWinner');
+  res.render('gunDrawing/editWinner', { title: 'Add Winner' });
 };
 
 exports.createWinner = (req, res, next) => {
@@ -27,7 +27,7 @@ exports.createWinner = (req, res, next) => {
 exports.editWinner = (req, res, next) => {
   Winner.findById(req.params.id)
     .then((winner) => {
-      res.render('gunDrawing/editWinner', { winner });
+      res.render('gunDrawing/editWinner', { title: 'Edit Winner', winner });
     })
     .catch(next);
 };
