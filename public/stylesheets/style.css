@@ -102,6 +102,7 @@ footer {
 @media (max-width: 635px) {
   #pageTitle {
     font-size: 2em;
+    padding-top: 0;
   }
 
   header img {
