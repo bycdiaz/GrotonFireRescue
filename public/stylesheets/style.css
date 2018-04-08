@@ -110,6 +110,24 @@ footer {
   .inner h1 {
     font-size: 2em;
   }
+
+  #hamburgerMenu {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    left: auto;
+    width: 40px;
+    height: 40px;
+  }
+
+  #hamburgerMenu.expanded {
+    top: 22%;
+  }
+}
+
+.js-hidden {
+  display: none;
 }
 
 .hidden {
