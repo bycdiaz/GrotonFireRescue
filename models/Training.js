@@ -22,15 +22,15 @@ const trainingSchema = mongoose.Schema({
   trainingType: String,
 });
 
-trainingSchema.virtual('dateTimeRange').get(function formatDate() { // TODO rename to formatDate
+trainingSchema.virtual('dateTimeRange').get(function formatDate() {
   const date = this.date.start;
   return date.toLocaleDateString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit',
-  });
+  }, { timezone: 'America/Chicago' });
 });
 
 trainingSchema.virtual('whenMessage').get(function formatDate() {
-  const time = this.date.start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  const time = this.date.start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }, { timezone: 'America/Chicago' });
   return `${this.date.other} - ${time}`;
 });
 
