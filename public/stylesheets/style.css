@@ -92,7 +92,6 @@ footer {
 @media (max-width: 1075px) {
   #pageTitle {
     font-size: 5em;
-    width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 70px;
