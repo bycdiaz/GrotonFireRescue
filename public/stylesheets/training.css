@@ -72,8 +72,7 @@
   font-weight: bold;
   color: #232f3c;
   border-bottom: solid #232f3c 1px;
-  position: relative;
-  width: 261px;
+  display: inline-block;
 }
 
 .hidden {
