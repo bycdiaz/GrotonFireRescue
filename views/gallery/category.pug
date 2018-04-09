@@ -6,12 +6,13 @@ block stylesheets
 
 block content
   .inner
+    a(href='/gallery') <-- Back
     .images
       for card in cards
         .card
           a(href= card.imageURL)
             img(src= card.thumbURL)
-            h4= card.imageName
+            //- h4= card.imageName
 
 block scripts
     script(src="/javascript/category.js")

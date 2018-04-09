@@ -135,6 +135,8 @@ function createGallery(options = {}) {
     return jimp.read(file.buffer)
       .then((image) => {
         if (options.imageWidth) { image.resize(options.imageWidth, jimp.AUTO); }
+
+        image.exifRotate();
         image.write(path.join(options.galleryRoot, category, file.originalname));
       })
       .catch(console.error);
@@ -144,6 +146,7 @@ function createGallery(options = {}) {
     return jimp.read(file.buffer)
       .then((image) => {
         image.resize(options.thumbNailWidth, jimp.AUTO);
+        image.exifRotate();
         image.write(path.join(options.galleryRoot, category, 'thumbnails', `_${file.originalname}`));
       })
       .catch(console.error);
