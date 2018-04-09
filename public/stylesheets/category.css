@@ -56,6 +56,16 @@
 }
 
 .overlay img {
-  max-height: 90vh;
+  width: auto;
+  height: 90vh;
   max-width: 90vw;
+  max-height: 93vh;
+}
+
+@media(orientation: portrait) {
+  .overlay img {
+    max-width: 90%;
+    height: auto;
+    max-height: 90%;
+  }
 }
