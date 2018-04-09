@@ -199,7 +199,7 @@ function errorHandler(error) { // TODO Handle errors
   const status = error.message.slice(0, 3);
   switch (status) {
     case '413':
-      messageModal('Image filesize too large');
+      messageModal('Payload Size too large: Try fewer images at a time');
       break;
     case '500':
       messageModal('There has been a server error try again a few times then conatact Briggs');
