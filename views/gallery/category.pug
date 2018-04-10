@@ -3,10 +3,11 @@ extends ../layout
 block stylesheets
     link(rel="stylesheet" href="/stylesheets/category.css")
 
+block userButton
+  a.back(href='/gallery') <-- Back
 
 block content
   .inner
-    a.back(href='/gallery') <-- Back
     .images
       for card in cards
         .card

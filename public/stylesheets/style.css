@@ -61,15 +61,20 @@ header .primary-nav a:last-child {
   /* padding-bottom: 90px;  for footer*/
   margin: auto;
   text-align: left;
+  margin-bottom: 100px;
+}
+
+.titleContainer {
+  border-bottom: 3px solid #b8860b;
 }
 
 #pageTitle {
   font-size: 6.5em;
   font-family: 'Alfa Slab One', 'Helvetica', sans-serif;
   text-align: center;
-  border-bottom: 3px solid #b8860b;
   padding: 30px 0;
-  margin-bottom: 50px;
+  word-wrap: break-word;
+
 }
 
 footer {
