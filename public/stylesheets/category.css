@@ -69,3 +69,7 @@
     max-height: 90%;
   }
 }
+
+#pageTitle {
+  margin-bottom: 20px;
+}
