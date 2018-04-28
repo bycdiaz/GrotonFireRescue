@@ -1,18 +1,1 @@
-const trainingCards = document.querySelectorAll('.cardTitle');
-
-trainingCards.forEach((card) => {
-  card.addEventListener('click', (e) => {
-    const dropDown = e.currentTarget.parentNode.querySelector('.dropDown');
-    const arrow = e.currentTarget.querySelector('.arrow');
-    const accent = e.currentTarget.querySelector('.accentLine');
-    if (dropDown.classList.contains('hidden')) {
-      dropDown.classList.remove('hidden');
-      arrow.classList.add('arrowDown');
-      accent.classList.remove('hidden');
-    } else {
-      dropDown.classList.add('hidden');
-      arrow.classList.remove('arrowDown');
-      accent.classList.add('hidden');
-    };
-  });
-});
+!function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:n})},r.r=function(e){Object.defineProperty(e,"__esModule",{value:!0})},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=125)}({125:function(e,t,r){"use strict";window.NodeList&&!NodeList.prototype.forEach&&(NodeList.prototype.forEach=function(e,t){t=t||window;for(var r=0;r<this.length;r++)e.call(t,this[r],r,this)}),document.querySelectorAll(".cardTitle").forEach(function(e){e.addEventListener("click",function(e){var t=e.currentTarget.parentNode.querySelector(".dropDown"),r=e.currentTarget.querySelector(".arrow"),n=e.currentTarget.querySelector(".accentLine");t.classList.contains("hidden")?(t.classList.remove("hidden"),r.classList.add("arrowDown"),n.classList.remove("hidden")):(t.classList.add("hidden"),r.classList.remove("arrowDown"),n.classList.add("hidden"))})})}});
