@@ -7,6 +7,3 @@ red-fire-color-combination-by-schemecolor.png
 .eslintrc.json
 public/images/gallery
 public/images/home
-public/javascript/src
-.babelrc
-webpack.config.js
