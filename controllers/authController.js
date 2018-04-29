@@ -68,7 +68,7 @@ exports.register = (req, res, next) => {
 };
 
 exports.resetPasswordPage = (req, res) => { // TODO - test
-  res.render('admin/passwordReset', { user: req.params.user, token: req.params.token });
+  res.render('admin/passwordReset', { title: 'Reset Password', user: req.params.user, token: req.params.token });
 };
 
 exports.resetPassword = (req, res, next) => {
@@ -135,7 +135,7 @@ exports.removeAdmin = (req, res) => {
 };
 
 exports.selfResetPasswordForm = (req, res) => {
-  res.render('admin/selfResetPasswordForm');
+  res.render('admin/selfResetPasswordForm', { title: 'Reset Password' });
 };
 
 exports.selfResetPassword = (req, res) => {

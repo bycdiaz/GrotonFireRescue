@@ -20,7 +20,6 @@ const publicRootDir = path.join(process.mainModule.paths[0].split('node_modules'
 exports = module.exports = createGallery;
 
 //* ***********************************************************************//
-
 function createGallery(options = {}) {
   const defaultOptions = {
     galleryRoot: path.join(publicRootDir, 'images', 'gallery'),
@@ -37,6 +36,15 @@ function createGallery(options = {}) {
     }
   }
 
+  (function init() {
+    fs.stat(options.galleryRoot)
+      .catch((err) => {
+        if (err.code === 'ENOENT') {
+          fs.mkdir(path.join(publicRootDir, 'images', 'gallery'));
+        }
+      });
+  }());
+
 
   return {
     upload,
@@ -52,7 +60,7 @@ function createGallery(options = {}) {
     return function uploadImages(req, res, next) {
       mUpload.array(options.imageFileSelectField)(req, res, () => {
         Promise.all(req.files.map(image => Promise.all([
-          saveImage(image, req.body[options.category]), // TODO set category
+          saveImage(image, req.body[options.category]),
           saveThumbnail(image, req.body[options.category]),
         ])))
           .then(() => { res.status(200).send('Successful Upload'); })
@@ -71,7 +79,8 @@ function createGallery(options = {}) {
           return next();
         })
         .catch((err) => {
-          if (!funcOptions.ajax) return res.status(500).send(err);
+          if (funcOptions.ajax) return res.status(500).send(err);
+          if (err.code === 'ENOENT') { return next(new Error('Images Not Found')); }
           return next(err);
         });
     };
@@ -126,6 +135,8 @@ function createGallery(options = {}) {
     return jimp.read(file.buffer)
       .then((image) => {
         if (options.imageWidth) { image.resize(options.imageWidth, jimp.AUTO); }
+
+        image.exifRotate();
         image.write(path.join(options.galleryRoot, category, file.originalname));
       })
       .catch(console.error);
@@ -135,6 +146,7 @@ function createGallery(options = {}) {
     return jimp.read(file.buffer)
       .then((image) => {
         image.resize(options.thumbNailWidth, jimp.AUTO);
+        image.exifRotate();
         image.write(path.join(options.galleryRoot, category, 'thumbnails', `_${file.originalname}`));
       })
       .catch(console.error);

@@ -3,15 +3,21 @@ extends ../layout
 block stylesheets
   link(rel="stylesheet", href="/stylesheets/gunDrawing.css")
 
+block adminButton
+  if(user)
+    a.adminButton(href="gun-drawing/add") Add Winner
 
 block content
   .inner
-    h1 Gun-Drawing Winners
-    if(user)
-      a.adminButton(href="gun-drawing/add") Add Winner
-
+    p The Groton Fire Department would like to thank all who purchased the gun calendars.
+    p Proceeds from our sales goes back into the community to help kids, organizations and help wherever needed.
+    p Each Monday we will announce the winner of the gun on this website.
+    br
     p Please note: You have one year from your win date to pick up your gun
     br
+    br
+
+    h2 Winners
     for winner in winners
       .card(id=winner._id)
         if user
@@ -20,7 +26,7 @@ block content
             button(type="button").delete delete
         h3.name= winner.fullName
         p.gun= winner.gun
-        p.date= winner.date
+        p.date= winner.date.toDateString()
         .shortLine
 
 block scripts

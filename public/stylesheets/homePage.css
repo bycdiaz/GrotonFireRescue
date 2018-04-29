@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'secondaryFont';
+  src: local('Courier new');
+  font-weight: bold;
+  font-stretch: condensed;
+  font-size-adjust: 10em;
+}
+
 .content {
-  position: absolute;
-  top: 110px;
+  position: relative;
   z-index: -1;
 }
 
@@ -17,16 +24,16 @@
 
 .title {
   font-size: 7.1em;
+  font-family: 'Alfa slab One', 'secondaryFont';
   color: #B8860B;
   position: relative;
   -webkit-text-stroke: 3px #000000;
   -webkit-text-fill-color: #B8860B;
-  font-family: 'Alfa Slab One', cursive;
-  top: 50px;
 }
 
 .inner {
   width: auto;
+  text-align: left;
 }
 
 .inner .info:nth-child(odd) {
@@ -58,11 +65,14 @@
 }
 
 .inner pre {
-  border: none;
   position: relative;
-  width: 50%;
+  max-width: 50%;
+  min-width: 50%;
   float: right;
+  word-wrap: break-word;
   font-size: 1.2em;
+  white-space: pre-line;
+  padding: 60px 0;
 }
 
 .inner .info:nth-child(even) img {
@@ -77,4 +87,43 @@
   .title {
   top: 112px;
   }
+}
+
+@media (max-width: 635px) {
+  .hero {
+    height: 300px;
+  }
+
+  .title {
+    font-size: 4em;
+    top: 40px;
+  }
+
+  .inner .info h2 {
+    font-size: 1.9em;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .inner .info:nth-child(even) h2 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .inner .info:nth-child(even) img,
+  .inner .info:nth-child(even) pre,
+  .inner img,
+  .inner pre {
+    float: none;
+    width: 100%;
+    min-width: 100%;
+  }
+
+  header .primary-nav {
+    margin-bottom: 0;
+  }
+}
+
+.titleContainer {
+  display: none;
 }

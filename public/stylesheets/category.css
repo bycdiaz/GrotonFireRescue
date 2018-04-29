@@ -1,7 +1,13 @@
-.inner h1 {
-  border-bottom: 3px solid #b8860b;
-  padding-bottom: 60px;
-  margin-bottom: 75px;
+.back {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 7%;
+  background-color: #9f2122;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  bottom: 18px;
 }
 
 .images {
@@ -34,7 +40,7 @@
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -50,5 +56,20 @@
 }
 
 .overlay img {
+  width: auto;
   height: 90vh;
+  max-width: 90vw;
+  max-height: 93vh;
+}
+
+@media(orientation: portrait) {
+  .overlay img {
+    max-width: 90%;
+    height: auto;
+    max-height: 90%;
+  }
+}
+
+#pageTitle {
+  margin-bottom: 20px;
 }

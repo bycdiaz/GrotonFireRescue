@@ -3,16 +3,17 @@ extends ../layout
 block stylesheets
     link(rel="stylesheet" href="/stylesheets/category.css")
 
+block userButton
+  a.back(href='/gallery') <-- Back
 
 block content
   .inner
-    h1= categoryName
     .images
       for card in cards
         .card
           a(href= card.imageURL)
             img(src= card.thumbURL)
-            h4= card.imageName
+            //- h4= card.imageName
 
 block scripts
     script(src="/javascript/category.js")

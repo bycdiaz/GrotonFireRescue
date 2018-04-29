@@ -15,13 +15,13 @@ html
     header
       a(href="/") #[img#cross(src="/images/cross.png")]
       nav.primary-nav
-        ul
-          li #[a(href="/") Home]
-          li #[a(href="/gallery") Photo Gallery]
-          li #[a(href="/gun-drawing") Gun Drawing]
-          li #[a(href="/training") Training/Meetings]
-          //- li #[a(href="/calender") Calender Fundraiser] //- TODO - implement
+        a(href="/") Home
+        a(href="/gallery") Photo Gallery
+        a(href="/gun-drawing") Gun Drawing
+        a(href="/training") Training & Meetings
+        //- li #[a(href="/calender") Calender Fundraiser] //- TODO - implement
 
+      img#hamburgerMenu.collapsed.hidden(src='/images/hamburgerMenuWhite.png')
       if user
         include admin/mixins/_adminBar
         +adminBar()
@@ -34,10 +34,14 @@ html
           button.close close
 
     .content
+      .titleContainer
+        h1#pageTitle #{title}
+        block adminButton
+        block userButton
       block content
 
     //- footer
 
 
-  script(src="/javascript/layout.js")
   block scripts
+  script(src="/javascript/layout.js")

@@ -6,7 +6,7 @@ const Training = mongoose.model('Training');
 exports.trainingSchedule = (req, res, next) => {
   Training.find().sort('date.start')
     .then((trainingDays) => {
-      res.render('training/training', { trainingDays });
+      res.render('training/training', { trainingDays, title: 'Meetings & Training' });
     })
     .catch(err => next(err));
 };
@@ -20,7 +20,7 @@ exports.deleteTrainingDay = (req, res) => {
 exports.editTrainingDay = (req, res, next) => {
   Training.findById(req.params.id)
     .then((trainingDay) => {
-      res.render('training/editTrainingDay', { trainingDay });
+      res.render('training/editTrainingDay', { title: 'Training Day Info', trainingDay });
     })
     .catch(err => next(err));
 };
