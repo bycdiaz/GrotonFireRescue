@@ -12,3 +12,4 @@ webpack.config.js
 palette.pdf
 README.md
 public/javascript/src
+public/javascript/src/*
