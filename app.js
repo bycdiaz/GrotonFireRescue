@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
+const favicon = require('serve-favicon');
 
 const routes = require('./routes/index');
 const helpers = require('./helpers');
@@ -14,6 +15,8 @@ const errorHandlers = require('./handlers/errorHandlers');
 require('./handlers/passport');
 
 const app = express();
+
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
