@@ -13,6 +13,10 @@ const winnerSchema = mongoose.Schema({
       required: true,
     },
   },
+  location: {
+    type: String,
+    default: '',
+  },
   date: {
     type: Date,
     required: true,
