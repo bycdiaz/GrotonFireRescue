@@ -10,6 +10,10 @@ block content
         label(for='lastName') Last Name
         input(type='text' name='lastName' required value= winner ? winner.name.last : '')
 
+      fieldset(name='location')
+        label(for='location') Location
+        input(type='text' name='location' value= winner ? winner.location : '')
+
       fieldset(name="date")
         legend Date - mm/dd/yyyy
         input(type='number' name='month' min='1' max='12' placeholder='3' required value= winner ? winner.date.getMonth() + 1 : '')

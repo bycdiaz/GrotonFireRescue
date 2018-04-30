@@ -59,6 +59,7 @@ function makeWinnerObj(body) {
       first: body.firstName,
       last: body.lastName,
     },
+    location: body.location,
     gun: body.gun,
     date,
   };

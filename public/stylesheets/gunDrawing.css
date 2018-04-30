@@ -20,6 +20,10 @@
   padding-bottom: 5px;
 }
 
+.inner .card .location {
+  font-size: 1.1em;
+}
+
 .inner .card .gun {
   color: #314050;
 }
