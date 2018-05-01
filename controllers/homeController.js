@@ -7,7 +7,7 @@ const Page = mongoose.model('Page');
 exports.home = (req, res, next) => {
   Page.find().sort({ pageID: 'asc' })
     .then((pages) => {
-      res.render('homePage', { pages });
+      res.render('homePage', { title: 'Groton Fire & Rescue', pages });
     })
     .catch((err) => {
       next(err);
