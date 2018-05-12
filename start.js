@@ -14,6 +14,7 @@ require('./models/Admin');
 require('./models/Info');
 require('./models/Training');
 require('./models/GunWinner');
+require('./models/About');
 
 const app = require('./app');
 
