@@ -36,7 +36,7 @@
   text-align: left;
 }
 
-.inner .info:nth-child(odd) {
+.inner .info:nth-child(even) {
   background-color: #efefef;
 }
 
@@ -58,28 +58,83 @@
   border-bottom: 3px solid #b8860b;
 }
 
+.contentContainer a {
+  margin: auto;
+  margin-top: 35px;
+  padding: 8px 0;
+  color: white;
+  background-color: #9F2122;
+  text-decoration: none;
+  text-align: center;
+  width: 90%;
+  border-radius: 7px;
+  font-weight: bold;
+  display: block;
+}
+
 .inner img {
   width: 48%;
   float: left;
   margin-top: 65px;
 }
 
-.inner pre {
+.inner .textContent {
   position: relative;
   max-width: 50%;
   min-width: 50%;
   float: right;
+  padding: 60px 0;
+}
+
+.inner pre {
   word-wrap: break-word;
   font-size: 1.2em;
   white-space: pre-line;
-  padding: 60px 0;
+}
+
+.inner .standardInfo {
+  font-size: 1.2em;
+  text-align: center;
+  color: #232f3c;
+  font-weight: bold;
+  padding: 30px 0;
+}
+
+.inner .standardInfo .address {
+  margin: auto;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+.inner .standardInfo .mission {
+  max-width: 50%;
+  text-align: center;
+  margin: auto;
+  /* border-bottom: 1px solid black; */
+}
+
+.styleLine {
+  border: 2px solid #9F2122;
+  width: 30vw;
+  margin: 0 10px;
+  top: 68px;
+  display: inline-block;
+  position: absolute;
+}
+
+.styleLine.left {
+  left: 0;
+}
+
+.styleLine.right {
+  right: 0;
 }
 
 .inner .info:nth-child(even) img {
   float: right;
 }
 
-.inner .info:nth-child(even) pre {
+.inner .info:nth-child(even) .textContent {
   float: left;
 }
 
@@ -99,10 +154,25 @@
     top: 40px;
   }
 
+  .inner .standardInfo .mission {
+  max-width: 80%;
+  text-align: center;
+  margin: auto;
+  /* border-bottom: 1px solid black; */
+  }
+
+  .styleLine {
+    width: 20%;
+  }
+
   .inner .info h2 {
     font-size: 1.9em;
     text-align: center;
     font-weight: bold;
+  }
+
+  .inner .info a {
+
   }
 
   .inner .info:nth-child(even) h2 {
@@ -111,9 +181,9 @@
   }
 
   .inner .info:nth-child(even) img,
-  .inner .info:nth-child(even) pre,
+  .inner .info:nth-child(even) .textContent,
   .inner img,
-  .inner pre {
+  .inner .textContent {
     float: none;
     width: 100%;
     min-width: 100%;
