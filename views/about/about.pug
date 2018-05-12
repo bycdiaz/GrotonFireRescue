@@ -1,0 +1,15 @@
+extends ../layout
+
+block stylesheets
+    link(rel="stylesheet", href="/stylesheets/about.css")
+
+block adminButton
+  if(user)
+    a.adminButton(href=`/about/${page.pageLinkName}/edit`) Edit Page
+
+block userButton
+  a.back(href='/') <-- Back
+
+block content
+  .inner
+    pre= page.content

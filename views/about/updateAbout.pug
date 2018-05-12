@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  .inner
+    form(method="post")
+      label(for='pageTitle') Page Title
+      input(name='pageTitle' value=`${page ? page.pageTitle : ''}`)
+      label(for="content") Content
+      textarea(name="content", cols="50", rows="30") #{page ? page.content : ''}
+      input(type='submit')

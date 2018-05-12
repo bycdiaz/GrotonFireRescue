@@ -8,9 +8,20 @@ block content
     h1.title GROTON FIRE & RESCUE
 
   .inner
+    .standardInfo
+      .styleLine.left
+      .styleLine.right
+      .address
+        p 305 E. Railroad Ave.
+        p P.O. Box 352
+        p Groton, SD 57445
+      .mission
+        p Our mission is to provide the residents of the Groton Area Fire District with the best fire prevention and fire protection in an effort to protect their lives, property and environment.
     each page in pages
       .info
         h2= page.pageTitle
         .contentContainer
           img(src=`images/home/${page.pageID}.jpg`)
-          pre= page.content
+          .textContent
+            pre= page.content
+            a(href=`about/${page.pageTitle.split(' ').join('').toLowerCase()}`) More about #{page.pageTitle}
