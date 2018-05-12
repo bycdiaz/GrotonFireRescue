@@ -62,6 +62,18 @@ header .primary-nav a:last-child {
   color: #232f3c;
 }
 
+.back {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 7%;
+  background-color: #9f2122;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  bottom: 18px;
+}
+
 .inner, .titleContainer {
   position: relative;
   width: 85%;
@@ -80,8 +92,8 @@ header .primary-nav a:last-child {
   font-family: 'Alfa Slab One', 'Helvetica', sans-serif;
   text-align: center;
   padding: 30px 0;
+  margin-top: 30px;
   word-wrap: break-word;
-
 }
 
 footer {
@@ -106,7 +118,7 @@ footer {
     font-size: 5em;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 70px;
+    padding-top: 100px;
   }
 }
 
