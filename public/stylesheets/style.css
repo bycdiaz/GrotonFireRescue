@@ -25,20 +25,34 @@ header .primary-nav {
   background-color: #9F2122;
   border-bottom: 10px solid #b8860b;
   min-height: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding-left: 200px;
 }
 
+header .primary-nav a {
+    top: 40px;
+    position: relative;
+}
+
+@supports (display: flex) or (display: -webkit-box) or (display: -ms-flexbox) {
+  header .primary-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center
+  }
+
+  header .primary-nav a {
+    position: static;
+    top: none;
+  }
+}
 
 header .primary-nav a {
   text-decoration: none;
