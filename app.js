@@ -14,6 +14,8 @@ const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
 require('./handlers/passport');
 
+require('dotenv').config();
+
 const app = express();
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
