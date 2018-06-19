@@ -126,7 +126,6 @@
   max-width: 50%;
   text-align: center;
   margin: auto;
-  /* border-bottom: 1px solid black; */
 }
 
 .styleLine {
@@ -156,7 +155,13 @@
 
 @media (max-width: 2000px) {
   .title {
-  top: 21vh;
+  top: 14vh;
+  }
+}
+
+@media (min-width: 950px) {
+  .title {
+    font-size: calc(24px + 4.4vw);
   }
 }
 
