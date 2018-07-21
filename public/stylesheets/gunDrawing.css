@@ -13,6 +13,10 @@
   background-color: #efefef;
 }
 
+.inner .card p {
+  line-height: 1em;
+}
+
 .inner .card .name {
   color: #232f3c;
   font-size: 1.2em;

@@ -5,6 +5,10 @@ html {
   min-height: 100%;
 }
 
+pre, p {
+  line-height: 1.2em;
+}
+
 header {
   position: relative;
   width: 100%;
@@ -20,7 +24,6 @@ header img {
   z-index: 1;
 }
 
-
 header .primary-nav {
   background-color: #9F2122;
   border-bottom: 10px solid #b8860b;
@@ -29,8 +32,8 @@ header .primary-nav {
 }
 
 header .primary-nav a {
-    top: 40px;
-    position: relative;
+  top: 40px;
+  position: relative;
 }
 
 @supports (display: flex) or (display: -webkit-box) or (display: -ms-flexbox) {
@@ -39,15 +42,14 @@ header .primary-nav a {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center
+    -ms-flex-align: center;
+    align-items: center
   }
-
   header .primary-nav a {
     position: static;
     top: none;
@@ -88,7 +90,8 @@ header .primary-nav a:last-child {
   bottom: 18px;
 }
 
-.inner, .titleContainer {
+.inner,
+.titleContainer {
   position: relative;
   width: 85%;
   /* padding-bottom: 90px;  for footer*/
@@ -141,38 +144,32 @@ footer {
     font-size: 2em;
     padding-top: 0;
   }
-
   header img {
     width: 100px;
     height: 100px;
   }
-
   header .primary-nav {
     padding-left: 30%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     min-height: 50px;
     margin-bottom: 50px;
     -webkit-box-align: left;
-        -ms-flex-align: left;
-            align-items: left;
+    -ms-flex-align: left;
+    align-items: left;
   }
-
   header .primary-nav a::before {
     content: '• ';
   }
-
   header .primary-nav a {
     padding: 5px 0;
     font-size: 1.1em;
   }
-
   header .primary-nav a:last-child {
     padding-bottom: 5px;
   }
-
   #hamburgerMenu {
     position: absolute;
     right: 10px;
