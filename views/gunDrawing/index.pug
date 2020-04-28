@@ -18,6 +18,7 @@ block content
     br
 
     h2 Winners
+    p= winners
     for winner in winners
       .card(id=winner._id)
         if user
@@ -31,5 +32,6 @@ block content
         .shortLine
 
 block scripts
+  script(src="/javascript/gunDrawing.js")
   if user
     script(src="/javascript/adminGunDrawing.js")

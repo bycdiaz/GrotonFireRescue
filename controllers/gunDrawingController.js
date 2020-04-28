@@ -6,6 +6,8 @@ const Winner = mongoose.model('Winner');
 exports.index = (req, res) => {
   Winner.find().sort({ date: -1 })
     .then((winners) => {
+      // split winners in array of years.
+      // [{year: 2020, winners: []}]
       res.render('gunDrawing/index', { winners, title: 'Gun-Drawing Winners' });
     });
 };
