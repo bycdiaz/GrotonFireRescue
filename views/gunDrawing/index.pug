@@ -21,23 +21,39 @@ block content
     //- p= winners
     //- p= allYears
 
-    h1.years-title Years
     div.years
-      for year in allYears
-        p.year 
-          = year
+      each year, index in allYears
+        if index === allYears.length - 1
+          p.year.current
+            = year
+        else
+          p.year
+            = year
 
+  
     for winner in winners
-      .card(id=winner._id)
-        if user
-          .adminControls
-            button(type="button").edit edit
-            button(type="button").delete delete
-        h3.name= winner.fullName
-        h5.location= winner.location
-        p.gun= winner.gun
-        p.date= winner.date.toDateString()
-        .shortLine
+      if winner.date.toDateString().slice(-4) === currentYear
+        .card.current-year(id=winner._id)
+          if user
+            .adminControls
+              button(type="button").edit edit
+              button(type="button").delete delete
+          h3.name= winner.fullName
+          h5.location= winner.location
+          p.gun= winner.gun
+          p.date= winner.date.toDateString()
+          .shortLine
+      else
+        .card.hidden(id=winner._id)
+          if user
+            .adminControls
+              button(type="button").edit edit
+              button(type="button").delete delete
+          h3.name= winner.fullName
+          h5.location= winner.location
+          p.gun= winner.gun
+          p.date= winner.date.toDateString()
+          .shortLine
 
 block scripts
   script(src="/javascript/gunDrawing.js")
