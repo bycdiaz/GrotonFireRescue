@@ -45,3 +45,21 @@
 .card:last-child .shortLine{
   border-bottom: none;
 }
+
+.years-title {
+  font-size: 18pt;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.years {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-bottom: 5px solid #b8860b;
+}
+
+.year {
+  background: grey;
+  padding: 15px 20px;
+}
