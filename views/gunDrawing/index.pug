@@ -18,7 +18,15 @@ block content
     br
 
     h2 Winners
-    p= winners
+    //- p= winners
+    //- p= allYears
+
+    h1.years-title Years
+    div.years
+      for year in allYears
+        p.year 
+          = year
+
     for winner in winners
       .card(id=winner._id)
         if user

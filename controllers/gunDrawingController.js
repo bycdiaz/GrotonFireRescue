@@ -6,9 +6,16 @@ const Winner = mongoose.model('Winner');
 exports.index = (req, res) => {
   Winner.find().sort({ date: -1 })
     .then((winners) => {
+      const allYears = []
+      winners.forEach(winner => {
+        const winnerYear = Number(winner.date.toString().slice(11, 15));
+        
+        !allYears.includes(winnerYear) ? allYears.push(winnerYear) : null;
+      });
+      console.log(allYears);
       // split winners in array of years.
       // [{year: 2020, winners: []}]
-      res.render('gunDrawing/index', { winners, title: 'Gun-Drawing Winners' });
+      res.render('gunDrawing/index', { winners, title: 'Gun-Drawing Winners', allYears});
     });
 };
 
