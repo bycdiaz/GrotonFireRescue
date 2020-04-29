@@ -1,6 +1,6 @@
 .inner h2 {
   font-size: 2em;
-  border-bottom: 1px solid #b8860b;
+  /* border-bottom: 1px solid #b8860b; */
   padding-bottom: 5px;
 }
 
@@ -42,7 +42,7 @@
   /* padding-top: 9px; */
 }
 
-.card:last-child .shortLine{
+.card:last-child .shortLine {
   border-bottom: none;
 }
 
@@ -55,11 +55,18 @@
 .years {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   border-bottom: 5px solid #b8860b;
 }
 
 .year {
+  padding: 10px 20px;
+}
+
+.year:hover {
   background: grey;
-  padding: 15px 20px;
+}
+
+.current {
+  background: grey;
 }
