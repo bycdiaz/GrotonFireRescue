@@ -18,8 +18,6 @@ block content
     br
 
     h2 Winners
-    //- p= winners
-    //- p= allYears
 
     div.years
       each year, index in allYears
@@ -31,7 +29,7 @@ block content
             = year
 
   
-    for winner in winners
+    for winner in winnerDisplay()winners
       if winner.date.toDateString().slice(-4) === currentYear
         .card.current-year(id=winner._id)
           if user
