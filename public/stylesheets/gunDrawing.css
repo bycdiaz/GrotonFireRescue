@@ -65,6 +65,7 @@
 
 .year:hover {
   background: #efefef;
+  cursor: pointer;
 }
 
 .current {
