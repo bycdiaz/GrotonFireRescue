@@ -14,8 +14,6 @@ exports.index = (req, res) => {
         const winnerYear = Number(winner.date.toString().slice(11, 15));
         !allYears.includes(winnerYear) ? allYears.push(winnerYear) : null;
       });
-      
-      allYears = allYears.reverse();
       res.render('gunDrawing/index', { winners, title: 'Gun-Drawing Winners', allYears, currentYear});
     });
 };
