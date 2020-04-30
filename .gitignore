@@ -14,3 +14,4 @@ README.md
 public/javascript/src
 public/javascript/src/*
 grotonfiresandbox
+.env
