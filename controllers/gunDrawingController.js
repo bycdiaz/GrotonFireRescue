@@ -11,7 +11,7 @@ exports.index = (req, res) => {
       const currentYear = date.getFullYear().toString();
       
       winners.forEach(winner => {
-        const winnerYear = Number(winner.date.toString().slice(11, 15));
+        const winnerYear = Number(winner.date.getFullYear());
         !allYears.includes(winnerYear) ? allYears.push(winnerYear) : null;
       });
       res.render('gunDrawing/index', { winners, title: 'Gun-Drawing Winners', allYears, currentYear});

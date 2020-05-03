@@ -1,9 +1,9 @@
 const years = document.querySelector(".years");
-const cardDates = document.querySelectorAll(".date");
+const cardDates = document.querySelectorAll(".winner-year");
 
 function winnerDisplay() {
   cardDates.forEach(date => {
-    const winnerYear = date.innerHTML.slice(-4);
+    const winnerYear = date.attributes[1].nodeValue;
     const tabYear = event.target.innerText;
     
     if (winnerYear === tabYear) {
@@ -16,6 +16,8 @@ function winnerDisplay() {
 
 function focusYearTab() {
   years.addEventListener('click', (event) => {
+    // console.log(event.target.className);
+    
     if (event.target.className !== "years") {
       years.childNodes.forEach(year => {
         year.className = "year";
