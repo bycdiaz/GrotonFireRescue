@@ -20,9 +20,9 @@ function focusYearTab() {
     
     if (event.target.className !== "years") {
       years.childNodes.forEach(year => {
-        year.className = "year";
+        year.className = "year-button";
       });
-      event.target.className = "year current";
+      event.target.className = "year-button current";
       winnerDisplay();
     }
   })

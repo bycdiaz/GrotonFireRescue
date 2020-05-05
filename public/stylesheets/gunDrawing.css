@@ -56,15 +56,27 @@
   border-bottom: 1px solid #b8860b;
 }
 
-.year {
+.year-button {
   padding: 10px 20px;
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: #232f3c;
 }
 
-.year:hover {
+.year-button:hover {
   background: #efefef;
   cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: #232f3c;
 }
 
 .current {
   background: #efefef;
 }
+
+/**
+TODO make year buttons wrap.
+*/

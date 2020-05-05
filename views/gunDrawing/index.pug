@@ -10,10 +10,9 @@ block adminButton
 block content
   .inner
     p The Groton Fire Department would like to thank all who purchased the gun calendars.
-    p Proceeds from our sales goes back into the community to help kids, organizations and help wherever needed.
-    p Each Monday we will announce the winner of the gun on this website.
+    p Proceeds from our sales goes back into the community to help kids, organizations and help wherever needed. Each Monday we will announce the winner of the gun on this website.
     br
-    p Please note: You have one year from your win date to pick up your gun
+    p Please note: You have one year from your win date to pick up your gun.
     br
     br
 
@@ -22,10 +21,10 @@ block content
     div.years
       each year, index in allYears
         if index === 0
-          p.year.current
+          button.year-button.current
             = year
         else
-          p.year
+          button.year-button
             = year
 
     for winner in winners
