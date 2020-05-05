@@ -58,8 +58,8 @@
 }
 
 .year-button {
+  background: #ffffff;
   padding: 10px 20px;
-  background: none;
   border: none;
   font-size: 1em;
   color: #232f3c;
@@ -68,7 +68,6 @@
 .year-button:hover {
   background: #efefef;
   cursor: pointer;
-  background: none;
   border: none;
   font-size: 1em;
   color: #232f3c;
