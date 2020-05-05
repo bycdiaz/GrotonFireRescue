@@ -54,6 +54,7 @@
   flex-direction: row;
   justify-content: flex-start;
   border-bottom: 1px solid #b8860b;
+  flex-wrap: wrap;
 }
 
 .year-button {
@@ -76,7 +77,3 @@
 .current {
   background: #efefef;
 }
-
-/**
-TODO make year buttons wrap.
-*/

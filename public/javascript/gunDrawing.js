@@ -16,8 +16,6 @@ function winnerDisplay() {
 
 function focusYearTab() {
   years.addEventListener('click', (event) => {
-    // console.log(event.target.className);
-    
     if (event.target.className !== "years") {
       years.childNodes.forEach(year => {
         year.className = "year-button";
